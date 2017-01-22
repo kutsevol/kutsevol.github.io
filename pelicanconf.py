@@ -31,6 +31,6 @@ SOCIAL = (('github', 'https://github.com/kutsevol'),
           ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 10
-THEME =  "themes/pelican-elegant"
+THEME =  "themes/elegant"
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
