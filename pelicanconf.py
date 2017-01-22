@@ -7,6 +7,8 @@ SITENAME = 'Artur Kutsevol Blog'
 SITEURL = 'https://kutsevol.github.io'
 
 PATH = 'content'
+OUTPUT_PATH = "."
+OUTPUT_SOURCES = True
 
 TIMEZONE = 'Europe/Kiev'
 
