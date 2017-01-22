@@ -29,8 +29,8 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('github', 'https://github.com/kutsevol'),
-          ('Another social link', '#'),)
+SOCIAL = (('Github', 'https://github.com/kutsevol'),
+          ('Linkedin', 'https://www.linkedin.com/in/arthur-kutsevol-a20731a4'),)
 
 DEFAULT_PAGINATION = 10
 THEME =  "themes/elegant"
