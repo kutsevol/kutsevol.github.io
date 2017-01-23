@@ -37,7 +37,7 @@ SOCIAL = (('Github', 'https://github.com/kutsevol'),
 DEFAULT_PAGINATION = 10
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
-MENUITEMS = (('HOME', '/'),
+MENUITEMS = (('Home', '/'),
             ('About', '/about-me/index.html'))
 THEME =  "themes/elegant"
 # Uncomment following line if you want document-relative URLs when developing
