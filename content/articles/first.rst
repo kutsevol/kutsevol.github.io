@@ -7,19 +7,18 @@
 :author: Artur K.
 :category: test
 :tags: python,blog
-:slug: first.rst
+:slug: first
 
 What |time| is it?
 
 Моя первая статья используя `Pelican <http://docs.getpelican.com/>`_!
 
 .. code-block:: python
-    
-    def foo(): 
+
+    def foo():
 	pass
 
 .. code-block:: python
 
     def bar():
 	pass
-
