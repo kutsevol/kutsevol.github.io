@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Artur Kutsevol'
 SITENAME = 'Artur Kutsevol Blog'
-SITEURL = ''
+SITEURL = 'https://kutsevol.github.io'
 
 PATH = 'content'
 
@@ -37,8 +37,7 @@ SOCIAL = (('Github', 'https://github.com/kutsevol'),
 DEFAULT_PAGINATION = 10
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
-MENUITEMS = (('Home', '/'),
-            ('About', '/about-me/index.html'))
+MENUITEMS = (('About', '/about-me/index.html'),)
 THEME =  "themes/elegant"
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
