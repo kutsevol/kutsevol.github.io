@@ -6,13 +6,16 @@ AUTHOR = 'Artur Kutsevol'
 SITENAME = 'Artur Kutsevol Blog'
 SITEURL = ''
 
-
 PATH = 'content'
-ARTICLE_PATHS = ['articles',]
+ARTICLE_PATHS = ('articles',)
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
-PAGE_PATHS = ['pages',]
-STATIC_PATHS = ['images']
+PAGE_PATHS = ('pages',)
+PAGE_URL = "{slug}/"
+PAGE_SAVE_AS = "{slug}/index.html"
+
+STATIC_PATHS = ('images', 'extra/favicon.ico')
+EXTRA_PATH_METADATA = {'extra/favicon.ico': {'path': 'favicon.ico'}}
 
 TIMEZONE = 'Europe/Kiev'
 
@@ -25,17 +28,13 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-# LINKS = (('Pelican', 'http://getpelican.com/'),
-#          ('Python.org', 'http://python.org/'),
-#          ('Jinja2', 'http://jinja.pocoo.org/'),
-#          ('You can modify those links in your config file', '#'),)
-
 # Social widget
 SOCIAL = (('Github', 'https://github.com/kutsevol'),
           ('Linkedin', 'https://www.linkedin.com/in/arthur-kutsevol-a20731a4'),)
 
 DEFAULT_PAGINATION = 10
+DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+
 THEME =  "themes/elegant"
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
