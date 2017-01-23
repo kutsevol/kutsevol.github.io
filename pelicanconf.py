@@ -7,9 +7,11 @@ SITENAME = 'Artur Kutsevol Blog'
 SITEURL = ''
 
 PATH = 'content'
+
 ARTICLE_PATHS = ('articles',)
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+
 PAGE_PATHS = ('pages',)
 PAGE_URL = "{slug}/"
 PAGE_SAVE_AS = "{slug}/index.html"
@@ -35,6 +37,8 @@ SOCIAL = (('Github', 'https://github.com/kutsevol'),
 DEFAULT_PAGINATION = 10
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
+MENUITEMS = (('HOME', '/'),
+            ('About', '/about-me/index.html'))
 THEME =  "themes/elegant"
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
