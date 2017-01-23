@@ -7,7 +7,7 @@
 :author: Artur K.
 :category: python
 :tags: pelican
-:slug: tutorial-pelican
+:slug: pelican-start
 
 Моя первая статья используя `Pelican <http://docs.getpelican.com/>`_!
 
