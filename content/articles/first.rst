@@ -1,24 +1,18 @@
 .. |date| date:: %Y-%m-%d
 .. |time| date:: %H:%M
 
-:title: HELLO WORLD!!!
-:date: 2017-01-20 13:45
+:title: Tutorial by Pelican.
+:date: 2017-01-23 11:24
 :modified: |date| |time|
 :author: Artur K.
-:category: test
-:tags: python,blog
-:slug: first
-
-What |time| is it?
+:category: python
+:tags: pelican
+:slug: tutorial-pelican
 
 Моя первая статья используя `Pelican <http://docs.getpelican.com/>`_!
 
-.. code-block:: python
+**Pelican** - это генератор статических сайтов, который написан на Python.
 
-    def foo():
-	pass
-
-.. code-block:: python
-
-    def bar():
-	pass
+Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
+и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
+WEB-сервер, и сайт готов.
