@@ -4,11 +4,15 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Artur Kutsevol'
 SITENAME = 'Artur Kutsevol Blog'
-SITEURL = 'https://kutsevol.github.io'
+SITEURL = ''
+
 
 PATH = 'content'
-OUTPUT_PATH = "."
-OUTPUT_SOURCES = True
+ARTICLE_PATHS = ['articles',]
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+PAGE_PATHS = ['pages',]
+STATIC_PATHS = ['images']
 
 TIMEZONE = 'Europe/Kiev'
 
@@ -22,7 +26,6 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-GITHUB_URL = "https://github.com/kutsevol"
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),
