@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-01-24T15:48:00+02:00</updated><entry><title>Virtualenv in Python.</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T17:35:00+02:00</published><updated>2017-01-24T15:48:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;p&gt;Создания виртуальной среды.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Создания виртуальной среды.&lt;/p&gt;
-</content><category term="virtualenv"></category></entry><entry><title>Tutorial by Pelican.</title><link href="https://kutsevol.github.io/2017/01/23/pelican-start" rel="alternate"></link><published>2017-01-23T11:24:00+02:00</published><updated>2017-01-24T15:48:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/pelican-start</id><summary type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-01-24T16:01:00+02:00</updated><entry><title>Tutorial by Pelican.</title><link href="https://kutsevol.github.io/2017/01/23/pelican-start" rel="alternate"></link><published>2017-01-23T11:24:00+02:00</published><updated>2017-01-24T16:01:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/pelican-start</id><summary type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
 &lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
 и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
@@ -11,4 +9,6 @@ WEB-сервер, и сайт готов.&lt;/p&gt;
 &lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
 и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
 WEB-сервер, и сайт готов.&lt;/p&gt;
-</content><category term="pelican"></category></entry></feed>
+</content><category term="pelican"></category></entry><entry><title>Virtualenv in Python.</title><link href="https://kutsevol.github.io/2016/01/23/virtualenv" rel="alternate"></link><published>2016-01-23T17:35:00+02:00</published><updated>2017-01-24T16:01:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2016-01-23:/2016/01/23/virtualenv</id><summary type="html">&lt;p&gt;Создания виртуальной среды.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Создания виртуальной среды.&lt;/p&gt;
+</content><category term="virtualenv"></category></entry></feed>
