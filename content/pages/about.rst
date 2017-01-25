@@ -7,6 +7,10 @@
 :author: Artur K.
 :category: other
 :tags: pelican
-:slug: about-me
+:slug: about
 
-Тестовая страница.
+.. figure:: /images/python.png
+    :height: 1080px
+    :width: 1920px
+    :scale: 45%
+    :alt: print "hello world"
