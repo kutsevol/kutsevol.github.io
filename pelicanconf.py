@@ -29,7 +29,7 @@ PAGE_SAVE_AS = "{slug}/index.html"
 STATIC_PATHS = ('images', 'extra/favicon.ico')
 EXTRA_PATH_METADATA = {'extra/favicon.ico': {'path': 'favicon.ico'}}
 
-MENUITEMS = (('About', '/about-me/index.html'),)
+MENUITEMS = (('About', '/about/index.html'),)
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
 
