@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Artur Kutsevol - Artur K.</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Mon, 30 Jan 2017 13:51:00 +0200</lastBuildDate><item><title>Ansible</title><link>https://kutsevol.github.io/2017/01/30/ansible-start</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 11:40:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible-start</guid><category>ansible</category></item><item><title>Virtualenv in Python</title><link>https://kutsevol.github.io/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
+<rss version="2.0"><channel><title>Artur Kutsevol - Artur K.</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Mon, 30 Jan 2017 15:30:00 +0200</lastBuildDate><item><title>Ansible</title><link>https://kutsevol.github.io/2017/01/30/ansible-start</link><description>&lt;div class="figure align-left"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 268.79999999999995px; height: 130.54999999999998px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
+использованием декларативного языка разметки для описания конфигураций.
+Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 11:40:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible-start</guid><category>ansible</category></item><item><title>Virtualenv in Python</title><link>https://kutsevol.github.io/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это

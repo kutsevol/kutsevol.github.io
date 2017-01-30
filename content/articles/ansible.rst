@@ -8,3 +8,14 @@
 :category: python
 :tags: ansible
 :slug: ansible-start
+
+.. figure:: /images/ansible-header.jpg
+    :height: 373px
+    :width: 768px
+    :scale: 35%
+    :align: left
+    :alt: Ansible
+
+**Ansible** - система управления конфигурациями, написанная на Python, с
+использованием декларативного языка разметки для описания конфигураций.
+Используется для автоматизации настройки и развертывания программного обеспечения.
