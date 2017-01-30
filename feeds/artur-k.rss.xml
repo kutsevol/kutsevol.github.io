@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Artur Kutsevol - Artur K.</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Mon, 30 Jan 2017 15:30:00 +0200</lastBuildDate><item><title>Ansible</title><link>https://kutsevol.github.io/2017/01/30/ansible-start</link><description>&lt;div class="figure align-left"&gt;
-&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 268.79999999999995px; height: 130.54999999999998px;" /&gt;
+<rss version="2.0"><channel><title>Artur Kutsevol - Artur K.</title><link>http://localhost:8000/</link><description></description><lastBuildDate>Mon, 30 Jan 2017 15:45:00 +0200</lastBuildDate><item><title>Ansible</title><link>http://localhost:8000/2017/01/30/ansible-start</link><description>&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
 использованием декларативного языка разметки для описания конфигураций.
 Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 11:40:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible-start</guid><category>ansible</category></item><item><title>Virtualenv in Python</title><link>https://kutsevol.github.io/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
+&lt;p&gt;&lt;strong&gt;Плюсы ansible:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;низкий порог входа;&lt;/li&gt;
+&lt;li&gt;декларативный язык описания конфигурации;&lt;/li&gt;
+&lt;li&gt;на управляемые узлы не нужно устанавливать дополнительного ПО;&lt;/li&gt;
+&lt;li&gt;просто написать дополнительный модуль.&lt;/li&gt;
+&lt;/ul&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 11:40:00 +0200</pubDate><guid isPermaLink="false">tag:localhost,2017-01-30:/2017/01/30/ansible-start</guid><category>ansible</category></item><item><title>Virtualenv in Python</title><link>http://localhost:8000/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
 окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
 пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
-случаях, если нет возможности копировать файлы в site-packages по какой-либо …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 17:35:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</guid><category>virtualenv</category></item><item><title>Tutorial by Pelican</title><link>https://kutsevol.github.io/2017/01/23/pelican-start</link><description>&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
+случаях, если нет возможности копировать файлы в site-packages по какой-либо …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 17:35:00 +0200</pubDate><guid isPermaLink="false">tag:localhost,2017-01-23:/2017/01/23/virtualenv</guid><category>virtualenv</category></item><item><title>Tutorial by Pelican</title><link>http://localhost:8000/2017/01/23/pelican-start</link><description>&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
 &lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
 и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
 WEB-сервер, и сайт готов.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 11:24:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-23:/2017/01/23/pelican-start</guid><category>pelican</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 11:24:00 +0200</pubDate><guid isPermaLink="false">tag:localhost,2017-01-23:/2017/01/23/pelican-start</guid><category>pelican</category></item></channel></rss>

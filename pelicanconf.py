@@ -4,8 +4,8 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Artur Kutsevol'
 SITENAME = 'Artur Kutsevol'
-SITEURL = 'https://kutsevol.github.io'
-# SITEURL = 'http://localhost:8000'
+# SITEURL = 'https://kutsevol.github.io'
+SITEURL = 'http://localhost:8000'
 
 # Regional Settings
 TIMEZONE = 'Europe/Kiev'

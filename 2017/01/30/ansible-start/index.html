@@ -13,23 +13,23 @@
 <meta name="keywords" content="ansible, python, " />
 
 <meta property="og:title" content="Ansible "/>
-<meta property="og:url" content="https://kutsevol.github.io/2017/01/30/ansible-start" />
-<meta property="og:description" content="Ansible - система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации настройки и развертывания программного обеспечения." />
+<meta property="og:url" content="http://localhost:8000/2017/01/30/ansible-start" />
+<meta property="og:description" content="Ansible - система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации настройки и развертывания программного обеспечения. Плюсы ansible: низкий порог входа; декларативный язык описания конфигурации; на управляемые узлы не нужно устанавливать дополнительного ПО; просто написать дополнительный модуль." />
 <meta property="og:site_name" content="Artur Kutsevol" />
 <meta property="og:article:author" content="Artur K." />
 <meta property="og:article:published_time" content="2017-01-30T11:40:00+02:00" />
-<meta property="" content="2017-01-30T15:30:00+02:00" />
+<meta property="" content="2017-01-30T15:45:00+02:00" />
 <meta name="twitter:title" content="Ansible ">
-<meta name="twitter:description" content="Ansible - система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации настройки и развертывания программного обеспечения.">
+<meta name="twitter:description" content="Ansible - система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации настройки и развертывания программного обеспечения. Плюсы ansible: низкий порог входа; декларативный язык описания конфигурации; на управляемые узлы не нужно устанавливать дополнительного ПО; просто написать дополнительный модуль.">
 
         <title>Ansible  · Artur Kutsevol
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/pygments.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/elegant.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/custom.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/custom.css" media="screen">
     </head>
     <body>
         <div id="content-sans-footer">
@@ -41,15 +41,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="https://kutsevol.github.io/"><span class=site-name>Artur Kutsevol</span></a>
+                    <a class="brand" href="http://localhost:8000/"><span class=site-name>Artur Kutsevol</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
-                            <li ><a href="https://kutsevol.github.io">Home</a></li>
-                            <li ><a href="https://kutsevol.github.io/about/">About</a></li>
-                            <li ><a href="https://kutsevol.github.io/categories.html">Categories</a></li>
-                            <li ><a href="https://kutsevol.github.io/tags.html">Tags</a></li>
-                            <li ><a href="https://kutsevol.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="https://kutsevol.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            <li ><a href="http://localhost:8000">Home</a></li>
+                            <li ><a href="http://localhost:8000/about/">About</a></li>
+                            <li ><a href="http://localhost:8000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:8000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:8000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:8000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="https://kutsevol.github.io/2017/01/30/ansible-start"> Ansible  </a></h1>
+    <h1><a href="http://localhost:8000/2017/01/30/ansible-start"> Ansible  </a></h1>
     </header>
 </div>
 
@@ -70,12 +70,19 @@
         <div class="span8 offset2 article-content">
 
             
-            <div class="figure align-left">
-<img alt="Ansible" src="/images/ansible-header.jpg" style="width: 268.79999999999995px; height: 130.54999999999998px;" />
+            <div class="figure align-center">
+<img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" />
 </div>
 <p><strong>Ansible</strong> - система управления конфигурациями, написанная на Python, с
 использованием декларативного языка разметки для описания конфигураций.
 Используется для автоматизации настройки и развертывания программного обеспечения.</p>
+<p><strong>Плюсы ansible:</strong></p>
+<ul class="simple">
+<li>низкий порог входа;</li>
+<li>декларативный язык описания конфигурации;</li>
+<li>на управляемые узлы не нужно устанавливать дополнительного ПО;</li>
+<li>просто написать дополнительный модуль.</li>
+</ul>
 
 
             <div class="disqus">
@@ -84,7 +91,7 @@
                 var disqus_shortname = 'ericcarmichaelsnerdery';
                 var disqus_identifier = '2017/01/30/ansible-start';
                 var disqus_title = 'Ansible';
-                var disqus_url = 'https://kutsevol.github.io/2017/01/30/ansible-start';
+                var disqus_url = 'http://localhost:8000/2017/01/30/ansible-start';
 
                 (function() {
                     var dsq = document.createElement('script');
@@ -107,13 +114,13 @@
             <time pubdate="pubdate" datetime="2017-01-30T11:40:00+02:00">Jan 30, 2017</time>
 
 <h4>Last Updated</h4>
-<time datetime="2017-01-30T15:30:00+02:00">Jan 30, 2017</time>
+<time datetime="2017-01-30T15:45:00+02:00">Jan 30, 2017</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="https://kutsevol.github.io/categories.html#python-ref">python</a>
+            <a class="category-link" href="http://localhost:8000/categories.html#python-ref">python</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="https://kutsevol.github.io/tags.html#ansible-ref">ansible
+                <li><a href="http://localhost:8000/tags.html#ansible-ref">ansible
                     <span>1</span>
 </a></li>
             </ul>
