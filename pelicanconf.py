@@ -14,9 +14,14 @@ DEFAULT_LANG = 'ru'
 # Appearance
 THEME = "themes/elegant"
 DEFAULT_PAGINATION = False
+DISQUS_SITENAME = 'https-kutsevol-github-io'
+DISQUS_SECRET_KEY = '9FZCEd68QqB922yIpekhEdGPuYyDtHHL7QDWEWAn7ksqqG9wGbCEGpi3Xmlwvz1S'
+DISQUS_PUBLIC_KEY = 'uSBTrCKfTVPFtmuidGHlorzxOPPSfGcm2ab7Hxisfpa8zXcWI3iJLjLiLVnNMJyL'
 
 # Paths and urls
 PATH = 'content'
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['disqus_static']
 
 ARTICLE_PATHS = ('articles',)
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
