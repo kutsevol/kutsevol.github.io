@@ -1,7 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-01-25T17:56:00+02:00</updated><entry><title>Virtualenv in Python.</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T17:35:00+02:00</published><updated>2017-01-25T17:56:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;p&gt;Создания виртуальной среды.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Создания виртуальной среды.&lt;/p&gt;
-</content><category term="virtualenv"></category></entry><entry><title>Tutorial by Pelican.</title><link href="https://kutsevol.github.io/2017/01/23/pelican-start" rel="alternate"></link><published>2017-01-23T11:24:00+02:00</published><updated>2017-01-25T17:56:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/pelican-start</id><summary type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/artur-k.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-01-30T10:10:00+02:00</updated><entry><title>Virtualenv in Python</title><link href="http://localhost:8000/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T17:35:00+02:00</published><updated>2017-01-30T10:10:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+&lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
+окружение можно использовать для проверки новых версий ваших программ, новых
+версий пакетов, которые используются или просто в качестве песочницы для новых
+пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
+случаях, если нет возможности копировать файлы в site-packages по какой-либо …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
+&lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
+окружение можно использовать для проверки новых версий ваших программ, новых
+версий пакетов, которые используются или просто в качестве песочницы для новых
+пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
+случаях, если нет возможности копировать файлы в site-packages по какой-либо
+причине.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; решает ряд проблем:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Создание новой изолированной среды для проекта Python;&lt;/li&gt;
+&lt;li&gt;Возможность загрузки пакетов без привилегий  admin/sudo;&lt;/li&gt;
+&lt;li&gt;Простая и быстрая упаковка приложения;&lt;/li&gt;
+&lt;li&gt;Создание списка зависимостей одного проекта (с помощью pip);&lt;/li&gt;
+&lt;li&gt;Быстрое восстановление зависимостей с помощью файла требований (с помощью pip);&lt;/li&gt;
+&lt;li&gt;Портативность между системами.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;Установка&lt;/h2&gt;
+&lt;p&gt;Установка virtualenv:&lt;/p&gt;
+&lt;pre class="code bash literal-block"&gt;
+sudo pip3 install virtualenv
+&lt;/pre&gt;
+&lt;p&gt;Для большего комфорта работы с virtualenv создано расширение, которое делает все
+манипуляции с окруженем еще проще. Установка virtualenvwrapper:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+sudo pip3 install virtualenvwrapper
+&lt;/pre&gt;
+&lt;p&gt;В ~/.bashrc дописываем:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+&lt;/pre&gt;
+&lt;p&gt;Создаем новое окружение:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+mkvirtualenv env-name
+&lt;/pre&gt;
+&lt;p&gt;Просмотреть список окружений:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+workon
+&lt;/pre&gt;
+&lt;p&gt;Поменять окружение:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+workon env-name
+&lt;/pre&gt;
+&lt;p&gt;Выход из окружения:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+deactivate
+&lt;/pre&gt;
+&lt;p&gt;Удалить окружение:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+rmvirtualenv env-name
+&lt;/pre&gt;
+&lt;p&gt;Находясь в одном из окружений, можно ставить пакеты через pip, как обычно:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pip3 install flask
+&lt;/pre&gt;
+&lt;p&gt;Requirements.txt - файл с описанием зависимостей, позволяет установить все
+необходимые зависимости за один раз вот таким образом:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pip3 install -r requirements.txt
+&lt;/pre&gt;
+&lt;p&gt;Создать такой файл можно следующим образом:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pip3 freeze &amp;gt; requirements.txt
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="virtualenv"></category></entry><entry><title>Tutorial by Pelican</title><link href="http://localhost:8000/2017/01/23/pelican-start" rel="alternate"></link><published>2017-01-23T11:24:00+02:00</published><updated>2017-01-30T10:10:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-01-23:/2017/01/23/pelican-start</id><summary type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
 &lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
 и IMAGE. После данного преобразования остается лишь загрузить данные файлы на

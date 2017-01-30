@@ -1,7 +1,7 @@
 .. |date| date:: %Y-%m-%d
 .. |time| date:: %H:%M
 
-:title: Tutorial by Pelican.
+:title: Tutorial by Pelican
 :date: 2017-01-23 11:24
 :modified: |date| |time|
 :author: Artur K.
