@@ -2,7 +2,7 @@
 .. |time| date:: %H:%M
 
 :title: Virtualenv in Python
-:date: 2017-01-23 17:35
+:date: 2017-01-23
 :modified: |date| |time|
 :author: Artur K.
 :category: python
@@ -15,6 +15,8 @@
     :scale: 35%
     :align: left
     :alt: Python Virtualenv
+
+Официальная документация по `Virtualenv <https://virtualenv.pypa.io/en/stable/>`_
 
 **Virtualenv** - инструмент для создания изолированного окружения Python. Это
 окружение можно использовать для проверки новых версий ваших программ, новых
@@ -105,3 +107,8 @@ Requirements.txt - файл с описанием зависимостей, по
 .. code::
 
     pip3 freeze > requirements.txt
+
+Список источников:
+
+- `Памятка по virtualenv и изолированным проектам на Python <http://eax.me/python-virtualenv/>`_
+- `Python и окружение virtualenv <http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/>`_
