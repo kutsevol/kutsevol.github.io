@@ -15,26 +15,24 @@ DEFAULT_LANG = 'ru'
 THEME = "themes/elegant"
 DEFAULT_PAGINATION = False
 DISQUS_SITENAME = 'https-kutsevol-github-io'
-DISQUS_SECRET_KEY = '9FZCEd68QqB922yIpekhEdGPuYyDtHHL7QDWEWAn7ksqqG9wGbCEGpi3Xmlwvz1S'
-DISQUS_PUBLIC_KEY = 'uSBTrCKfTVPFtmuidGHlorzxOPPSfGcm2ab7Hxisfpa8zXcWI3iJLjLiLVnNMJyL'
 
 # Paths and urls
 PATH = 'content'
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['disqus_static']
 
-ARTICLE_PATHS = ('articles',)
+ARTICLE_PATHS = ['articles']
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 
-PAGE_PATHS = ('pages',)
+PAGE_PATHS = ['pages']
 PAGE_URL = "{slug}/"
 PAGE_SAVE_AS = "{slug}/index.html"
 
-STATIC_PATHS = ('images', 'extra/favicon.ico')
+STATIC_PATHS = ['images', 'extra/favicon.ico']
 EXTRA_PATH_METADATA = {'extra/favicon.ico': {'path': 'favicon.ico'}}
 
-MENUITEMS = (('About', '/about/index.html'),)
+MENUITEMS = (('About', '/about/index.html'), )
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
 
