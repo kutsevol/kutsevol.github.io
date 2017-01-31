@@ -1,40 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-01-30T15:47:00+02:00</updated><entry><title>Ansible</title><link href="https://kutsevol.github.io/2017/01/30/ansible-start" rel="alternate"></link><published>2017-01-30T11:40:00+02:00</published><updated>2017-01-30T15:47:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible-start</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-01-31T11:59:00+02:00</updated><entry><title>Ansible</title><link href="https://kutsevol.github.io/2017/01/30/ansible-start" rel="alternate"></link><published>2017-01-30T00:00:00+02:00</published><updated>2017-01-31T11:59:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible-start</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
+&lt;p&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
 использованием декларативного языка разметки для описания конфигураций.
 Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Плюсы ansible:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;низкий порог входа;&lt;/li&gt;
-&lt;li&gt;декларативный язык описания конфигурации;&lt;/li&gt;
-&lt;li&gt;на управляемые узлы не нужно устанавливать дополнительного ПО;&lt;/li&gt;
-&lt;li&gt;просто написать дополнительный модуль.&lt;/li&gt;
-&lt;/ul&gt;
-</summary><content type="html">&lt;div class="figure align-center"&gt;
+&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению удаленных серверов в
+необходимое состояние. Администратору необходимо лишь описать, как достичь
+этого состояния с помощью …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
+&lt;p&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
 использованием декларативного языка разметки для описания конфигураций.
 Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Плюсы ansible:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению удаленных серверов в
+необходимое состояние. Администратору необходимо лишь описать, как достичь
+этого состояния с помощью так называемых сценариев (playbooks; это аналог
+рецептов Chef). Такая технология позволяет очень быстро осуществлять
+переконфигурирования системы: достаточно всего лишь добавить несколько новых
+строк в сценарий.&lt;/p&gt;
+&lt;p&gt;Преимущества &lt;strong&gt;Ansible&lt;/strong&gt; по сравнению с другими аналогичными решениями (&lt;em&gt;Pupprt&lt;/em&gt;,
+&lt;em&gt;Chef&lt;/em&gt; и &lt;em&gt;Salt&lt;/em&gt;) заключается в следующем:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;низкий порог входа;&lt;/li&gt;
-&lt;li&gt;декларативный язык описания конфигурации;&lt;/li&gt;
-&lt;li&gt;на управляемые узлы не нужно устанавливать дополнительного ПО;&lt;/li&gt;
-&lt;li&gt;просто написать дополнительный модуль.&lt;/li&gt;
+&lt;li&gt;на управляемые узлы не нужно устанавливать никакого дополнительного ПО, всё работает через SSH (в случае необходимости дополнительные модули можно взять из официального репозитория);&lt;/li&gt;
+&lt;li&gt;код программы, написанный на Python, очень прост; при необходимости написание дополнительных модулей не составляет особого труда;&lt;/li&gt;
+&lt;li&gt;язык, на котором пишутся сценарии, также предельно прост;&lt;/li&gt;
+&lt;li&gt;низкий порог вхождения: обучиться работе с Ansible можно за очень короткое время;&lt;/li&gt;
+&lt;li&gt;документация к продукту написана очень подробно и вместе с тем — просто и понятно; она регулярно обновляется;&lt;/li&gt;
+&lt;li&gt;Ansible работает не только в режиме push, но и pull, как это делают большинство систем управления (Puppet, Chef);&lt;/li&gt;
+&lt;li&gt;имеется возможность последовательного обновления состояния узлов (rolling update).&lt;/li&gt;
 &lt;/ul&gt;
-</content><category term="ansible"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T17:35:00+02:00</published><updated>2017-01-30T15:47:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;Установка&lt;/h2&gt;
+&lt;p&gt;Требования для установки &lt;strong&gt;Ansible&lt;/strong&gt; минимальны. На машине с которой
+производится управления должен быть установлен Python 2.6 или выше. На
+управляемых узлах должен быть установлен только Python версии не ниже 2.4, но
+он, как правило, по умолчанию включен в состав большинства дистрибутивов
+linux-систем.&lt;/p&gt;
+&lt;p&gt;Так же могут потребоваться следующие модули Python, устанавливаемые через pip
+или пакетный менеджер вашей операционной системы:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;paramiko;&lt;/li&gt;
+&lt;li&gt;PyYAML;&lt;/li&gt;
+&lt;li&gt;jinja2.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В Ubuntu установка самого &lt;strong&gt;Ansible&lt;/strong&gt; и зависимостей осуществляется добавлением репозитория и установкой пакета:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+sudo add-apt-repository -y ppa:rquillo/ansible
+sudo apt-get update
+sudo apt-get install ansible -y
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;Группы серверов&lt;/h2&gt;
+&lt;p&gt;Список групп серверов, которыми можно управлять, Ansible может получать двумя основными способами:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;из специального текстового файла;&lt;/li&gt;
+&lt;li&gt;с помощью внешнего скрипта, возвращающего нужный нам список серверов, например из MongoDB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hosts"&gt;
+&lt;h2&gt;Файл hosts&lt;/h2&gt;
+&lt;p&gt;Дефолтное расположение файла - &lt;strong&gt;/etc/ansible/hosts&lt;/strong&gt;, но оно может также быть
+задано параметром окружения $ANSIBLE_HOSTS или параметром -i при запуске ansible
+и ansible-playbook. Содержимое этого файла может выглядеть, например, так (в
+квадратных скобках указаны имена групп управляемых узлов, ниже перечисляются
+входящие в эти группы серверы):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+[dbservers]
+one.example.com
+two.example.com
+three.example.com
+
+[dnsservers]
+rs1.example.com ansible_ssh_port=5555 ansible_ssh_host=192.168.1.50
+rs2.example.com
+ns[01:50].example.com
+&lt;/pre&gt;
+&lt;p&gt;Список источников:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/"&gt;Система управления Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/express42/blog/254959/"&gt;Ansible - давайте попробуем&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="ansible"></category></entry><entry><title>Tutorial by Pelican</title><link href="https://kutsevol.github.io/2017/01/23/pelican-start" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-01-23T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/pelican-start</id><summary type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
+&lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
+и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
+WEB-сервер, и сайт готов.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
+&lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
+и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
+WEB-сервер, и сайт готов.&lt;/p&gt;
+</content><category term="pelican"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-01-31T11:59:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
+&lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
 окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
 пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
-случаях, если нет возможности копировать файлы в site-packages по какой-либо …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
+случаях, если нет возможности копировать файлы …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
+&lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
 окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
@@ -99,15 +171,10 @@ pip3 install -r requirements.txt
 &lt;pre class="code literal-block"&gt;
 pip3 freeze &amp;gt; requirements.txt
 &lt;/pre&gt;
+&lt;p&gt;Список источников:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://eax.me/python-virtualenv/"&gt;Памятка по virtualenv и изолированным проектам на Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/"&gt;Python и окружение virtualenv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="virtualenv"></category></entry><entry><title>Tutorial by Pelican</title><link href="https://kutsevol.github.io/2017/01/23/pelican-start" rel="alternate"></link><published>2017-01-23T11:24:00+02:00</published><updated>2017-01-30T15:47:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/pelican-start</id><summary type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
-&lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
-и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
-WEB-сервер, и сайт готов.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
-&lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
-и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
-WEB-сервер, и сайт готов.&lt;/p&gt;
-</content><category term="pelican"></category></entry></feed>
+</content><category term="virtualenv"></category></entry></feed>
