@@ -2,8 +2,8 @@
 .. |time| date:: %H:%M
 
 :title: Tutorial by Pelican
-:date: 2017-01-23 11:24
-:modified: |date| |time|
+:date: 2017-01-23
+:modified: 2017-01-23
 :author: Artur K.
 :category: python
 :tags: pelican
