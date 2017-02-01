@@ -1,9 +1,8 @@
 .. |date| date:: %Y-%m-%d
-.. |time| date:: %H:%M
 
 :title: Ansible
 :date: 2017-01-30
-:modified: |date| |time|
+:modified: |date|
 :author: Artur K.
 :category: python
 :tags: ansible
@@ -92,9 +91,33 @@ linux-систем.
     three.example.com
 
     [dnsservers]
-    rs1.example.com ansible_ssh_port=5555 ansible_ssh_host=192.168.1.50
+    rs1.example.com ansible_ssh_port=1234 ansible_ssh_host=192.168.1.10
     rs2.example.com
     ns[01:50].example.com
+
+Помимо списка управляемых узлов, в файле hosts могут быть указаны и другие
+сведенияб необходимые для работы: номера портов для подключения по SSH, способ
+подключения, пароль для подключения по SSH, имя пользователя, объединения групп
+и т.п.
+
+==============
+Модули Ansible
+==============
+
+В состав Ansible входит огромное количество модулей для развёртывания,
+контроля и управления различными компонентами, которые можно условно разделить
+на следующие группы (в скобках приведены названия некоторых продуктов и
+сервисов):
+
+облачные ресурсы и виртуализация (Openstack, libvirt);
+базы данных (MySQL, Postgresql, Redis, Riak);
+файлы (шаблонизация, регулярные выражения, права доступа);
+мониторинг (Nagios, monit);
+оповещения о ходе выполнения сценария (Jabber, Irc, почта, MQTT, Hipchat);
+сеть и сетевая инфраструктура (Openstack, Arista);
+управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);
+система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);
+работа с различными утилитами (git, hg).
 
 Список источников:
 

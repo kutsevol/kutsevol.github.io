@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Artur Kutsevol" />
 <meta property="og:article:author" content="Artur K." />
 <meta property="og:article:published_time" content="2017-01-30T00:00:00+02:00" />
-<meta property="" content="2017-02-01T11:13:00+02:00" />
+<meta property="" content="2017-02-01T00:00:00+02:00" />
 <meta name="twitter:title" content="Ansible ">
 <meta name="twitter:description" content="Официальная документация по Ansible Ansible - система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации настройки и развертывания программного обеспечения. Ansible - берет на себя всю работу по приведению удаленных серверов в необходимое состояние. Администратору необходимо лишь описать, как достичь этого состояния с помощью …">
 
@@ -139,10 +139,30 @@ two.example.com
 three.example.com
 
 [dnsservers]
-rs1.example.com ansible_ssh_port=5555 ansible_ssh_host=192.168.1.50
+rs1.example.com ansible_ssh_port=1234 ansible_ssh_host=192.168.1.10
 rs2.example.com
 ns[01:50].example.com
 </pre>
+<p>Помимо списка управляемых узлов, в файле hosts могут быть указаны и другие
+сведенияб необходимые для работы: номера портов для подключения по SSH, способ
+подключения, пароль для подключения по SSH, имя пользователя, объединения групп
+и т.п.</p>
+</div>
+<div class="section" id="id3">
+<h2>Модули Ansible</h2>
+<p>В состав Ansible входит огромное количество модулей для развёртывания,
+контроля и управления различными компонентами, которые можно условно разделить
+на следующие группы (в скобках приведены названия некоторых продуктов и
+сервисов):</p>
+<p>облачные ресурсы и виртуализация (Openstack, libvirt);
+базы данных (MySQL, Postgresql, Redis, Riak);
+файлы (шаблонизация, регулярные выражения, права доступа);
+мониторинг (Nagios, monit);
+оповещения о ходе выполнения сценария (Jabber, Irc, почта, MQTT, Hipchat);
+сеть и сетевая инфраструктура (Openstack, Arista);
+управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);
+система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);
+работа с различными утилитами (git, hg).</p>
 <p>Список источников:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/">Система управления Ansible</a></li>
@@ -180,7 +200,7 @@ ns[01:50].example.com
             <time pubdate="pubdate" datetime="2017-01-30T00:00:00+02:00">Jan 30, 2017</time>
 
 <h4>Last Updated</h4>
-<time datetime="2017-02-01T11:13:00+02:00">Feb 1, 2017</time>
+<time datetime="2017-02-01T00:00:00+02:00">Feb 1, 2017</time>
 
             <h4>Category</h4>
             <a class="category-link" href="https://kutsevol.github.io/categories.html#python-ref">python</a>
