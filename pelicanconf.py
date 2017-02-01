@@ -41,6 +41,7 @@ FEED_ALL_ATOM = "feeds/all.atom.xml"
 FEED_ALL_RSS = "feeds/all.rss.xml"
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+MAILCHIMP_FORM_ACTION = True
 # AUTHOR_FEED_ATOM = None
 # AUTHOR_FEED_RSS = None
 
