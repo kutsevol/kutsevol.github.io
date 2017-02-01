@@ -47,6 +47,6 @@ TRANSLATION_FEED_ATOM = None
 # Social widget
 SOCIAL = (('Github', 'https://github.com/kutsevol'),
           ('Linkedin', 'https://www.linkedin.com/in/arthur-kutsevol-a20731a4'),
-          ('RSS', 'feeds/all.rss.xml'))
+          ('RSS', '/feeds/all.rss.xml'))
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
