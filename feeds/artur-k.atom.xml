@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-01T11:10:00+02:00</updated><entry><title>Ansible</title><link href="https://kutsevol.github.io/2017/01/30/ansible-start" rel="alternate"></link><published>2017-01-30T00:00:00+02:00</published><updated>2017-02-01T11:10:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible-start</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Artur Kutsevol - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-01T11:13:00+02:00</updated><entry><title>Ansible</title><link href="https://kutsevol.github.io/2017/01/30/ansible-start" rel="alternate"></link><published>2017-01-30T00:00:00+02:00</published><updated>2017-02-01T11:13:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible-start</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/p&gt;
@@ -95,7 +95,7 @@ WEB-сервер, и сайт готов.&lt;/p&gt;
 &lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
 и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
 WEB-сервер, и сайт готов.&lt;/p&gt;
-</content><category term="pelican"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-01T11:10:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+</content><category term="pelican"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-01T11:13:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
