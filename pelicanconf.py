@@ -37,7 +37,8 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
+FEED_ALL_ATOM = "feeds/all.atom.xml"
+FEED_ALL_RSS = "feeds/all.rss.xml"
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 # AUTHOR_FEED_ATOM = None
@@ -46,7 +47,6 @@ TRANSLATION_FEED_ATOM = None
 # Social widget
 SOCIAL = (('Github', 'https://github.com/kutsevol'),
           ('Linkedin', 'https://www.linkedin.com/in/arthur-kutsevol-a20731a4'),
-          )
-
+          ('RSS', 'feeds/all.rss.xml'))
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
