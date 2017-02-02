@@ -119,6 +119,9 @@ linux-систем.
 система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);
 работа с различными утилитами (git, hg).
 
+TEST-TEST-TEST-TEST
+TEST-TEST-TEST-TEST
+
 Список источников:
 
 - `Система управления Ansible <https://habrahabr.ru/company/selectel/blog/196620/>`_
