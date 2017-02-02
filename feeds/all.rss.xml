@@ -8,12 +8,7 @@
 Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению удаленных серверов в
 необходимое состояние. Администратору необходимо лишь описать, как достичь
-этого состояния с помощью …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible</guid><category>ansible python</category></item><item><title>Pelican</title><link>https://kutsevol.github.io/2017/01/23/pelican</link><description>&lt;p&gt;Моя первая статья используя &lt;a class="reference external" href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Pelican&lt;/strong&gt; - это генератор статических сайтов, который написан на Python.&lt;/p&gt;
-&lt;p&gt;Генератор статических сайтов преобразовывает тест в статические файлы HTML, CSS
-и IMAGE. После данного преобразования остается лишь загрузить данные файлы на
-WEB-сервер, и сайт готов.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-23:/2017/01/23/pelican</guid><category>pelican python sites</category></item><item><title>Virtualenv in Python</title><link>https://kutsevol.github.io/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
+этого состояния с помощью …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible</guid><category>ansible python</category></item><item><title>Virtualenv in Python</title><link>https://kutsevol.github.io/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;

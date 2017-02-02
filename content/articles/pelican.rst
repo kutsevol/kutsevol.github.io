@@ -7,6 +7,7 @@
 :category: Static Site Generator
 :tags: pelican python sites
 :slug: pelican
+:status: draft
 
 Моя первая статья используя `Pelican <http://docs.getpelican.com/>`_!
 
