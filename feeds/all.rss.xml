@@ -8,7 +8,7 @@
 Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению удаленных серверов в
 необходимое состояние. Администратору необходимо лишь описать, как достичь
-этого состояния с помощью …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible</guid><category>ansible python</category></item><item><title>Virtualenv in Python</title><link>https://kutsevol.github.io/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
+этого состояния с помощью …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 30 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible</guid><category>ansible</category><category>python</category><category>linux</category></item><item><title>Virtualenv in Python</title><link>https://kutsevol.github.io/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
@@ -16,4 +16,4 @@
 окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
 пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
-случаях, если нет возможности копировать файлы …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</guid><category>virtualenv python</category></item></channel></rss>
+случаях, если нет возможности копировать файлы …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</guid><category>virtualenv</category><category>python</category></item></channel></rss>

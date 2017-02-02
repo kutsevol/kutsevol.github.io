@@ -51,3 +51,5 @@ SOCIAL = (('Github', 'https://github.com/kutsevol'),
           ('RSS', '/feeds/all.rss.xml'))
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+DISQUS_SECRET_KEY = '9FZCEd68QqB922yIpekhEdGPuYyDtHHL7QDWEWAn7ksqqG9wGbCEGpi3Xmlwvz1S'
+DISQUS_PUBLIC_KEY = 'uSBTrCKfTVPFtmuidGHlorzxOPPSfGcm2ab7Hxisfpa8zXcWI3iJLjLiLVnNMJyL'

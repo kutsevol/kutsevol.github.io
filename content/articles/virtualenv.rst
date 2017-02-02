@@ -6,7 +6,7 @@
 :modified: 2017-01-27
 :author: Artur K.
 :category: Development
-:tags: virtualenv python
+:tags: virtualenv, python
 :slug: virtualenv
 
 .. figure:: /images/python-virtualenv.jpg

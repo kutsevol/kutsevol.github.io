@@ -5,7 +5,7 @@
 :modified: |date|
 :author: Artur K.
 :category: Administration
-:tags: ansible python
+:tags: ansible, python, linux
 :slug: ansible
 
 .. figure:: /images/ansible-header.jpg

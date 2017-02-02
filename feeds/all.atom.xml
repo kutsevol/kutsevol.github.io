@@ -105,7 +105,7 @@ ns[01:50].example.com
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/express42/blog/254959/"&gt;Ansible - давайте попробуем&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="ansible python"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-01-27T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-01-27T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
@@ -187,4 +187,4 @@ pip3 freeze &amp;gt; requirements.txt
 &lt;li&gt;&lt;a class="reference external" href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/"&gt;Python и окружение virtualenv&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="virtualenv python"></category></entry></feed>
+</content><category term="virtualenv"></category><category term="python"></category></entry></feed>

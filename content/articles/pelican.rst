@@ -5,7 +5,7 @@
 :modified: |date|
 :author: Artur K.
 :category: Static Site Generator
-:tags: pelican python sites
+:tags: pelican, python, sites
 :slug: pelican
 :status: draft
 
