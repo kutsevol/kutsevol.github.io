@@ -1,13 +1,12 @@
 .. |date| date:: %Y-%m-%d
-.. |time| date:: %H:%M
 
-:title: Tutorial by Pelican
+:title: Pelican
 :date: 2017-01-23
-:modified: 2017-01-23
+:modified: |date|
 :author: Artur K.
-:category: python
-:tags: pelican
-:slug: pelican-start
+:category: Static Site Generator
+:tags: pelican python sites
+:slug: pelican
 
 Моя первая статья используя `Pelican <http://docs.getpelican.com/>`_!
 

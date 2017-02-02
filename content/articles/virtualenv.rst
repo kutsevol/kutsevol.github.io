@@ -3,10 +3,10 @@
 
 :title: Virtualenv in Python
 :date: 2017-01-23
-:modified: |date| |time|
+:modified: 2017-01-27
 :author: Artur K.
-:category: python
-:tags: virtualenv
+:category: Development
+:tags: virtualenv python
 :slug: virtualenv
 
 .. figure:: /images/python-virtualenv.jpg

@@ -4,9 +4,9 @@
 :date: 2017-01-30
 :modified: |date|
 :author: Artur K.
-:category: python
-:tags: ansible
-:slug: ansible-start
+:category: Administration
+:tags: ansible python
+:slug: ansible
 
 .. figure:: /images/ansible-header.jpg
     :height: 373px
@@ -118,9 +118,6 @@ linux-систем.
 управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);
 система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);
 работа с различными утилитами (git, hg).
-
-TEST-TEST-TEST-TEST
-TEST-TEST-TEST-TEST
 
 Список источников:
 

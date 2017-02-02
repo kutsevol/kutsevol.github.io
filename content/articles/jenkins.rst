@@ -1,9 +1,9 @@
 .. |date| date:: %Y-%m-%d
 
-:title: TEST
+:title: Jenkins
 :date: 2017-02-02
 :modified: |date|
 :author: Artur K.
-:category: test
-:tags: test
-:slug: test
+:category: CI
+:tags: jenkins
+:slug: jenkins
