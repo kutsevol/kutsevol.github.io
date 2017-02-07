@@ -9,8 +9,7 @@
 :tags: pelican
 :slug: about
 
-.. figure:: /images/python.png
-    :height: 1080px
-    :width: 1920px
-    :scale: 45%
-    :alt: print "hello world"
+.. raw:: html
+
+    <embed src="/pdfs/CV_QA_Automation_Kutsevol.pdf" width="1050" height="720">
+    </embed>
