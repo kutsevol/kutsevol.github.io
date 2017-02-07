@@ -216,7 +216,7 @@ tasks:
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/195048/"&gt;Администрирование Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-01-27T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-07T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
@@ -279,7 +279,8 @@ deactivate
 &lt;pre class="code literal-block"&gt;
 rmvirtualenv env-name
 &lt;/pre&gt;
-&lt;p&gt;Находясь в одном из окружений, можно ставить пакеты через pip, как обычно:&lt;/p&gt;
+&lt;p&gt;Находясь в одном из окружений, можно ставить пакеты через pip, как обычно.
+Для примера выбран пакет - &lt;em&gt;flask&lt;/em&gt;:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 pip3 install flask
 &lt;/pre&gt;
