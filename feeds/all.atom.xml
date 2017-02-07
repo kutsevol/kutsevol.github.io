@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-02T00:00:00+02:00</updated><entry><title>Ansible</title><link href="https://kutsevol.github.io/2017/01/30/ansible" rel="alternate"></link><published>2017-01-30T00:00:00+02:00</published><updated>2017-02-02T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-07T00:00:00+02:00</updated><entry><title>Ansible</title><link href="https://kutsevol.github.io/2017/01/30/ansible" rel="alternate"></link><published>2017-01-30T00:00:00+02:00</published><updated>2017-02-07T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;Содержание&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;Введение&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;Установка&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id12"&gt;Группы серверов&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#hosts" id="id13"&gt;Файл hosts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id14"&gt;Модули Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id15"&gt;Примеры простых задач&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id16"&gt;Сценарии (playbooks)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;Введение&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
 использованием декларативного языка разметки для описания конфигураций.
 Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению удаленных серверов в
-необходимое состояние. Администратору необходимо лишь описать, как достичь
-этого состояния с помощью …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
+&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;Содержание&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;Введение&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;Установка&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id12"&gt;Группы серверов&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#hosts" id="id13"&gt;Файл hosts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id14"&gt;Модули Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id15"&gt;Примеры простых задач&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id16"&gt;Сценарии (playbooks)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;Введение&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
 использованием декларативного языка разметки для описания конфигураций.
@@ -32,8 +58,9 @@
 &lt;li&gt;Ansible работает не только в режиме push, но и pull, как это делают большинство систем управления (Puppet, Chef);&lt;/li&gt;
 &lt;li&gt;имеется возможность последовательного обновления состояния узлов (rolling update).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="section" id="id1"&gt;
-&lt;h2&gt;Установка&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Установка&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Требования для установки &lt;strong&gt;Ansible&lt;/strong&gt; минимальны. На машине с которой
 производится управления должен быть установлен Python 2.6 или выше. На
 управляемых узлах должен быть установлен только Python версии не ниже 2.4, но
@@ -53,8 +80,8 @@ sudo apt-get update
 sudo apt-get install ansible -y
 &lt;/pre&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;Группы серверов&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Группы серверов&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Список групп серверов, которыми можно управлять, Ansible может получать двумя основными способами:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;из специального текстового файла;&lt;/li&gt;
@@ -62,7 +89,7 @@ sudo apt-get install ansible -y
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="hosts"&gt;
-&lt;h2&gt;Файл hosts&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Файл hosts&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Дефолтное расположение файла - &lt;strong&gt;/etc/ansible/hosts&lt;/strong&gt;, но оно может также быть
 задано параметром окружения $ANSIBLE_HOSTS или параметром -i при запуске ansible
 и ansible-playbook. Содержимое этого файла может выглядеть, например, так (в
@@ -84,25 +111,109 @@ ns[01:50].example.com
 подключения, пароль для подключения по SSH, имя пользователя, объединения групп
 и т.п.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;Модули Ansible&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Модули Ansible&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;В состав Ansible входит огромное количество модулей для развёртывания,
 контроля и управления различными компонентами, которые можно условно разделить
 на следующие группы (в скобках приведены названия некоторых продуктов и
 сервисов):&lt;/p&gt;
-&lt;p&gt;облачные ресурсы и виртуализация (Openstack, libvirt);
-базы данных (MySQL, Postgresql, Redis, Riak);
-файлы (шаблонизация, регулярные выражения, права доступа);
-мониторинг (Nagios, monit);
-оповещения о ходе выполнения сценария (Jabber, Irc, почта, MQTT, Hipchat);
-сеть и сетевая инфраструктура (Openstack, Arista);
-управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);
-система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);
-работа с различными утилитами (git, hg).&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;облачные ресурсы и виртуализация (Openstack, libvirt);&lt;/li&gt;
+&lt;li&gt;базы данных (MySQL, Postgresql, Redis, Riak);&lt;/li&gt;
+&lt;li&gt;файлы (шаблонизация, регулярные выражения, права доступа);&lt;/li&gt;
+&lt;li&gt;мониторинг (Nagios, monit);&lt;/li&gt;
+&lt;li&gt;оповещения о ходе выполнения сценария (Jabber, Irc, почта, MQTT, Hipchat);&lt;/li&gt;
+&lt;li&gt;сеть и сетевая инфраструктура (Openstack, Arista);&lt;/li&gt;
+&lt;li&gt;управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);&lt;/li&gt;
+&lt;li&gt;система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);&lt;/li&gt;
+&lt;li&gt;работа с различными утилитами (git, hg).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Примеры простых задач&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;С помощью Ansible можно одновременно выполнить одну задачу на целой группе
+серверов. Отправим запрос на ping на серверы выбранной группы:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+$ ansible dnsservers -m ping
+dns1.example.com | success &amp;gt;&amp;gt; {
+&amp;quot;changed&amp;quot;: false,
+&amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot;
+}
+
+dns2.example.com | success &amp;gt;&amp;gt; {
+&amp;quot;changed&amp;quot;: false,
+&amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot;
+}
+&lt;/pre&gt;
+&lt;p&gt;Если модуль (ключ -m) не задан, то используется модуль &lt;a class="reference external" href="http://docs.ansible.com/ansible/command_module.html"&gt;command&lt;/a&gt;.
+Фактически, ansible можно использовать не только как систему управления конфигурацией,
+но и как фреймворк для распределенного выполнения команд.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+$ ansible -i hosts -a &amp;quot;ls -lah&amp;quot; all
+localhost | success | rc=0 &amp;gt;&amp;gt;
+total 12K
+drwxr-xr-x  5 brun staff  170 Apr  1 11:50 .
+drwxr-xr-x 91 brun staff 3.1K Apr  1 11:37 ..
+-rw-r--r--  1 brun staff  230 Apr  1 12:07 export.sh
+-rw-r--r--  1 brun staff   42 Apr  3 14:48 hosts
+-rw-r--r--  1 brun staff  376 Apr  1 12:49 playbook.yml
+&lt;/pre&gt;
+&lt;p&gt;Ansible позволяет не только выполнять единичные задачи, но и писать сценарии,
+которые необходимо выполнить на управляемых узлах. Рассмотрим структуру и
+правила написания таких сценариев более подробно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="playbooks"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Сценарии (playbooks)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Все сценарии в Ansible пишутся на YAML. Это - человекочитаемый формат
+сериализованных данных, гораздо более простой, чем XML или JSON.&lt;/p&gt;
+&lt;p&gt;Чтобы выполнить сценарий используется команда ansible-playbook со следующим синтаксисом:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible-playbook &amp;lt;имя_файла_сценария.yml&amp;gt; ... [другие параметры]
+&lt;/pre&gt;
+&lt;p&gt;В начале сценария обязательно должна присутствовать последовательность символов
+&amp;quot;---&amp;quot; (так в YAML обозначается начало документа). Перед каждым новым разделом
+списка ставится дефис (---):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- hosts: webservers
+&lt;/pre&gt;
+&lt;p&gt;Основными параметрами/группами простого сценария являются:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;hosts - в нем указываются управляемые узлы или группы узлов, к которым нужно применить изменения;&lt;/li&gt;
+&lt;li&gt;tasks - здесь описывается состояние, в которое необходимо привести управляемый узел, альтернативой этому могут служить роли;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Также в сценарии перед непосредственным описанием задач могут быть указаны следующие параметры или группы параметров:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;gather_facts - собирать или нет информацию о хостах перед выполнением задач, по умолчанию - да;&lt;/li&gt;
+&lt;li&gt;vars - в нем указываются различные переменные, которые будут использованы при выполнении сценария;&lt;/li&gt;
+&lt;li&gt;connection — можно указать метод соединения с хостами: pure ssh, paramiko, fireball, chroot, jail, local, accelerate (применимо также для выполнения отдельного модуля);&lt;/li&gt;
+&lt;li&gt;sudo — после установления соединения выполнять задачу с привилегиями другого пользователя, по умолчанию другой пользователь — root;&lt;/li&gt;
+&lt;li&gt;sudo_user — в сочетании с предыдущим параметром можно указать с привилегиями какого именно пользователя будет выполнена задача;&lt;/li&gt;
+&lt;li&gt;vars_prompt — перед выполением плэйбука Ansible в интерактивном режиме может уточнить указанные в этом разделе параметры;&lt;/li&gt;
+&lt;li&gt;remote_user (в предыдущих версиях — просто user) — имя пользователя для авторизации на удалённом хосте.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Пример сценария в yml-файле:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: all
+user: ubuntu
+
+tasks:
+- name: Update apt cache
+  apt: update_cache=yes
+  sudo: yes
+
+- name: Install required packages
+  apt: name={{ item }}
+  sudo: yes
+  with_items:
+    - nginx
+    - postgresql
+&lt;/pre&gt;
 &lt;p&gt;Список источников:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/"&gt;Система управления Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/express42/blog/254959/"&gt;Ansible - давайте попробуем&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/195048/"&gt;Администрирование Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-01-27T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
