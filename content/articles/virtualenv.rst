@@ -1,9 +1,8 @@
 .. |date| date:: %Y-%m-%d
-.. |time| date:: %H:%M
 
 :title: Virtualenv in Python
 :date: 2017-01-23
-:modified: 2017-01-27
+:modified: 2017-02-07
 :author: Artur K.
 :category: Development
 :tags: virtualenv, python
@@ -88,7 +87,8 @@
 
     rmvirtualenv env-name
 
-Находясь в одном из окружений, можно ставить пакеты через pip, как обычно:
+Находясь в одном из окружений, можно ставить пакеты через pip, как обычно.
+Для примера выбран пакет - *flask*:
 
 .. code::
 
