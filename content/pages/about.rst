@@ -11,5 +11,5 @@
 
 .. raw:: html
 
-    <embed src="/pdfs/CV_QA_Automation_Kutsevol.pdf" width="1050" height="720">
+    <embed src="/pdfs/CV_QA_Automation_Kutsevol.pdf" width="100%" height="700" type='application/pdf'>
     </embed>
