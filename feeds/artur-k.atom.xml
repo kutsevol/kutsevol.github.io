@@ -1,222 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-07T00:00:00+02:00</updated><entry><title>Ansible</title><link href="https://kutsevol.github.io/2017/01/30/ansible" rel="alternate"></link><published>2017-01-30T00:00:00+02:00</published><updated>2017-02-07T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-30:/2017/01/30/ansible</id><summary type="html">&lt;div class="figure align-center"&gt;
-&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
-&lt;/div&gt;
-&lt;div class="contents topic" id="id1"&gt;
-&lt;p class="topic-title first"&gt;Содержание&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-09T00:00:00+02:00</updated><entry><title>Alias</title><link href="https://kutsevol.github.io/2017/02/09/alias" rel="alternate"></link><published>2017-02-09T00:00:00+02:00</published><updated>2017-02-09T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-09:/2017/02/09/alias</id><summary type="html">&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;Введение&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;Установка&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id12"&gt;Группы серверов&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#hosts" id="id13"&gt;Файл hosts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id14"&gt;Модули Ansible&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id15"&gt;Примеры простых задач&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id16"&gt;Сценарии (playbooks)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id6"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#alias" id="id7"&gt;&lt;strong&gt;Как создать alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id8"&gt;&lt;strong&gt;Постоянные alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id9"&gt;&lt;strong&gt;Просмотр списка alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id10"&gt;&lt;strong&gt;Удаление alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;Введение&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
-использованием декларативного языка разметки для описания конфигураций.
-Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
-&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
-&lt;/div&gt;
-&lt;div class="contents topic" id="id1"&gt;
-&lt;p class="topic-title first"&gt;Содержание&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Команда &lt;strong&gt;alias&lt;/strong&gt; - это очень удобный инструмент для тех, кто часто работает в командной строке.
+При правильных установках она поможет вам быстрее вводить команды, а также
+исправлять опечатки. &lt;strong&gt;alias&lt;/strong&gt; - это встроенная команда оболочки, поэтому инсталлировать ее не требуется …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;Введение&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;Установка&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id12"&gt;Группы серверов&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#hosts" id="id13"&gt;Файл hosts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id14"&gt;Модули Ansible&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id15"&gt;Примеры простых задач&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id16"&gt;Сценарии (playbooks)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id6"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#alias" id="id7"&gt;&lt;strong&gt;Как создать alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id8"&gt;&lt;strong&gt;Постоянные alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id9"&gt;&lt;strong&gt;Просмотр списка alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id10"&gt;&lt;strong&gt;Удаление alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;Введение&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
-использованием декларативного языка разметки для описания конфигураций.
-Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - берет на себя всю работу по приведению удаленных серверов в
-необходимое состояние. Администратору необходимо лишь описать, как достичь
-этого состояния с помощью так называемых сценариев (playbooks; это аналог
-рецептов Chef). Такая технология позволяет очень быстро осуществлять
-переконфигурирования системы: достаточно всего лишь добавить несколько новых
-строк в сценарий.&lt;/p&gt;
-&lt;p&gt;Преимущества &lt;strong&gt;Ansible&lt;/strong&gt; по сравнению с другими аналогичными решениями (&lt;em&gt;Pupprt&lt;/em&gt;,
-&lt;em&gt;Chef&lt;/em&gt; и &lt;em&gt;Salt&lt;/em&gt;) заключается в следующем:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;на управляемые узлы не нужно устанавливать никакого дополнительного ПО, всё работает через SSH (в случае необходимости дополнительные модули можно взять из официального репозитория);&lt;/li&gt;
-&lt;li&gt;код программы, написанный на Python, очень прост; при необходимости написание дополнительных модулей не составляет особого труда;&lt;/li&gt;
-&lt;li&gt;язык, на котором пишутся сценарии, также предельно прост;&lt;/li&gt;
-&lt;li&gt;низкий порог вхождения: обучиться работе с Ansible можно за очень короткое время;&lt;/li&gt;
-&lt;li&gt;документация к продукту написана очень подробно и вместе с тем — просто и понятно; она регулярно обновляется;&lt;/li&gt;
-&lt;li&gt;Ansible работает не только в режиме push, но и pull, как это делают большинство систем управления (Puppet, Chef);&lt;/li&gt;
-&lt;li&gt;имеется возможность последовательного обновления состояния узлов (rolling update).&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Команда &lt;strong&gt;alias&lt;/strong&gt; - это очень удобный инструмент для тех, кто часто работает в командной строке.
+При правильных установках она поможет вам быстрее вводить команды, а также
+исправлять опечатки. &lt;strong&gt;alias&lt;/strong&gt; - это встроенная команда оболочки, поэтому инсталлировать ее не требуется.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;alias&lt;/strong&gt; используется для создания альтернативных версий обычных команд, присваивая
+им новые названия, а также чтобы избежать необходимости запоминать длинные и
+сложные команды. Кроме того, вы можете задать опции по умолчанию, которые
+используются каждый раз при запуске команды alias.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="alias"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;&lt;strong&gt;Как создать alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Каждый день, как правило, используются одни и те же команды такие как &lt;em&gt;sudo aptitude update&lt;/em&gt;,
+&lt;em&gt;sudo aptitude upgrade&lt;/em&gt;, &lt;em&gt;sudo aptitude install&lt;/em&gt; и т.д. С помощью &lt;em&gt;alias&lt;/em&gt; их можно заменить, например,
+на - &lt;em&gt;update&lt;/em&gt;, &lt;em&gt;upgrade&lt;/em&gt; и &lt;em&gt;install&lt;/em&gt; соответственно. Как это сделать?&lt;/p&gt;
+&lt;p&gt;Общая конструкция создания &lt;strong&gt;alias&lt;/strong&gt; следующая:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+alias short_name=&amp;quot;command&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;Где &lt;em&gt;short_name&lt;/em&gt; - название (псевдоним) которое будет использоваться после создания
+&lt;strong&gt;alias&lt;/strong&gt;, a &lt;em&gt;command&lt;/em&gt; - команда, которую необходимо выполнить, например:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+alias install=&amp;quot;sudo aptitude install&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;Если выполнить эту команду в коммандной строке, использовать данный &lt;strong&gt;alias&lt;/strong&gt;
+можно будет сразу, но! &amp;quot;время жизни&amp;quot; &lt;strong&gt;alias&lt;/strong&gt; ограничивается временем жизни
+сессии в которой был выполнен этот &lt;strong&gt;alias&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Установка&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Требования для установки &lt;strong&gt;Ansible&lt;/strong&gt; минимальны. На машине с которой
-производится управления должен быть установлен Python 2.6 или выше. На
-управляемых узлах должен быть установлен только Python версии не ниже 2.4, но
-он, как правило, по умолчанию включен в состав большинства дистрибутивов
-linux-систем.&lt;/p&gt;
-&lt;p&gt;Так же могут потребоваться следующие модули Python, устанавливаемые через pip
-или пакетный менеджер вашей операционной системы:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;paramiko;&lt;/li&gt;
-&lt;li&gt;PyYAML;&lt;/li&gt;
-&lt;li&gt;jinja2.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;В Ubuntu установка самого &lt;strong&gt;Ansible&lt;/strong&gt; и зависимостей осуществляется добавлением репозитория и установкой пакета:&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;&lt;strong&gt;Постоянные alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Для того чтобы создаваемые &lt;strong&gt;alias&lt;/strong&gt; были доступны всегда необходимо их
+включить в свой локальный файл &lt;em&gt;~/.bashrc&lt;/em&gt;. Здесь мы предпологаем, что в качестве
+коммандной оболочки используется &lt;em&gt;bash&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Есть несколько способов, как включить &lt;strong&gt;alias&lt;/strong&gt; в &lt;em&gt;.bashrc&lt;/em&gt;. Каждый способ
+подразумевает сделать 2 шага: добавить &lt;strong&gt;alias&lt;/strong&gt; в файл &lt;em&gt;.bashrc&lt;/em&gt; и
+&lt;cite&gt;перезагрузить файл *.bashrc*&lt;/cite&gt;.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;С помощью команды echo:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;pre class="code literal-block"&gt;
-sudo add-apt-repository -y ppa:rquillo/ansible
-sudo apt-get update
-sudo apt-get install ansible -y
+echo 'alias install=&amp;quot;sudo aptitude install&amp;quot;' &amp;gt;&amp;gt; ~/.bashrc
+
+. ~/.bashrc
+&lt;/pre&gt;
+&lt;p&gt;. ~/.bashrc - &lt;cite&gt;перезагрузка&lt;/cite&gt; файла без выхода из системы, используется, чтобы
+внесенные изменения можно было использовать в текущей сессии.&lt;/p&gt;
+&lt;ol class="arabic simple" start="2"&gt;
+&lt;li&gt;Добавление &lt;strong&gt;alias&lt;/strong&gt; в ручную в &lt;em&gt;~/.bashrc&lt;/em&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="code literal-block"&gt;
+sudo nano ~/.bashrc
+&lt;/pre&gt;
+&lt;p&gt;В конце файла или в любом другом месте, добавить alias:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+alias install=&amp;quot;sudo aptitude install&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;Сохранить изменения и выйти из файла. Перезагрузить файл:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+. ~/.bashrc
+&lt;/pre&gt;
+&lt;p&gt;3. Добавление &lt;strong&gt;alias&lt;/strong&gt; в отдельный файл. Со временем к-во &lt;strong&gt;alias&lt;/strong&gt; может
+быстро разростаться и искать их в файле &lt;em&gt;~/.bashrc&lt;/em&gt; станет довольно трудно,
+поэтому все &lt;strong&gt;alias&lt;/strong&gt; можно вынести в отдельный файл, например, &lt;em&gt;~/.bash_aliases&lt;/em&gt;
+(по умолчанию не существует).&lt;/p&gt;
+&lt;p&gt;Создаем файл:&lt;/p&gt;
+&lt;p&gt;..code:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+touch ~/.bash_aliases
+&lt;/pre&gt;
+&lt;p&gt;Открываем на редактирование:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+sudo nano ~/.bash_aliases
+&lt;/pre&gt;
+&lt;p&gt;Добавить все &lt;strong&gt;alias&lt;/strong&gt; в файл &lt;em&gt;~/.bash_aliases&lt;/em&gt;, сохранить и выйти из файла.&lt;/p&gt;
+&lt;p&gt;В файле ~/.bashrc дописываем (раскомментируем) следующий код, чтобы все &lt;strong&gt;alias&lt;/strong&gt;
+были доступны системе:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+&lt;/pre&gt;
+&lt;p&gt;&lt;cite&gt;Перезагружаем&lt;/cite&gt; файл:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+. ~/.bashrc
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Группы серверов&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Список групп серверов, которыми можно управлять, Ansible может получать двумя основными способами:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;из специального текстового файла;&lt;/li&gt;
-&lt;li&gt;с помощью внешнего скрипта, возвращающего нужный нам список серверов, например из MongoDB.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="hosts"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Файл hosts&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Дефолтное расположение файла - &lt;strong&gt;/etc/ansible/hosts&lt;/strong&gt;, но оно может также быть
-задано параметром окружения $ANSIBLE_HOSTS или параметром -i при запуске ansible
-и ansible-playbook. Содержимое этого файла может выглядеть, например, так (в
-квадратных скобках указаны имена групп управляемых узлов, ниже перечисляются
-входящие в эти группы серверы):&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;&lt;strong&gt;Просмотр списка alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Чтобы посмотреть список всех доступных &lt;strong&gt;alias&lt;/strong&gt;, просто выполните команду
+&lt;em&gt;alias&lt;/em&gt; без аргументов (в некоторых системах используется опция -p)&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
-[dbservers]
-one.example.com
-two.example.com
-three.example.com
-
-[dnsservers]
-rs1.example.com ansible_ssh_port=1234 ansible_ssh_host=192.168.1.10
-rs2.example.com
-ns[01:50].example.com
+$ alias
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
 &lt;/pre&gt;
-&lt;p&gt;Помимо списка управляемых узлов, в файле hosts могут быть указаны и другие
-сведенияб необходимые для работы: номера портов для подключения по SSH, способ
-подключения, пароль для подключения по SSH, имя пользователя, объединения групп
-и т.п.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Модули Ansible&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;В состав Ansible входит огромное количество модулей для развёртывания,
-контроля и управления различными компонентами, которые можно условно разделить
-на следующие группы (в скобках приведены названия некоторых продуктов и
-сервисов):&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;облачные ресурсы и виртуализация (Openstack, libvirt);&lt;/li&gt;
-&lt;li&gt;базы данных (MySQL, Postgresql, Redis, Riak);&lt;/li&gt;
-&lt;li&gt;файлы (шаблонизация, регулярные выражения, права доступа);&lt;/li&gt;
-&lt;li&gt;мониторинг (Nagios, monit);&lt;/li&gt;
-&lt;li&gt;оповещения о ходе выполнения сценария (Jabber, Irc, почта, MQTT, Hipchat);&lt;/li&gt;
-&lt;li&gt;сеть и сетевая инфраструктура (Openstack, Arista);&lt;/li&gt;
-&lt;li&gt;управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);&lt;/li&gt;
-&lt;li&gt;система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);&lt;/li&gt;
-&lt;li&gt;работа с различными утилитами (git, hg).&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;&lt;strong&gt;Удаление alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Если &lt;strong&gt;alias&lt;/strong&gt; больше не нужен, можно удалить его из системы, используя команды
+&lt;em&gt;unalias&lt;/em&gt;. В качестве аргумента вставьте имя алиаса, который хотите удалить.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+$ alias | grep ls
+alias ls='ls -l'
+$ unalias ls
+$ alias | grep ls
+$
+&lt;/pre&gt;
+&lt;p&gt;Если вы определили свой &lt;strong&gt;alias&lt;/strong&gt; в файле &lt;em&gt;~/.bashrc&lt;/em&gt;, также необходимо удалить
+определение &lt;strong&gt;alias&lt;/strong&gt;, иначе он снова будет определен после старта сеанса
+командной оболочки или перезагрузки компьютера.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Примеры простых задач&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;С помощью Ansible можно одновременно выполнить одну задачу на целой группе
-серверов. Отправим запрос на ping на серверы выбранной группы:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;
-$ ansible dnsservers -m ping
-dns1.example.com | success &amp;gt;&amp;gt; {
-&amp;quot;changed&amp;quot;: false,
-&amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot;
-}
-
-dns2.example.com | success &amp;gt;&amp;gt; {
-&amp;quot;changed&amp;quot;: false,
-&amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot;
-}
-&lt;/pre&gt;
-&lt;p&gt;Если модуль (ключ -m) не задан, то используется модуль &lt;a class="reference external" href="http://docs.ansible.com/ansible/command_module.html"&gt;command&lt;/a&gt;.
-Фактически, ansible можно использовать не только как систему управления конфигурацией,
-но и как фреймворк для распределенного выполнения команд.&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;
-$ ansible -i hosts -a &amp;quot;ls -lah&amp;quot; all
-localhost | success | rc=0 &amp;gt;&amp;gt;
-total 12K
-drwxr-xr-x  5 brun staff  170 Apr  1 11:50 .
-drwxr-xr-x 91 brun staff 3.1K Apr  1 11:37 ..
--rw-r--r--  1 brun staff  230 Apr  1 12:07 export.sh
--rw-r--r--  1 brun staff   42 Apr  3 14:48 hosts
--rw-r--r--  1 brun staff  376 Apr  1 12:49 playbook.yml
-&lt;/pre&gt;
-&lt;p&gt;Ansible позволяет не только выполнять единичные задачи, но и писать сценарии,
-которые необходимо выполнить на управляемых узлах. Рассмотрим структуру и
-правила написания таких сценариев более подробно.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="playbooks"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Сценарии (playbooks)&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Все сценарии в Ansible пишутся на YAML. Это - человекочитаемый формат
-сериализованных данных, гораздо более простой, чем XML или JSON.&lt;/p&gt;
-&lt;p&gt;Чтобы выполнить сценарий используется команда ansible-playbook со следующим синтаксисом:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;
-ansible-playbook &amp;lt;имя_файла_сценария.yml&amp;gt; ... [другие параметры]
-&lt;/pre&gt;
-&lt;p&gt;В начале сценария обязательно должна присутствовать последовательность символов
-&amp;quot;---&amp;quot; (так в YAML обозначается начало документа). Перед каждым новым разделом
-списка ставится дефис (---):&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;
-- hosts: webservers
-&lt;/pre&gt;
-&lt;p&gt;Основными параметрами/группами простого сценария являются:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;hosts - в нем указываются управляемые узлы или группы узлов, к которым нужно применить изменения;&lt;/li&gt;
-&lt;li&gt;tasks - здесь описывается состояние, в которое необходимо привести управляемый узел, альтернативой этому могут служить роли;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Также в сценарии перед непосредственным описанием задач могут быть указаны следующие параметры или группы параметров:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;gather_facts - собирать или нет информацию о хостах перед выполнением задач, по умолчанию - да;&lt;/li&gt;
-&lt;li&gt;vars - в нем указываются различные переменные, которые будут использованы при выполнении сценария;&lt;/li&gt;
-&lt;li&gt;connection — можно указать метод соединения с хостами: pure ssh, paramiko, fireball, chroot, jail, local, accelerate (применимо также для выполнения отдельного модуля);&lt;/li&gt;
-&lt;li&gt;sudo — после установления соединения выполнять задачу с привилегиями другого пользователя, по умолчанию другой пользователь — root;&lt;/li&gt;
-&lt;li&gt;sudo_user — в сочетании с предыдущим параметром можно указать с привилегиями какого именно пользователя будет выполнена задача;&lt;/li&gt;
-&lt;li&gt;vars_prompt — перед выполением плэйбука Ansible в интерактивном режиме может уточнить указанные в этом разделе параметры;&lt;/li&gt;
-&lt;li&gt;remote_user (в предыдущих версиях — просто user) — имя пользователя для авторизации на удалённом хосте.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Пример сценария в yml-файле:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;
----
-- hosts: all
-user: ubuntu
-
-tasks:
-- name: Update apt cache
-  apt: update_cache=yes
-  sudo: yes
-
-- name: Install required packages
-  apt: name={{ item }}
-  sudo: yes
-  with_items:
-    - nginx
-    - postgresql
-&lt;/pre&gt;
-&lt;p&gt;Список источников:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/"&gt;Система управления Ansible&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/express42/blog/254959/"&gt;Ansible - давайте попробуем&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/195048/"&gt;Администрирование Ansible&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-07T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+</content><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-07T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
