@@ -1,4 +1,4 @@
-:title: Ansible
+:title: Ansible Introduction
 :date: 2017-02-10
 :modified: 2017-02-10
 :author: Artur K.

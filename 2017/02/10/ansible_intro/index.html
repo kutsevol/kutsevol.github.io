@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Artur K." />
+        <meta name="copyright" content="Artur K." />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="ansible, python, linux, Administration, " />
+
+<meta property="og:title" content="Ansible "/>
+<meta property="og:url" content="https://kutsevol.github.io/2017/02/10/ansible_intro" />
+<meta property="og:description" content="Содержание Введение Основные задачи Плюсы Ansible Установка Как работает Ansible Настройка Ansible Настройка через переменные окружения Создание конфигурационного файла Настройка ansible.cfg Файл host inventory Факты Примеры простых задач Список источников Введение Ansible - система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации …" />
+<meta property="og:site_name" content="IT Blog" />
+<meta property="og:article:author" content="Artur K." />
+<meta property="og:article:published_time" content="2017-02-10T00:00:00+02:00" />
+<meta property="" content="2017-02-10T00:00:00+02:00" />
+<meta name="twitter:title" content="Ansible ">
+<meta name="twitter:description" content="Содержание Введение Основные задачи Плюсы Ansible Установка Как работает Ansible Настройка Ansible Настройка через переменные окружения Создание конфигурационного файла Настройка ansible.cfg Файл host inventory Факты Примеры простых задач Список источников Введение Ansible - система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации …">
+
+        <title>Ansible  · IT Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/custom.css" media="screen">
+        <link href="https://kutsevol.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="IT Blog - Full Atom Feed" />
+        <link href="https://kutsevol.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="IT Blog - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="https://kutsevol.github.io/"><span class=site-name>IT Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="https://kutsevol.github.io">Home</a></li>
+                            <li ><a href="https://kutsevol.github.io/about/">About</a></li>
+                            <li ><a href="https://kutsevol.github.io/categories.html">Categories</a></li>
+                            <li ><a href="https://kutsevol.github.io/tags.html">Tags</a></li>
+                            <li ><a href="https://kutsevol.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="https://kutsevol.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="https://kutsevol.github.io/2017/02/10/ansible_intro"> Ansible  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <div class="figure align-center">
+<img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" />
+</div>
+<div class="contents topic" id="id1">
+<p class="topic-title first"><strong>Содержание</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#id2" id="id18"><strong>Введение</strong></a><ul>
+<li><a class="reference internal" href="#id3" id="id19"><strong>Основные задачи</strong></a></li>
+<li><a class="reference internal" href="#ansible" id="id20"><strong>Плюсы Ansible</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id21"><strong>Установка</strong></a></li>
+<li><a class="reference internal" href="#id6" id="id22"><strong>Как работает Ansible</strong></a></li>
+<li><a class="reference internal" href="#id7" id="id23"><strong>Настройка Ansible</strong></a><ul>
+<li><a class="reference internal" href="#id8" id="id24"><strong>Настройка через переменные окружения</strong></a></li>
+<li><a class="reference internal" href="#id9" id="id25"><strong>Создание конфигурационного файла</strong></a></li>
+<li><a class="reference internal" href="#ansible-cfg" id="id26"><strong>Настройка ansible.cfg</strong></a></li>
+<li><a class="reference internal" href="#host-inventory" id="id27"><strong>Файл host inventory</strong></a></li>
+<li><a class="reference internal" href="#id11" id="id28"><strong>Факты</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12" id="id29"><strong>Примеры простых задач</strong></a></li>
+<li><a class="reference internal" href="#id13" id="id30"><strong>Список источников</strong></a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id18"><strong>Введение</strong></a></h2>
+<p><strong>Ansible</strong> - система управления конфигурациями, написанная на Python, с
+использованием декларативного языка разметки для описания конфигураций.
+Используется для автоматизации настройки и развертывания программного обеспечения.</p>
+<p><strong>Ansible</strong> - берет на себя всю работу по приведению удаленных серверов в
+необходимое состояние. Администратору необходимо лишь описать, как достичь
+этого состояния с помощью так называемых сценариев (<em>playbooks</em>; это аналог
+рецептов Chef). Такая технология позволяет очень быстро осуществлять
+переконфигурирования системы: достаточно всего лишь добавить несколько новых
+строк в сценарий.</p>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id19"><strong>Основные задачи</strong></a></h3>
+<p>Основные задачи, которые решает <strong>Ansible</strong>:</p>
+<ul class="simple">
+<li><strong>Управление конфигурациями.</strong> Максимально быстрая и правильная настройка серверов до описанной конфигурации.</li>
+<li><strong>Провижнинг.</strong> Управление процессом развертывания новых облачных серверов (например через <em>API</em>, с помощью <em>Docker</em> или <em>LXC</em>).</li>
+<li><strong>Развертывание.</strong> Инсталляция и обновление ваших приложений без простоя наилучшим образом.</li>
+<li><strong>Оркестрация.</strong> Координация компонентов вашей инфраструктуры для выполнения развертываний. Например проверка, что веб-сервер отключен от балансировщика нагрузки, до апгрейда ПО на сервере.</li>
+<li><strong>Мониторинг и уведомления.</strong></li>
+<li><strong>Логгирование.</strong> Централизованный сбор логов.</li>
+</ul>
+</div>
+<div class="section" id="ansible">
+<h3><a class="toc-backref" href="#id20"><strong>Плюсы Ansible</strong></a></h3>
+<p>Преимущества <strong>Ansible</strong> по сравнению с другими аналогичными решениями (<em>Puppet</em>,
+<em>Chef</em> и <em>Salt</em>) заключается в следующем:</p>
+<ul class="simple">
+<li>на управляемые узлы не нужно устанавливать никакого дополнительного ПО, всё работает через <em>SSH</em> (в случае необходимости дополнительные модули можно взять из официального репозитория);</li>
+<li>код программы, написанный на Python, очень прост; при необходимости написание дополнительных модулей не составляет особого труда;</li>
+<li>язык, на котором пишутся сценарии, также предельно прост;</li>
+<li>низкий порог вхождения: обучиться работе с <strong>Ansible</strong> можно за очень короткое время;</li>
+<li>документация к продукту написана очень подробно и вместе с тем — просто и понятно; она регулярно обновляется;</li>
+<li><strong>Ansible</strong> работает не только в режиме <em>push</em>, но и <em>pull</em>, как это делают большинство систем управления (<em>Puppet</em>, <em>Chef</em>);</li>
+<li>имеется возможность последовательного обновления состояния узлов (<em>rolling update</em>).</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id21"><strong>Установка</strong></a></h2>
+<p>Требования для установки <strong>Ansible</strong> минимальны. На машине с которой
+производится управления должен быть установлен <em>Python</em> 2.6 или выше. На
+управляемых узлах должен быть установлен только <em>Python</em> версии не ниже 2.4, но
+он, как правило, по умолчанию включен в состав большинства дистрибутивов
+<em>linux</em>-систем.</p>
+<p>Так же могут потребоваться следующие модули <em>Python</em>, устанавливаемые через <em>pip</em>
+или пакетный менеджер вашей операционной системы:</p>
+<ul class="simple">
+<li>paramiko;</li>
+<li>PyYAML;</li>
+<li>jinja2.</li>
+</ul>
+<p>Установка <strong>Ansible</strong> в <strong>Ubuntu</strong>:</p>
+<pre class="code literal-block">
+sudo add-apt-repository -y ppa:rquillo/ansible
+sudo apt-get update
+sudo apt-get install ansible -y
+</pre>
+<p>Установка <strong>Ansible</strong> в <strong>CentOS 7</strong>:</p>
+<pre class="code literal-block">
+sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+sudo yum -y update
+sudo yum -y install ansible
+</pre>
+<p>Остальные варианты и способы установки описаны в
+<a class="reference external" href="http://docs.ansible.com/ansible/intro_installation.html">документации</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id22"><strong>Как работает Ansible</strong></a></h2>
+<p>Основная идея - наличие одного или нескольких управляющих серверов, из которых
+можно отправлять команды или наборы последовательных инструкций (<em>playbooks</em>) на
+удаленные сервера, подключаясь к ним по <em>SSH</em>.</p>
+<div class="figure align-center">
+<img alt="Ansible Architecture" src="/images/ansible-architecture.jpg" style="width: 850.0px; height: 429.25px;" />
+</div>
+<p>Файл <strong>Host inventory</strong> (инвентарный файл)содержит информацию об обсуживаемых
+серверах, где команды будут исполнены. <strong>Файл конфигурации Ansible</strong> может быть
+полезен для указания настроек вашего окружения.</p>
+<p><strong>Наборы инструкций (playbooks)</strong> состоят из одной или более задач, которые
+описываются с помощью функциональности модуля ядра <strong>Ansible</strong> или сторонних
+модулей, которые могут потребоваться в специфических ситуациях. Сами по себе
+наборы инструкций - последовательные наборы команды, в которых могут быть
+проверки условий: если условие не выполняется, определенные команды могут
+пропускаться.</p>
+<p>Так же можно использовать <strong>Ansible API</strong> для запуска скриптов. Если
+скрипту-обертке (wrapper) может потребоваться запуск <em>playbook</em>, это можно сделать
+через <em>API</em>. Сами <em>playbooks</em> описываются декларативно в формате <em>YAML</em>. <strong>Ansible</strong>
+поддерживает сценарии развертывания новых облачных серверов и конфигурирования
+их на основании ролей. Часть работы может быть проведена в локальном режиме на
+управляющем сервере, а остальная - на созданном сервере после его первой загрузки.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id23"><strong>Настройка Ansible</strong></a></h2>
+<p>Файл конфигурации описывается в <em>INI</em>-формате. Можно переопределить часть или всю
+конфигурацию в параметрах <em>playbook</em> или переменные окружения.
+При исполнении команд <strong>Ansible</strong> проверяет наличие файла конфигурации в следующих расположениях:</p>
+<ol class="arabic simple">
+<li>Проверяется переменная окружения ANSIBLE_CONFIG, которая может указывать на файл конфигурации.</li>
+<li>./ansible.cfg - в текущей директории</li>
+<li>~/.ansible.cfg - в домашней директории</li>
+<li>/etc/ansible/ansible.cfg</li>
+</ol>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id24"><strong>Настройка через переменные окружения</strong></a></h3>
+<p>Большинство параметров конфигурации можно устанавливать через переменные
+окружения, используя префикс <strong>ANSIBLE_</strong> перед названием параметра конфигурации
+(большими буквами).</p>
+<p>Например,
+<em>export ANSIBLE_SUDO_USER=root</em></p>
+<p>После этого переменная <em>ANSIBLE_SUDO_USER</em> может использована в <em>playbook</em>.</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id25"><strong>Создание конфигурационного файла</strong></a></h3>
+<p>Создаем директорию, для примера - <em>ansible</em> и переходим в неё:</p>
+<pre class="code literal-block">
+mkdir ~/ansible
+cd ~/ansible
+</pre>
+<p>Также создаем папку для хранения модулей <strong>Ansible</strong> и папку для хранения логов:</p>
+<pre class="code literal-block">
+mkdir ~/ansible/modules
+mkdir ~/ansible/logs
+</pre>
+<p>Создаем файл <em>ansible.cfg</em> со следующим содержимым:</p>
+<pre class="code literal-block">
+[defaults]
+hostfile = ~/ansible/inventory
+sudo_user = root
+log_path = ~/ansible/logs/ansible.log
+</pre>
+</div>
+<div class="section" id="ansible-cfg">
+<h3><a class="toc-backref" href="#id26"><strong>Настройка ansible.cfg</strong></a></h3>
+<p>Параметров конфигурации Ansible <a class="reference external" href="http://docs.ansible.com/ansible/intro_configuration.html">множество</a>.</p>
+<p>Некоторые из них:</p>
+<ul class="simple">
+<li><strong>hostfile:</strong> Параметр указывает на путь к <strong>inventory file</strong>, в котором содержится список адресов хостов, к которым <strong>Ansible</strong> может подключиться. Например: <strong>hostfile = /etc/ansible/hosts</strong></li>
+<li><strong>library:</strong> Путь к директории, где хранятся модули Ansible. Например: <strong>library = /usr/share/ansible</strong></li>
+<li><strong>forks:</strong> Количество процессов, которые может породить Ansible. По-умолчанию установлено 5 процессов. Например: <strong>forks = 5</strong></li>
+<li><strong>sudo_user:</strong> Пользователь по умолчанию, от которого Ansible запускает команды на удаленных серверах. Например: <strong>sudo_user = root</strong></li>
+<li><strong>remote_port:</strong> Порт для соединения по <em>SSH</em> (по умолчанию 22). Например: <strong>remote_port = 22</strong></li>
+<li><strong>host_key_checking:</strong> Параметр позволяет отключить проверку SSH–ключа на хосте. По-умолчанию проверка выполняется. Например: <strong>host_key_checking = False</strong></li>
+<li><strong>timeout:</strong> Значение таймаута попытки подключения по <em>SSH</em>. Например: <strong>timeout = 60</strong></li>
+<li><strong>log_path:</strong> Путь для хранения файлов логов. По-умолчанию <strong>Ansible</strong> не хранит их совсем, но указав этот параметр можно активировать запись логов. Например: <strong>log_path = /var/log/ansible.log</strong></li>
+</ul>
+</div>
+<div class="section" id="host-inventory">
+<h3><a class="toc-backref" href="#id27"><strong>Файл host inventory</strong></a></h3>
+<p>Дефолтное расположение файла - <strong>/etc/ansible/hosts</strong>, но оно может также быть
+задано параметром окружения $ANSIBLE_HOSTS или параметром -i при запуске <em>ansible</em>
+и <em>ansible-playbook</em>. Содержимое этого файла может выглядеть, например, так (в
+квадратных скобках указаны имена групп управляемых узлов, ниже перечисляются
+входящие в эти группы серверы):</p>
+<pre class="code literal-block">
+[dbservers]
+one.example.com
+two.example.com
+three.example.com
+
+[dnsservers]
+rs1.example.com ansible_ssh_port=1234 ansible_ssh_host=192.168.1.10
+rs2.example.com
+ns[01:50].example.com
+</pre>
+<p>Помимо списка управляемых узлов, в файле <em>hosts</em> могут быть указаны и другие
+сведения, необходимые для работы: номера портов для подключения по <em>SSH</em>, способ
+подключения, пароль для подключения по <em>SSH</em>, имя пользователя, объединения групп
+и т.п.</p>
+<p>По структуре инвентарного файла: <strong>Ansible</strong> считает группой все, чья строка в
+описании начинается с '[' и заканчивается ']'. Все что под этой строчкой и до
+начала следующей группы - хосты. У группы могут быть дети - другие группы, которые
+перечисляются после <em>[название группы:children]</em>.</p>
+<pre class="code literal-block">
+[WEB:children]
+dbservers
+dnsservers
+</pre>
+<p>Во время деплоя, как правило, требуется не только установить какое-либо приложение,
+но и настроить его в соответствии с определенными параметрами на основании
+принадлежности к группе серверов или индивидуально. Загромождать файл hosts будет
+не очень красиво, поэтому разработчики <strong>Ansible</strong> пошли следующим путём:</p>
+<ul class="simple">
+<li>файлы с переменными групп хранятся в директории <em>group_vars/имя_группы</em>;</li>
+<li>файлы с переменными хостов в директории <em>hosts_vars/имя_хоста</em>;</li>
+<li>файлы с переменными роли (о них речь пойдет ниже) в директории <em>имя_роли/vars/имя_задачи.yml</em>;</li>
+</ul>
+<p>Помимо пользовательских переменных можно (и даже нужно) использовать факты,
+собранные ansible перед выполнением сценариев и отдельных задач.</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id28"><strong>Факты</strong></a></h3>
+<p>Перед внесением изменений <strong>Ansible</strong> подключается к управляемым узлам и
+собирает информацию о них: о сетевых интерфейсах и их состоянии, об установленной
+операционной системе и т.п. Он может делать это как с помощью собственного модуля,
+так и с помощью инструментов <em>ohai</em> и <em>facter</em>, если они установлены (такая возможность
+специально предусмотрена для пользователей, уже имеющих опыт работы с системами
+удаленного управления конфигурациями: <em>ohai</em> и <em>facter</em> являются библиотеками фактов
+для <em>Chef</em> и <em>Puppet</em>). Все эти данные потом можно использовать в сценариях и шаблонах.
+Например, ip-адрес по-умолчанию можно получить, обратившись к переменной ansible_default_ipv4.</p>
+<pre class="code literal-block">
+tasks:
+    - debug: msg={{ansible_default_ipv4}}
+</pre>
+<pre class="code literal-block">
+$ ansible-playbook web.yml
+
+PLAY [all] ********************************************************************
+
+GATHERING FACTS ***************************************************************
+ok: [111.111.111.111]
+
+TASK: [debug msg=&quot;{{ansible_default_ipv4}}&quot;] **********************************
+ok: [111.111.111.111] =&gt; {
+&quot;msg&quot;: &quot;{u'macaddress': u'06:a8:07:41:47:a5', u'network': u'172.31.0.0',
+u'mtu': 9001, u'alias': u'eth0', u'netmask': u'255.255.240.0',
+u'address': u'172.31.7.80', u'interface': u'eth0', u'type': u'ether',
+u'gateway': u'172.31.0.1'}&quot;
+}
+</pre>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id29"><strong>Примеры простых задач</strong></a></h2>
+<p>Общая структура использования команд выглядит вот так:</p>
+<pre class="code literal-block">
+ansible &lt;pattern_goes_here&gt; -m &lt;module_name&gt; -a &lt;arguments&gt;
+</pre>
+<p>С помощью <strong>Ansible</strong> можно одновременно выполнить одну задачу на целой группе
+серверов. Отправим запрос на ping на серверы выбранной группы:</p>
+<pre class="code literal-block">
+$ ansible dnsservers -m ping
+
+dns1.example.com | success &gt;&gt; {
+&quot;changed&quot;: false,
+&quot;ping&quot;: &quot;pong&quot;
+}
+
+dns2.example.com | success &gt;&gt; {
+&quot;changed&quot;: false,
+&quot;ping&quot;: &quot;pong&quot;
+}
+</pre>
+<p>Если модуль (ключ -m) не задан, то используется модуль <a class="reference external" href="http://docs.ansible.com/ansible/command_module.html">command</a>.
+Фактически, <em>ansible</em> можно использовать не только как систему управления конфигурацией,
+но и как фреймворк для распределенного выполнения команд.</p>
+<pre class="code literal-block">
+$ ansible -i hosts -a &quot;ls -lah&quot; all
+localhost | success | rc=0 &gt;&gt;
+total 12K
+drwxr-xr-x  5 brun staff  170 Apr  1 11:50 .
+drwxr-xr-x 91 brun staff 3.1K Apr  1 11:37 ..
+-rw-r--r--  1 brun staff  230 Apr  1 12:07 export.sh
+-rw-r--r--  1 brun staff   42 Apr  3 14:48 hosts
+-rw-r--r--  1 brun staff  376 Apr  1 12:49 playbook.yml
+</pre>
+<p><strong>Ansible</strong> позволяет не только выполнять единичные задачи, но и писать сценарии,
+которые необходимо выполнить на управляемых узлах. Рассмотрим структуру и
+правила написания таких сценариев более подробно.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id30"><strong>Список источников</strong></a></h2>
+<ul class="simple">
+<li>Официальная документация по <a class="reference external" href="http://docs.ansible.com/ansible/index.html">Ansible</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/">Система управления Ansible</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/company/express42/blog/254959/">Ansible - давайте попробуем</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/post/195048/">Администрирование Ansible</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/company/infobox/blog/249143/">Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 1: Введение</a></li>
+</ul>
+</div>
+
+
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                var disqus_shortname = 'ericcarmichaelsnerdery';
+                var disqus_identifier = '2017/02/10/ansible_intro';
+                var disqus_title = 'Ansible';
+                var disqus_url = 'https://kutsevol.github.io/2017/02/10/ansible_intro';
+
+                (function() {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-02-10T00:00:00+02:00">Feb 10, 2017</time>
+
+<h4>Last Updated</h4>
+<time datetime="2017-02-10T00:00:00+02:00">Feb 10, 2017</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="https://kutsevol.github.io/categories.html#administration-ref">Administration</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://kutsevol.github.io/tags.html#ansible-ref">ansible
+                    <span>1</span>
+</a></li>
+                <li><a href="https://kutsevol.github.io/tags.html#linux-ref">linux
+                    <span>2</span>
+</a></li>
+                <li><a href="https://kutsevol.github.io/tags.html#python-ref">python
+                    <span>2</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://github.com/kutsevol" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.linkedin.com/in/arthur-kutsevol-a20731a4" title="My Linkedin Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-linkedin sidebar-social-links"></i></a>
+    <a href="/feeds/all.rss.xml" title="Subscribe in a reader" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-rss sidebar-social-links"></i></a>
+<!-- Begin MailChimp Signup Form -->
+<div id="mc-embed-signup">
+    <form action="//github.us15.list-manage.com/subscribe/post?u=d09b0b1b59ce2533b417871ed&amp;id=2fe8ad9698" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+        <h4>Email Newsletter</h4>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email..." required>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'https-kutsevol-github-io';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

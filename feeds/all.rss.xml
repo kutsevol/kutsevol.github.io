@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>IT Blog</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Thu, 09 Feb 2017 00:00:00 +0200</lastBuildDate><item><title>Alias</title><link>https://kutsevol.github.io/2017/02/09/alias</link><description>&lt;div class="contents topic" id="id1"&gt;
+<rss version="2.0"><channel><title>IT Blog</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Fri, 10 Feb 2017 00:00:00 +0200</lastBuildDate><item><title>Ansible</title><link>https://kutsevol.github.io/2017/02/10/ansible_intro</link><description>&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id18"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id19"&gt;&lt;strong&gt;Основные задачи&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ansible" id="id20"&gt;&lt;strong&gt;Плюсы Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id21"&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id22"&gt;&lt;strong&gt;Как работает Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id23"&gt;&lt;strong&gt;Настройка Ansible&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id24"&gt;&lt;strong&gt;Настройка через переменные окружения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id25"&gt;&lt;strong&gt;Создание конфигурационного файла&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ansible-cfg" id="id26"&gt;&lt;strong&gt;Настройка ansible.cfg&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#host-inventory" id="id27"&gt;&lt;strong&gt;Файл host inventory&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id28"&gt;&lt;strong&gt;Факты&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id29"&gt;&lt;strong&gt;Примеры простых задач&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id13" id="id30"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
+использованием декларативного языка разметки для описания конфигураций.
+Используется для автоматизации …&lt;/p&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Fri, 10 Feb 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-02-10:/2017/02/10/ansible_intro</guid><category>ansible</category><category>python</category><category>linux</category></item><item><title>Alias</title><link>https://kutsevol.github.io/2017/02/09/alias</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id6"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -9,6 +39,7 @@
 &lt;li&gt;&lt;a class="reference internal" href="#id5" id="id10"&gt;&lt;strong&gt;Удаление alias&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Команда &lt;strong&gt;alias&lt;/strong&gt; - это очень удобный инструмент для тех, кто часто работает в командной строке.
