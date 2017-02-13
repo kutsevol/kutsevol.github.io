@@ -1,17 +1,11 @@
-.. |date| date:: %Y-%m-%d
-
 :title: Ansible
 :date: 2017-01-30
-:modified: |date|
+:modified: 2017-01-30
 :author: Artur K.
 :category: Administration
 :tags: ansible, python, linux
 :slug: ansible
 :status: draft
-
-
-
-
 
 =============================
 **Управление конфигурациями**
@@ -341,7 +335,6 @@ dnsserver в Nagios.
 вход и выдавать json ответ. Модули находятся `здесь <http://docs.ansible.com/ansible/list_of_all_modules.html>`_.
 
 Как написать свой собственный модуль, можно прочитать в `документации <http://docs.ansible.com/ansible/dev_guide/developing_modules.html>`_.
-
 
 В состав Ansible входит огромное количество модулей для развёртывания,
 контроля и управления различными компонентами, которые можно условно разделить
