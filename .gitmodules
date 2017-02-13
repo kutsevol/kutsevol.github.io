@@ -3,4 +3,4 @@
 	url = https://github.com/kutsevol/pelican-elegant.git
 [submodule "plugins"]
 	path = plugins
-	url = https://github.com/kutsevol/pelican-plugins.git
+	url = git@github.com:kutsevol/pelican-plugins.git

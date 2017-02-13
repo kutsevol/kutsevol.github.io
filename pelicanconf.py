@@ -19,7 +19,7 @@ DISQUS_SITENAME = 'https-kutsevol-github-io'
 # Paths and urls
 PATH = 'content'
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['disqus_static']
+PLUGINS = ['disqus_static', 'neighbors']
 
 ARTICLE_PATHS = ['articles']
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}'
