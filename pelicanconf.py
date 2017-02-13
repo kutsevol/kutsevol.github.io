@@ -35,7 +35,7 @@ EXTRA_PATH_METADATA = {'extra/favicon.ico': {'path': 'favicon.ico'}}
 MENUITEMS = (('About', '/about/index.html'), )
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
-
+DEFAULT_DATE_FORMAT = '%d %B %Y'
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = "feeds/all.atom.xml"
 FEED_ALL_RSS = "feeds/all.rss.xml"
