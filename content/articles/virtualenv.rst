@@ -1,8 +1,6 @@
-.. |date| date:: %Y-%m-%d
-
 :title: Virtualenv in Python
 :date: 2017-01-23
-:modified: 2017-02-07
+:modified: 2017-02-14
 :author: Artur K.
 :category: Development
 :tags: virtualenv, python
@@ -37,20 +35,37 @@
 Установка
 =========
 
-Установка virtualenv:
+Предварительно необходимо установить *pip* и *setuptools*.
+
+Для **python 3**:
+
+.. code::
+
+    sudo aptitude install python3-pip python3-setuptools
+
+Для **python 2**:
+
+.. code::
+
+    sudo aptitude install python-pip python-setuptools
+
+Далее отличия будут только в pip. Для **python 3** - *pip3*, для **python 2** - *pip*.
+Далее рассмотрим на примере *pip3*.
+
+Установка *virtualenv*:
 
 .. code:: bash
 
     sudo pip3 install virtualenv
 
-Для большего комфорта работы с virtualenv создано расширение, которое делает все
-манипуляции с окруженем еще проще. Установка virtualenvwrapper:
+Для большего комфорта работы с *virtualenv* создано расширение, которое делает все
+манипуляции с окруженем еще проще. Установка *virtualenvwrapper*:
 
 .. code::
 
     sudo pip3 install virtualenvwrapper
 
-В ~/.bashrc дописываем:
+В *~/.bashrc* дописываем:
 
 .. code::
 
@@ -94,7 +109,7 @@
 
     pip3 install flask
 
-Requirements.txt - файл с описанием зависимостей, позволяет установить все
+*Requirements.txt* - файл с описанием зависимостей, позволяет установить все
 необходимые зависимости за один раз вот таким образом:
 
 .. code::

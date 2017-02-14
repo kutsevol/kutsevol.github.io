@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="IT Blog" />
 <meta property="og:article:author" content="Artur K." />
 <meta property="og:article:published_time" content="2017-01-23T00:00:00+02:00" />
-<meta property="" content="2017-02-07T00:00:00+02:00" />
+<meta property="" content="2017-02-14T00:00:00+02:00" />
 <meta name="twitter:title" content="Virtualenv in Python ">
 <meta name="twitter:description" content="Официальная документация по Virtualenv Virtualenv - инструмент для создания изолированного окружения Python. Это окружение можно использовать для проверки новых версий ваших программ, новых версий пакетов, которые используются или просто в качестве песочницы для новых пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в случаях, если нет возможности копировать файлы …">
 
@@ -93,16 +93,27 @@
 </ul>
 <div class="section" id="id1">
 <h2>Установка</h2>
-<p>Установка virtualenv:</p>
+<p>Предварительно необходимо установить <em>pip</em> и <em>setuptools</em>.</p>
+<p>Для <strong>python 3</strong>:</p>
+<pre class="code literal-block">
+sudo aptitude install python3-pip python3-setuptools
+</pre>
+<p>Для <strong>python 2</strong>:</p>
+<pre class="code literal-block">
+sudo aptitude install python-pip python-setuptools
+</pre>
+<p>Далее отличия будут только в pip. Для <strong>python 3</strong> - <em>pip3</em>, для <strong>python 2</strong> - <em>pip</em>.
+Далее рассмотрим на примере <em>pip3</em>.</p>
+<p>Установка <em>virtualenv</em>:</p>
 <pre class="code bash literal-block">
 sudo pip3 install virtualenv
 </pre>
-<p>Для большего комфорта работы с virtualenv создано расширение, которое делает все
-манипуляции с окруженем еще проще. Установка virtualenvwrapper:</p>
+<p>Для большего комфорта работы с <em>virtualenv</em> создано расширение, которое делает все
+манипуляции с окруженем еще проще. Установка <em>virtualenvwrapper</em>:</p>
 <pre class="code literal-block">
 sudo pip3 install virtualenvwrapper
 </pre>
-<p>В ~/.bashrc дописываем:</p>
+<p>В <em>~/.bashrc</em> дописываем:</p>
 <pre class="code literal-block">
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
@@ -132,7 +143,7 @@ rmvirtualenv env-name
 <pre class="code literal-block">
 pip3 install flask
 </pre>
-<p>Requirements.txt - файл с описанием зависимостей, позволяет установить все
+<p><em>Requirements.txt</em> - файл с описанием зависимостей, позволяет установить все
 необходимые зависимости за один раз вот таким образом:</p>
 <pre class="code literal-block">
 pip3 install -r requirements.txt
@@ -187,7 +198,7 @@ pip3 freeze &gt; requirements.txt
             <time pubdate="pubdate" datetime="2017-01-23T00:00:00+02:00">Jan 23, 2017</time>
 
 <h4>Last Updated</h4>
-<time datetime="2017-02-07T00:00:00+02:00">Feb 7, 2017</time>
+<time datetime="2017-02-14T00:00:00+02:00">Feb 14, 2017</time>
 
             <h4>Category</h4>
             <a class="category-link" href="https://kutsevol.github.io/categories.html#development-ref">Development</a>

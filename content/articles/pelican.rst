@@ -1,8 +1,6 @@
-.. |date| date:: %Y-%m-%d
-
 :title: Pelican
 :date: 2017-01-23
-:modified: |date|
+:modified: 2017-01-23
 :author: Artur K.
 :category: Static Site Generator
 :tags: pelican, python, sites

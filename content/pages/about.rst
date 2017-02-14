@@ -1,9 +1,7 @@
-.. |date| date:: %Y-%m-%d
-
 :title: About
 :date: 2017-01-23
 :template: page
-:modified: |date|
+:modified: 2017-01-23
 :author: Artur K.
 :category: other
 :tags: pelican
