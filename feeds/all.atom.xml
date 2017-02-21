@@ -1,62 +1,466 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-14T00:00:00+02:00</updated><entry><title>Ansible Introduction. Part 1</title><link href="https://kutsevol.github.io/2017/02/10/ansible_intro" rel="alternate"></link><published>2017-02-10T00:00:00+02:00</published><updated>2017-02-10T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-10:/2017/02/10/ansible_intro</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-21T00:00:00+02:00</updated><entry><title>Ansible Introduction. Part 2</title><link href="https://kutsevol.github.io/2017/02/20/ansible_cont" rel="alternate"></link><published>2017-02-20T00:00:00+02:00</published><updated>2017-02-21T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-20:/2017/02/20/ansible_cont</id><summary type="html">&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header-2.jpg" style="width: 600.0px; height: 281.25px;" /&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id13"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id14"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#yaml" id="id15"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id16"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id17"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#handlers" id="id18"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id19"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id20"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id21"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbook" id="id22"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id23"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
+задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
+также рассмотрели примеры простых задач, которые можно решать с помощью …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header-2.jpg" style="width: 600.0px; height: 281.25px;" /&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id13"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id14"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#yaml" id="id15"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id16"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id17"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#handlers" id="id18"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id19"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id20"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id21"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbook" id="id22"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id23"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
+задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
+также рассмотрели примеры простых задач, которые можно решать с помощью него.&lt;/p&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="playbooks"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Исполнение &lt;em&gt;Playbooks&lt;/em&gt; - одна из основных задач &lt;strong&gt;Ansible&lt;/strong&gt;. &lt;em&gt;Playbooks&lt;/em&gt; содержат
+списки задач. Каждая задача внутри &lt;strong&gt;Ansible&lt;/strong&gt; использует кусок кода-модуля.
+&lt;em&gt;Playbooks&lt;/em&gt; описываются в формате &lt;em&gt;YAML&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Чтобы выполнить сценарий используется команда ansible-playbook со следующим
+синтаксисом:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible-playbook &amp;lt;имя_файла_сценария.yml&amp;gt; ... [другие параметры]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="yaml"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Для &lt;strong&gt;Ansible&lt;/strong&gt; практически каждый &lt;em&gt;YAML&lt;/em&gt; файл начинается со списка. Каждый
+элемент списка - список пар &amp;quot;ключ-значение&amp;quot;, часто называемая словарем.&lt;/p&gt;
+&lt;p&gt;Все &lt;em&gt;YAML&lt;/em&gt; файлы должны начинаться с &amp;quot;---&amp;quot;. Это часть формата &lt;em&gt;YAML&lt;/em&gt; и означает
+начало документа.&lt;/p&gt;
+&lt;p&gt;Все члены списка должны находится с одинаковым отступом от начала строки, и
+должны начинаться с пробела или &amp;quot;-&amp;quot;. Комментарии начинаются с &amp;quot;#&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Например:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+# Message
+- Hosting
+– Cloud
+&lt;/pre&gt;
+&lt;p&gt;Словарь представлен в виде &amp;quot;ключ&amp;quot; (двоеточие и пробел) &amp;quot;значение&amp;quot;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+# Message
+site: site_test
+blog: blog_test
+&lt;/pre&gt;
+&lt;p&gt;При необходимости словари могут быть представлены в сокращенной форме:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+# Comment
+{site: site_test, blog: blog_test}
+&lt;/pre&gt;
+&lt;p&gt;Можно указать логические значение (истина/ложь) так:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+need_access: no
+use_service: yes
+file_conf: TRUE
+read_value: True
+kill_process: false
+&lt;/pre&gt;
+&lt;p&gt;Целиком &lt;em&gt;YAML&lt;/em&gt;-файл будет выглядеть так:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+# About blog
+site: site_test
+blog: blog_test
+must_read: True
+themes:
+    - hosting
+    - cloud
+    - it
+    - geeks
+brands:
+    - blog_test
+    - blog_test_cloud
+&lt;/pre&gt;
+&lt;p&gt;Для переменных &lt;strong&gt;Ansible&lt;/strong&gt; используют &amp;quot;{{ var }}&amp;quot;. Если значение после двоеточия
+начинается с &amp;quot;{&amp;quot;, то &lt;em&gt;YAML&lt;/em&gt; будет думать, что это словарь.&lt;/p&gt;
+&lt;p&gt;Для использования переменных нужно заключить скобки в кавычки:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+word: &amp;quot;{{ variable }}&amp;quot;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Playbooks&lt;/em&gt; может состоять из списка обсуживаемых серверов, переменных
+пользователя, задач, обработчиков (handlers) и т.д. Большинство настроек
+конфигурации можно переопределить в &lt;em&gt;playbook&lt;/em&gt;. Каждый &lt;em&gt;playbook&lt;/em&gt; состоит из одного
+или более действий (игры) в списке.&lt;/p&gt;
+&lt;p&gt;Цель игры - связать группу хостов с предопределенными ролями, представленными
+как вызов задач &lt;strong&gt;Ansible&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;В качестве примера рассматривается процесс установки &lt;em&gt;nginx&lt;/em&gt;.
+Создадим директорию, где будут хранится &lt;em&gt;playbooks&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+mkdir ~/ansible/playbooks
+&lt;/pre&gt;
+&lt;p&gt;Создадим файл &lt;em&gt;setup_nginx.yml&lt;/em&gt; в директории &lt;em&gt;playbooks&lt;/em&gt; со следующим содержанием:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: dbservers
+  tasks:
+
+  - name: Install nginx package
+    apt: name=nginx update_cache=yes
+    sudo: yes
+
+  - name: Starting nginx service
+    service: name=nginx state=started
+    sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;Рассмотрим подробнее содержимое:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;hosts:&lt;/strong&gt; Список хостов или группа, на которой вы запускаете задачу. Это поле обязательное и каждый &lt;em&gt;playbook&lt;/em&gt; должен иметь его, за исключением ролей. Если указана хост-группа, сначала &lt;strong&gt;Ansible&lt;/strong&gt; ее ищет в &lt;em&gt;playbook&lt;/em&gt;, а затем в файле &lt;em&gt;inventory&lt;/em&gt;. Узнать, на каких хостах будет происходить работа, можно командой: &lt;em&gt;ansible-playbook --list-host&lt;/em&gt;, где – путь к вашему &lt;em&gt;playbook (playbooks/setup_nginx.yml)&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tasks:&lt;/strong&gt; Задачи. Все &lt;em&gt;playbooks&lt;/em&gt; содержат задачи. Задача — это список действий, которые вы хотите выполнить. Поле задачи содержит имя задачи (справочная информация о задаче для пользователя &lt;em&gt;playbook&lt;/em&gt;), модуль, который должен быть выполнен и аргументы, требуемые для модуля. Параметр «name» опциональный, но рекомендуемый.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Также в сценарии перед непосредственным описанием задачи могут указыватся
+следующие параметры или группы параметров:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;gather_facts&lt;/strong&gt; - собирать или нет информацию о хостах перед выполнением задач, по умолчанию - да;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;vars&lt;/strong&gt; - в нем указываются различные переменные, которые будут использованы при выполнении сценария;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;connection&lt;/strong&gt; - можно указать метод соединения с хостами: &lt;em&gt;pure ssh&lt;/em&gt;, &lt;em&gt;paramiko&lt;/em&gt;, &lt;em&gt;fireball&lt;/em&gt;, &lt;em&gt;chroot&lt;/em&gt;, &lt;em&gt;jail&lt;/em&gt;, &lt;em&gt;local&lt;/em&gt;, &lt;em&gt;accelerate&lt;/em&gt; (применимо также для выполнения отдельного модуля);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sudo&lt;/strong&gt; - после установления соединения выполнять задачу с привелегиями другого пользователя, по умолчанию другой пользователь - &lt;em&gt;root&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sudo_user&lt;/strong&gt; - в сочетании с предыдущим параметром можно указать с привелегиями какого именно пользователя будет выполнена задача;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;vars_prompt&lt;/strong&gt; - перед выполнением &lt;em&gt;playbook'a&lt;/em&gt; &lt;strong&gt;Ansible&lt;/strong&gt; в интерактивном режиме, может уточнить указанные в этом разделе параметры;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;remote_user&lt;/strong&gt; (в предыдущих версиях - просто &lt;em&gt;user&lt;/em&gt;) - имя пользователя для авторизации на удаленном хосте.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;В &lt;strong&gt;Ansible&lt;/strong&gt; используется шаблонизатор &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Пример сценария в yml-файле:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: all
+user: ubuntu
+
+tasks:
+- name: Update apt cache
+  apt: update_cache=yes
+  sudo: yes
+
+- name: Install required packages
+  apt: name={{ item }}
+  sudo: yes
+  with_items:
+    - nginx
+    - postgresql
+&lt;/pre&gt;
+&lt;p&gt;Если необходимо установить несколько пакетов при этом с одинаковыми настройками
+- используется шаблонизатор и параметр with_items.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="handlers"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; не просто выполняет задачи в указанном порядке, но и проверяет их
+состояние на наличие изменений. Если при выполнении сценария требовалось,
+например, добавить строку в конфигурационный файл, и в результате выполнения
+он изменился (необходимой строки действительно не было), то &lt;strong&gt;Ansible&lt;/strong&gt; может
+выполнить специальную задачу, описанную как обработчик события (&lt;em&gt;handler&lt;/em&gt;).
+Если при выполнении строка уже была в конфигурационном файле, то обработчик
+выполнен не будет. Обработчики событий описываются в конце сценария; в описании
+задачи они указываются через параметр &lt;em&gt;notify&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Пример:&lt;/p&gt;
+&lt;pre class="code yaml literal-block"&gt;
+&lt;span class="nn"&gt;---&lt;/span&gt;
+&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;hosts&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;webservers&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;vars&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;max_clients&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;200&lt;/span&gt;
+
+&lt;span class="l-Scalar-Plain"&gt;tasks&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="c1"&gt;# сгенерируем файл конфигурации на основе шаблона&lt;/span&gt;
+  &lt;span class="c1"&gt;# и укажем, что требуется выполнить задачу “restart apache”&lt;/span&gt;
+  &lt;span class="c1"&gt;# если файл изменился&lt;/span&gt;
+&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;write the apache config file&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;template&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;src=/srv/httpd.j2 dest=/etc/httpd.conf&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;notify&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;restart apache&lt;/span&gt;
+
+&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;ensure apache is running&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;service&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name=httpd state=started&lt;/span&gt;
+
+&lt;span class="c1"&gt;# раздел описания обработчиков&lt;/span&gt;
+&lt;span class="l-Scalar-Plain"&gt;handlers&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;restart apache&lt;/span&gt;
+    &lt;span class="c1"&gt;# используем модуль service для перезапуска веб-сервера&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;service&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name=httpd state=restarted&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Допустим, что при выполнении сценария нам нужно проверять определённые
+переменные или состояния и, в зависимости от них, выполнять или не выполнять
+какие-либо задачи. Для этого можно использовать оператор &lt;em&gt;“when”&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+tasks:
+  # сохраняем файл шаблона и сохраняем результат задачи
+  # в переменную last_result
+- template: src=/templates/foo.j2 dest=/etc/foo.conf
+  register: last_result
+  # проверяем переменную last_result.changed и если она имеет
+  # значение true - задача будет выполнена, иначе - будет пропущена
+- command: echo 'the file has changed'
+  when: last_result.changed
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Иногда требуется выполнить задачу на определённом узле, но в контексте другого
+узла. Например, во время обновления узла может возникнуть необходимость отключить
+для него мониторинг, находящийся на отдельном сервере. Для этого используется
+управляющая директива &lt;em&gt;delegate_to&lt;/em&gt;. Приведём пример:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: disable nagios alerts for this host webserver service
+nagios: action=disable_alerts host={{inventory_hostname}} services=dnsserver
+delegate_to: mon_host.example.com
+&lt;/pre&gt;
+&lt;p&gt;Результатом выполнения этой задачи будет отключение сообщений для сервиса
+dnsserver в Nagios.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;При запуске &lt;em&gt;playbook&lt;/em&gt; можно увидеть примерно следующий вывод в терминале:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible playbook" src="/images/ansible-playbook.jpg" style="width: 750.0px; height: 627.0px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Gathering facts&lt;/strong&gt; - это первая задача по умолчанию в любом playbook. Задача
+собирает полезные метаданные о серверах в форме переменных, которые могут
+использоваться в &lt;em&gt;playbook&lt;/em&gt; в дальнейшем. Например, такими переменными могут быть
+&lt;em&gt;ip-адрес&lt;/em&gt;, архитектура OC и имя хоста.&lt;/p&gt;
+&lt;p&gt;Можно посмотреть эти переменные, используя команду:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible -m setup experiments
+&lt;/pre&gt;
+&lt;p&gt;где experiments - название секции в вашем &lt;em&gt;inventory&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Или записать все в файл:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible -m setup experiments &amp;gt;&amp;gt; facts
+&lt;/pre&gt;
+&lt;p&gt;Ниже в выводе указаны задачи &lt;strong&gt;TASK&lt;/strong&gt;, согласно ходу выполнения plyabook:
+установка nginx, запуск сервиса.&lt;/p&gt;
+&lt;p&gt;Одно из ключевых свойств систем &lt;strong&gt;Ansible&lt;/strong&gt;: &lt;strong&gt;Идемпотентность&lt;/strong&gt; (операция, которая
+если применяется к любому значению несколько раз - всегда получается то же значение,
+как и при однократном применении). Большинство систем управления конфигурациями
+следуют этому принципу и применяют его на инфраструктуру.&lt;/p&gt;
+&lt;p&gt;Секция &lt;strong&gt;PLAY RECAP&lt;/strong&gt; ниже в выводе. Параметр &lt;strong&gt;changed&lt;/strong&gt; показывает, сколько раз
+в задачах менялось состояние сервера. &lt;strong&gt;ok&lt;/strong&gt; - количество исполняемых задач вместе
+с &lt;strong&gt;Gathering facts&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Для исправления ошибок при исполнении &lt;em&gt;playbook&lt;/em&gt; - есть 3 уровня вывода отладочной
+информации (verbose):&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;-v&lt;/strong&gt; вывод базовой информации:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible-playbook playbooks/setup_nginx.yml -v
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;-vv&lt;/strong&gt; более подробный вывод:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible-playbook playbooks/setup_nginx.yml -vv
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;-vvv&lt;/strong&gt; самый подробный вывод. В этом выводе указаны SSH-команды, которые
+&lt;strong&gt;Ansible&lt;/strong&gt; использует для создания временных файлов на удаленном хосте для запуска
+скрипта удаленно.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible-playbook playbooks/setup_nginx.yml -vvv
+&lt;/pre&gt;
+&lt;p&gt;Можно выводить любые переменные &lt;strong&gt;Ansible&lt;/strong&gt; для отладки. Для этого необходимо добавить
+в &lt;em&gt;playbok&lt;/em&gt; следующую секцию:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Debug
+    debug: msg={{ ansible_distribution }}
+&lt;/pre&gt;
+&lt;p&gt;При запуске &lt;em&gt;playbook&lt;/em&gt; вы увидите вывод этой переменной. Каждая переменная
+&lt;strong&gt;Ansible&lt;/strong&gt; начинается с префикса &lt;strong&gt;ansible_&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible debug variable" src="/images/ansible-debug-variable.jpg" style="width: 750.0px; height: 360.0px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Для того чтобы посмотреть на все задачи, выполняющиеся в &lt;em&gt;playbook&lt;/em&gt;. Она
+особенно полезна, когда есть несколько &lt;em&gt;playbook&lt;/em&gt;, исполняющих другие &lt;em&gt;playbook&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible-playbook playbooks/setup_nginx.yml --list-tasks
+&lt;/pre&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible list tasks" src="/images/ansible-list-tasks.jpg" style="width: 750.0px; height: 250.5px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Можно исполнить конкретную задачу из &lt;em&gt;playbook&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ansible-playbook playbooks/setup_nginx.yml --start-at-task=&amp;quot;Debug&amp;quot;
+&lt;/pre&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible run once task" src="/images/ansible-run-once-task.jpg" style="width: 750.0px; height: 427.5px;" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="playbook"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Если задача или набор задач часто используется - есть смысл оформить ее в виде
+отдельного файла, который можно будет использовать в других &lt;em&gt;playbook&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Создадим директорию для повторно используемых задач:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+mkdir ~/ansible/playbooks/tasks
+&lt;/pre&gt;
+&lt;p&gt;Создадим задачу обновления ОС в файле ~/ansible/playbooks/tasks/&lt;strong&gt;os_update.yml&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+# Update and upgrade apt-based linux
+- name: Update and upgrade apt-based Linux
+    apt: update-cache=yes state=latest
+    sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;Теперь можно включить секцию обновления ОС в ~/ansible/playbooks/&lt;strong&gt;setup_nginx.yml&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: experiments
+    remote_user: root
+    tasks:
+
+    - include: tasks/os_update.yml
+
+    - name: Install nginx package
+        apt: name=nginx update_cache=yes
+        sudo: yes
+
+    - name: Starting nginx service
+        service: name=nginx state=started
+        sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;Теперь до установки &lt;em&gt;nginx&lt;/em&gt; &lt;em&gt;Ubuntu&lt;/em&gt; на обслуживаемых серверах из &lt;em&gt;Inventory&lt;/em&gt; будет обновлена.
+Стоит и установку &lt;em&gt;nginx&lt;/em&gt; (~/ansible/playbooks/tasks/&lt;strong&gt;pkg_nginx_install.yml&lt;/strong&gt;)
+вынести в отдельную задачу, если часто устанавливаете &lt;em&gt;nginx&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+# Install NGINX package
+    - name: Install nginx package
+        apt: name=nginx update_cache=yes
+        sudo: yes
+
+    - name: Starting nginx service
+        service: name=nginx state=started
+        sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;В результате наш playbook станет совсем простым:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+    - hosts: experiments
+        remote_user: root
+        tasks:
+
+        - include: tasks/os_update.yml
+        - include: tasks/pkg_nginx_install.yml
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/"&gt;Система управления Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/express42/blog/254959/"&gt;Ansible - давайте попробуем&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/195048/"&gt;Администрирование Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/249143/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 1: Введение&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/250115/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 2: вывод, отладка, и повторное использование playbook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 1</title><link href="https://kutsevol.github.io/2017/02/10/ansible_intro" rel="alternate"></link><published>2017-02-10T00:00:00+02:00</published><updated>2017-02-20T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-10:/2017/02/10/ansible_intro</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id18"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id19"&gt;&lt;strong&gt;Основные задачи&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ansible" id="id20"&gt;&lt;strong&gt;Плюсы Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id19"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id20"&gt;&lt;strong&gt;Основные задачи&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ansible" id="id21"&gt;&lt;strong&gt;Плюсы Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id21"&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id22"&gt;&lt;strong&gt;Как работает Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id23"&gt;&lt;strong&gt;Настройка Ansible&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id24"&gt;&lt;strong&gt;Настройка через переменные окружения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id25"&gt;&lt;strong&gt;Создание конфигурационного файла&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ansible-cfg" id="id26"&gt;&lt;strong&gt;Настройка ansible.cfg&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#host-inventory" id="id27"&gt;&lt;strong&gt;Файл host inventory&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id28"&gt;&lt;strong&gt;Факты&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id22"&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id23"&gt;&lt;strong&gt;Как работает Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id24"&gt;&lt;strong&gt;Настройка Ansible&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id25"&gt;&lt;strong&gt;Настройка через переменные окружения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id26"&gt;&lt;strong&gt;Создание конфигурационного файла&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ansible-cfg" id="id27"&gt;&lt;strong&gt;Настройка ansible.cfg&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#host-inventory" id="id28"&gt;&lt;strong&gt;Файл host inventory&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#inventory" id="id29"&gt;&lt;strong&gt;Переменные в inventory–файле&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id30"&gt;&lt;strong&gt;Переменные в отдельном файле для inventory&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id29"&gt;&lt;strong&gt;Примеры простых задач&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id13" id="id30"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id31"&gt;&lt;strong&gt;Факты&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id13" id="id32"&gt;&lt;strong&gt;Примеры простых задач&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id14" id="id33"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
-использованием декларативного языка разметки для описания конфигураций.
-Используется для автоматизации …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id18"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id19"&gt;&lt;strong&gt;Основные задачи&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ansible" id="id20"&gt;&lt;strong&gt;Плюсы Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id19"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id20"&gt;&lt;strong&gt;Основные задачи&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ansible" id="id21"&gt;&lt;strong&gt;Плюсы Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id21"&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id22"&gt;&lt;strong&gt;Как работает Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id23"&gt;&lt;strong&gt;Настройка Ansible&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id24"&gt;&lt;strong&gt;Настройка через переменные окружения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id25"&gt;&lt;strong&gt;Создание конфигурационного файла&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ansible-cfg" id="id26"&gt;&lt;strong&gt;Настройка ansible.cfg&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#host-inventory" id="id27"&gt;&lt;strong&gt;Файл host inventory&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id28"&gt;&lt;strong&gt;Факты&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id22"&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id23"&gt;&lt;strong&gt;Как работает Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id24"&gt;&lt;strong&gt;Настройка Ansible&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id25"&gt;&lt;strong&gt;Настройка через переменные окружения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id26"&gt;&lt;strong&gt;Создание конфигурационного файла&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ansible-cfg" id="id27"&gt;&lt;strong&gt;Настройка ansible.cfg&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#host-inventory" id="id28"&gt;&lt;strong&gt;Файл host inventory&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#inventory" id="id29"&gt;&lt;strong&gt;Переменные в inventory–файле&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id30"&gt;&lt;strong&gt;Переменные в отдельном файле для inventory&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id29"&gt;&lt;strong&gt;Примеры простых задач&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id13" id="id30"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id31"&gt;&lt;strong&gt;Факты&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id13" id="id32"&gt;&lt;strong&gt;Примеры простых задач&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id14" id="id33"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с
 использованием декларативного языка разметки для описания конфигураций.
 Используется для автоматизации настройки и развертывания программного обеспечения.&lt;/p&gt;
@@ -67,7 +471,7 @@
 переконфигурирования системы: достаточно всего лишь добавить несколько новых
 строк в сценарий.&lt;/p&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Основные задачи&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;&lt;strong&gt;Основные задачи&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Основные задачи, которые решает &lt;strong&gt;Ansible&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;strong&gt;Управление конфигурациями.&lt;/strong&gt; Максимально быстрая и правильная настройка серверов до описанной конфигурации.&lt;/li&gt;
@@ -79,7 +483,7 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ansible"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;&lt;strong&gt;Плюсы Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;&lt;strong&gt;Плюсы Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Преимущества &lt;strong&gt;Ansible&lt;/strong&gt; по сравнению с другими аналогичными решениями (&lt;em&gt;Puppet&lt;/em&gt;,
 &lt;em&gt;Chef&lt;/em&gt; и &lt;em&gt;Salt&lt;/em&gt;) заключается в следующем:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -95,7 +499,7 @@
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Требования для установки &lt;strong&gt;Ansible&lt;/strong&gt; минимальны. На машине с которой
 производится управления должен быть установлен &lt;em&gt;Python&lt;/em&gt; 2.6 или выше. На
 управляемых узлах должен быть установлен только &lt;em&gt;Python&lt;/em&gt; версии не ниже 2.4, но
@@ -125,7 +529,7 @@ sudo yum -y install ansible
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;&lt;strong&gt;Как работает Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;&lt;strong&gt;Как работает Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Основная идея - наличие одного или нескольких управляющих серверов, из которых
 можно отправлять команды или наборы последовательных инструкций (&lt;em&gt;playbooks&lt;/em&gt;) на
 удаленные сервера, подключаясь к ним по &lt;em&gt;SSH&lt;/em&gt;.&lt;/p&gt;
@@ -150,7 +554,7 @@ sudo yum -y install ansible
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;&lt;strong&gt;Настройка Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;&lt;strong&gt;Настройка Ansible&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Файл конфигурации описывается в &lt;em&gt;INI&lt;/em&gt;-формате. Можно переопределить часть или всю
 конфигурацию в параметрах &lt;em&gt;playbook&lt;/em&gt; или переменные окружения.
 При исполнении команд &lt;strong&gt;Ansible&lt;/strong&gt; проверяет наличие файла конфигурации в следующих расположениях:&lt;/p&gt;
@@ -161,7 +565,7 @@ sudo yum -y install ansible
 &lt;li&gt;/etc/ansible/ansible.cfg&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;&lt;strong&gt;Настройка через переменные окружения&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;&lt;strong&gt;Настройка через переменные окружения&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Большинство параметров конфигурации можно устанавливать через переменные
 окружения, используя префикс &lt;strong&gt;ANSIBLE_&lt;/strong&gt; перед названием параметра конфигурации
 (большими буквами).&lt;/p&gt;
@@ -170,7 +574,7 @@ sudo yum -y install ansible
 &lt;p&gt;После этого переменная &lt;em&gt;ANSIBLE_SUDO_USER&lt;/em&gt; может использована в &lt;em&gt;playbook&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;&lt;strong&gt;Создание конфигурационного файла&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;&lt;strong&gt;Создание конфигурационного файла&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Создаем директорию, для примера - &lt;em&gt;ansible&lt;/em&gt; и переходим в неё:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 mkdir ~/ansible
@@ -190,7 +594,7 @@ log_path = ~/ansible/logs/ansible.log
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ansible-cfg"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;&lt;strong&gt;Настройка ansible.cfg&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;&lt;strong&gt;Настройка ansible.cfg&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Параметров конфигурации Ansible &lt;a class="reference external" href="http://docs.ansible.com/ansible/intro_configuration.html"&gt;множество&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Некоторые из них:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -205,7 +609,7 @@ log_path = ~/ansible/logs/ansible.log
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="host-inventory"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;&lt;strong&gt;Файл host inventory&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;&lt;strong&gt;Файл host inventory&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Дефолтное расположение файла - &lt;strong&gt;/etc/ansible/hosts&lt;/strong&gt;, но оно может также быть
 задано параметром окружения $ANSIBLE_HOSTS или параметром -i при запуске &lt;em&gt;ansible&lt;/em&gt;
 и &lt;em&gt;ansible-playbook&lt;/em&gt;. Содержимое этого файла может выглядеть, например, так (в
@@ -220,8 +624,24 @@ three.example.com
 [dnsservers]
 rs1.example.com ansible_ssh_port=1234 ansible_ssh_host=192.168.1.10
 rs2.example.com
-ns[01:50].example.com
 &lt;/pre&gt;
+&lt;p&gt;Если у есть большое количество серверов, использование соглашений о наименовании
+(например web001, web002 ... web00N) позволит проще указывать их в &lt;em&gt;inventory&lt;/em&gt;.
+Можно использовать регулярные выражения в &lt;em&gt;inventory&lt;/em&gt; файле:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+[web]
+web[001:200]
+[db]
+db[001:020]
+[balancer]
+192.168.2.[1:3]
+&lt;/pre&gt;
+&lt;p&gt;, где &lt;strong&gt;web[001:200]&lt;/strong&gt; будет соответствовать web 001, web002, web003, web004,
+..., web199, web200 для группы web;
+&lt;strong&gt;db[001:020]&lt;/strong&gt; будет соответствовать db001, db002, db003 ..., db019, db020 для
+группы db;
+&lt;strong&gt;192.168.2.[1:3]&lt;/strong&gt; будет соответствовать 192.168.2.1, 192.168.2.2, 192.168.2.3
+для группы balancer.&lt;/p&gt;
 &lt;p&gt;Помимо списка управляемых узлов, в файле &lt;em&gt;hosts&lt;/em&gt; могут быть указаны и другие
 сведения, необходимые для работы: номера портов для подключения по &lt;em&gt;SSH&lt;/em&gt;, способ
 подключения, пароль для подключения по &lt;em&gt;SSH&lt;/em&gt;, имя пользователя, объединения групп
@@ -244,11 +664,52 @@ dnsservers
 &lt;li&gt;файлы с переменными хостов в директории &lt;em&gt;hosts_vars/имя_хоста&lt;/em&gt;;&lt;/li&gt;
 &lt;li&gt;файлы с переменными роли (о них речь пойдет ниже) в директории &lt;em&gt;имя_роли/vars/имя_задачи.yml&lt;/em&gt;;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Помимо пользовательских переменных можно (и даже нужно) использовать факты,
-собранные ansible перед выполнением сценариев и отдельных задач.&lt;/p&gt;
+&lt;div class="section" id="inventory"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id29"&gt;&lt;strong&gt;Переменные в inventory–файле&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Иногда может потребоваться использование специфических переменных для конкретной
+группы хостов или конкретного хоста.&lt;/p&gt;
+&lt;p&gt;Установка переменных для конкретных хостов:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+web001
+db001 db_name=mysql
+192.168.2.1 db_name=redis db_port=6380
+&lt;/pre&gt;
+&lt;p&gt;Установка переменных для группы хостов (web):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+[web]
+web[001:010]
+[db]
+db[001:002]
+[web:vars]
+web_port=443
+&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id11"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;&lt;strong&gt;Факты&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id30"&gt;&lt;strong&gt;Переменные в отдельном файле для inventory&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Можно создавать файлы переменных для хостов и для групп. Папки с этими файлами
+должны быть в одной директории с файлом &lt;em&gt;inventory&lt;/em&gt;. Файлы переменных, относящихся
+к конкретным хостам, нужно сохранять в папку &lt;em&gt;host_vars&lt;/em&gt;, относящиеся к конкретным
+группам - в папку &lt;em&gt;group_vars&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Пример файла переменных для хоста web001 (~/ansible/&lt;strong&gt;host_vars&lt;/strong&gt;/web001):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+web_port_ssl=443
+web_port=80
+&lt;/pre&gt;
+&lt;p&gt;Пример файла переменных для группы db (~/ansible/&lt;strong&gt;group_vars&lt;/strong&gt;/db):&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+db_port=6380
+db_name=redis
+&lt;/pre&gt;
+&lt;p&gt;Переменные &lt;em&gt;inventory&lt;/em&gt; следуют иерархии: переменные в глобальном файле перегружают
+любые хост-переменные, групповые переменные и переменные в файле &lt;em&gt;inventory&lt;/em&gt;.
+Хост-переменные перегружают групповые переменные, а в свою очередь групповые
+переменные перегружают переменные файла &lt;em&gt;inventory&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Помимо пользовательских переменных можно (и даже нужно) использовать факты,
+собранные &lt;strong&gt;Ansible&lt;/strong&gt; перед выполнением сценариев и отдельных задач.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;&lt;strong&gt;Факты&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Перед внесением изменений &lt;strong&gt;Ansible&lt;/strong&gt; подключается к управляемым узлам и
 собирает информацию о них: о сетевых интерфейсах и их состоянии, об установленной
 операционной системе и т.п. Он может делать это как с помощью собственного модуля,
@@ -280,8 +741,8 @@ u'gateway': u'172.31.0.1'}&amp;quot;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;div class="section" id="id12"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;&lt;strong&gt;Примеры простых задач&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id13"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id32"&gt;&lt;strong&gt;Примеры простых задач&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Общая структура использования команд выглядит вот так:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 ansible &amp;lt;pattern_goes_here&amp;gt; -m &amp;lt;module_name&amp;gt; -a &amp;lt;arguments&amp;gt;
@@ -319,14 +780,15 @@ drwxr-xr-x 91 brun staff 3.1K Apr  1 11:37 ..
 правила написания таких сценариев более подробно.&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;div class="section" id="id13"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id30"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id14"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id33"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/"&gt;Система управления Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/express42/blog/254959/"&gt;Ansible - давайте попробуем&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/195048/"&gt;Администрирование Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/249143/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 1: Введение&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252001/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 3: Переменные и файл inventory&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Alias</title><link href="https://kutsevol.github.io/2017/02/09/alias" rel="alternate"></link><published>2017-02-09T00:00:00+02:00</published><updated>2017-02-09T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-09:/2017/02/09/alias</id><summary type="html">&lt;div class="contents topic" id="id1"&gt;
