@@ -175,6 +175,10 @@
 
 В **Ansible** используется шаблонизатор `Jinja2 <http://jinja.pocoo.org/>`_.
 
+~~~~~~~~~~~~~~~~~~~~~
+**Стандартные циклы**
+~~~~~~~~~~~~~~~~~~~~~
+
 Пример сценария в yml-файле:
 
 .. code::
@@ -196,7 +200,80 @@
         - postgresql
 
 Если необходимо установить несколько пакетов при этом с одинаковыми настройками
-- используется шаблонизатор и параметр with_items.
+- используется шаблонизатор и параметр *with_items*. На каждой итерации *item* принимает
+следующее значение, указанное в *with_items*.
+
+Задача запускается один раз, но *apt* вызывается для всех указанных пакетов.
+Можно так же использовать *with_items* как словарь вместо строк:
+
+.. code::
+
+    with_items:
+    – {name: 'httpd', state: 'latest'}
+    – {name: 'htop', state: 'absent'}
+
+~~~~~~~~~~~~~~~~~~~
+**Вложенные циклы**
+~~~~~~~~~~~~~~~~~~~
+
+Вложенные циклы полезны, когда необходимо выполнить несколько операций над
+одним и тем же ресурсом. Например, если вы хотите предоставить доступ ко множеству
+баз данных для пользователей MySQL.
+
+.. code::
+
+    ---
+    - hosts: experiments
+        remote_user: root
+        tasks:
+        - name: give users access to multiple databases
+            mysql_user: name={{ item[0] }} priv={{ item[1]}}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+        with_nested:
+        - ['alexey', 'alexander']
+        - ['clientdb', 'providerdb']
+
+В приведенном примере используется модуль mysql_user для установки прав на базы данных и
+используем вложенные циклы с двумя спискми: список пользователей и список базы данных.
+**Ansible** запустит модуль *mysql_user* для пользователей *alexey*, даст права
+на все указанные во втором списке базы данных, затем запустит для пользователей
+*alexander* и так же даст права.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+**Циклы по подэлементам**
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+В предыдущем примере назначали все указанные БД всем указанным пользователям.
+Но если для каждого пользователя нужно назначить свой специфический набор баз данных?
+Для это нам нужны циклы по подэлементам.
+
+.. code::
+
+    ---
+    - hosts: experiments
+        remote_user: root
+        vars:
+        users:
+            - name: alexey
+              database:
+              - clientdb
+              - providerdb
+            - name: alexander
+              database:
+              - providerdb
+      tasks:
+        – name: give users access to multiple databases
+        mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+        with_subelements:
+        - users
+        - database
+
+Cоздали словари, которые состоят из имен пользователей и имен баз данных.
+Вместо добавления данных пользователей в *playbook* можно вынести их в отдельный
+файл переменных и включить в *playbook*. **Ansible** пройдется по словарю используя
+переменную *item*. **Ansible** назначает численные значения ключам, представленным
+конструкцией *with_subelements*, начиная с 0. В словаре 0 имя — пара «ключ-значения»,
+поэтому для обращения по имени пользователя мы используем item.0.name.
+*Dictionary* — простой список, поэтому для обращения используем item.1.
 
 ---------------------------------
 **Обработчик событий (Handlers)**
@@ -257,6 +334,68 @@
       # значение true - задача будет выполнена, иначе - будет пропущена
     - command: echo 'the file has changed'
       when: last_result.changed
+
+.. code::
+
+    ---
+    - hosts: experiments
+        remote_user: root
+        tasks:
+
+        - name: Testing user sudo privilege
+            command: /usr/bin/sudo -v
+            register: sudo_response
+            ignore_errors: yes
+
+        - name: Stop if Users doesn`t have sudo privilege
+            fail: msg="User doesn`t have sudo privilege"
+            when: sudo_response.rc == 1
+
+В примере выше запускаем команду на сервере */usr/bin/sudo -v* и сохранили ее вывод
+в переменную через *register*. В переменной был захвачен вывод *stdout* и *stderr*
+(rc, return code). Во второй задаче проверяем *return code* переменной и если ошибка возникла -
+должны завершить исполнение *playbook* c выводом сообщения.
+
+Для сравнения в условиях в **Ansible** можно использовать **==** (равно), **!=** (не равно),
+**>** (больше), **<** (меньше), **>=** (больше равно), **<=** (меньше равно).
+
+Если необходимо проверить, есть ли в переменной символ или строка, используйте операторы **in** и **not**.
+
+.. code::
+
+    - name: Querying rpm list for httpd package
+        shell: rpm -qa | grep httpd
+        register: httpd_rpm
+
+    - name: Check if httpd rpm is installed on the remote host
+        debug: msg="httpd is installed on the remote host"
+        when: "'httpd-2.2.27–1.2.x86_64' in httpd_rpm.stdout"
+
+    – name: Check if httpd rpm is not installed on the remote host
+        debug: msg="httpd is not installed on the remote host"
+        when: not 'httpd-2.2.27.1.2.x86_64' in httpd_rpm.stdout
+
+Можно задавать несколько условий, используя операторы **and** (и) и **or** (или).
+
+.. code::
+
+    – name: Check if httpd rpm is installed on the remote host
+        debug: msg="httpd is installed on the remote host"
+        when: "'httpd-2.2.27–1.2.x86_64' in httpd_rpm.stdout and
+        'httpd-tools-2.2.27–1.2.x86–64' in httpd_rpm.stdout"
+
+Также можно проверить логическое значение переменной. Давайте сделаем *backup*,
+если в переменной backup установлено *true*:
+
+.. code::
+
+    – name: Rsync
+        shell: /usr/bin/rsync -ra /home /backup/{{ inventory_hostname }}
+        sudo: yes
+        when: backup
+
+Ansible позволяет в условии использовать информацию о том, была ли уже определена
+переменная. Для этого используйте *when*: *var is not define* (где *var* — имя переменной, *is not define* – еще не была определена, *is defined* – уже была определена).
 
 --------------------------------------
 **Делегирование задачи другому хосту**

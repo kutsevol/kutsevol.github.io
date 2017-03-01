@@ -5,43 +5,53 @@
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id13"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id14"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#yaml" id="id15"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id16"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id17"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#handlers" id="id18"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id19"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id20"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id21"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id16"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id17"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#yaml" id="id18"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id19"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id20"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id21"&gt;&lt;strong&gt;Стандартные циклы&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id22"&gt;&lt;strong&gt;Вложенные циклы&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id23"&gt;&lt;strong&gt;Циклы по подэлементам&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#playbook" id="id22"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id23"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#handlers" id="id24"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id25"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id10" id="id26"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id27"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbook" id="id28"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id29"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
 задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
-также рассмотрели примеры простых задач, которые можно решать с помощью …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
+также рассмотрели примеры …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-2.jpg" style="width: 600.0px; height: 281.25px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id13"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id14"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#yaml" id="id15"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id16"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id17"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#handlers" id="id18"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id19"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id20"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id21"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id16"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbooks" id="id17"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#yaml" id="id18"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id19"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id20"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id21"&gt;&lt;strong&gt;Стандартные циклы&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id22"&gt;&lt;strong&gt;Вложенные циклы&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id23"&gt;&lt;strong&gt;Циклы по подэлементам&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#playbook" id="id22"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id23"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#handlers" id="id24"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id25"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id10" id="id26"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id27"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#playbook" id="id28"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id29"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
@@ -49,9 +59,9 @@
 задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
 также рассмотрели примеры простых задач, которые можно решать с помощью него.&lt;/p&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="playbooks"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;&lt;strong&gt;Playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Исполнение &lt;em&gt;Playbooks&lt;/em&gt; - одна из основных задач &lt;strong&gt;Ansible&lt;/strong&gt;. &lt;em&gt;Playbooks&lt;/em&gt; содержат
 списки задач. Каждая задача внутри &lt;strong&gt;Ansible&lt;/strong&gt; использует кусок кода-модуля.
 &lt;em&gt;Playbooks&lt;/em&gt; описываются в формате &lt;em&gt;YAML&lt;/em&gt;.&lt;/p&gt;
@@ -62,7 +72,7 @@ ansible-playbook &amp;lt;имя_файла_сценария.yml&amp;gt; ... [д�
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="yaml"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;YAML&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Для &lt;strong&gt;Ansible&lt;/strong&gt; практически каждый &lt;em&gt;YAML&lt;/em&gt; файл начинается со списка. Каждый
 элемент списка - список пар &amp;quot;ключ-значение&amp;quot;, часто называемая словарем.&lt;/p&gt;
 &lt;p&gt;Все &lt;em&gt;YAML&lt;/em&gt; файлы должны начинаться с &amp;quot;---&amp;quot;. Это часть формата &lt;em&gt;YAML&lt;/em&gt; и означает
@@ -122,7 +132,7 @@ word: &amp;quot;{{ variable }}&amp;quot;
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Написание playbooks&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Playbooks&lt;/em&gt; может состоять из списка обсуживаемых серверов, переменных
 пользователя, задач, обработчиков (handlers) и т.д. Большинство настроек
 конфигурации можно переопределить в &lt;em&gt;playbook&lt;/em&gt;. Каждый &lt;em&gt;playbook&lt;/em&gt; состоит из одного
@@ -166,8 +176,10 @@ mkdir ~/ansible/playbooks
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;&lt;strong&gt;Шаблонизация&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;В &lt;strong&gt;Ansible&lt;/strong&gt; используется шаблонизатор &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;&lt;strong&gt;Стандартные циклы&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Пример сценария в yml-файле:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 ---
@@ -187,10 +199,74 @@ tasks:
     - postgresql
 &lt;/pre&gt;
 &lt;p&gt;Если необходимо установить несколько пакетов при этом с одинаковыми настройками
-- используется шаблонизатор и параметр with_items.&lt;/p&gt;
+- используется шаблонизатор и параметр &lt;em&gt;with_items&lt;/em&gt;. На каждой итерации &lt;em&gt;item&lt;/em&gt; принимает
+следующее значение, указанное в &lt;em&gt;with_items&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Задача запускается один раз, но &lt;em&gt;apt&lt;/em&gt; вызывается для всех указанных пакетов.
+Можно так же использовать &lt;em&gt;with_items&lt;/em&gt; как словарь вместо строк:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+with_items:
+– {name: 'httpd', state: 'latest'}
+– {name: 'htop', state: 'absent'}
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id22"&gt;&lt;strong&gt;Вложенные циклы&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Вложенные циклы полезны, когда необходимо выполнить несколько операций над
+одним и тем же ресурсом. Например, если вы хотите предоставить доступ ко множеству
+баз данных для пользователей MySQL.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: experiments
+    remote_user: root
+    tasks:
+    - name: give users access to multiple databases
+        mysql_user: name={{ item[0] }} priv={{ item[1]}}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+    with_nested:
+    - ['alexey', 'alexander']
+    - ['clientdb', 'providerdb']
+&lt;/pre&gt;
+&lt;p&gt;В приведенном примере используется модуль mysql_user для установки прав на базы данных и
+используем вложенные циклы с двумя спискми: список пользователей и список базы данных.
+&lt;strong&gt;Ansible&lt;/strong&gt; запустит модуль &lt;em&gt;mysql_user&lt;/em&gt; для пользователей &lt;em&gt;alexey&lt;/em&gt;, даст права
+на все указанные во втором списке базы данных, затем запустит для пользователей
+&lt;em&gt;alexander&lt;/em&gt; и так же даст права.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;&lt;strong&gt;Циклы по подэлементам&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;В предыдущем примере назначали все указанные БД всем указанным пользователям.
+Но если для каждого пользователя нужно назначить свой специфический набор баз данных?
+Для это нам нужны циклы по подэлементам.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: experiments
+    remote_user: root
+    vars:
+    users:
+        - name: alexey
+          database:
+          - clientdb
+          - providerdb
+        - name: alexander
+          database:
+          - providerdb
+  tasks:
+    – name: give users access to multiple databases
+    mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+    with_subelements:
+    - users
+    - database
+&lt;/pre&gt;
+&lt;p&gt;Cоздали словари, которые состоят из имен пользователей и имен баз данных.
+Вместо добавления данных пользователей в &lt;em&gt;playbook&lt;/em&gt; можно вынести их в отдельный
+файл переменных и включить в &lt;em&gt;playbook&lt;/em&gt;. &lt;strong&gt;Ansible&lt;/strong&gt; пройдется по словарю используя
+переменную &lt;em&gt;item&lt;/em&gt;. &lt;strong&gt;Ansible&lt;/strong&gt; назначает численные значения ключам, представленным
+конструкцией &lt;em&gt;with_subelements&lt;/em&gt;, начиная с 0. В словаре 0 имя — пара «ключ-значения»,
+поэтому для обращения по имени пользователя мы используем item.0.name.
+&lt;em&gt;Dictionary&lt;/em&gt; — простой список, поэтому для обращения используем item.1.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="handlers"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;&lt;strong&gt;Обработчик событий (Handlers)&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; не просто выполняет задачи в указанном порядке, но и проверяет их
 состояние на наличие изменений. Если при выполнении сценария требовалось,
 например, добавить строку в конфигурационный файл, и в результате выполнения
@@ -225,8 +301,8 @@ tasks:
     &lt;span class="l-Scalar-Plain"&gt;service&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name=httpd state=restarted&lt;/span&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;&lt;strong&gt;Контроль выполнения&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Допустим, что при выполнении сценария нам нужно проверять определённые
 переменные или состояния и, в зависимости от них, выполнять или не выполнять
 какие-либо задачи. Для этого можно использовать оператор &lt;em&gt;“when”&lt;/em&gt;:&lt;/p&gt;
@@ -241,9 +317,61 @@ tasks:
 - command: echo 'the file has changed'
   when: last_result.changed
 &lt;/pre&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: experiments
+    remote_user: root
+    tasks:
+
+    - name: Testing user sudo privilege
+        command: /usr/bin/sudo -v
+        register: sudo_response
+        ignore_errors: yes
+
+    - name: Stop if Users doesn`t have sudo privilege
+        fail: msg=&amp;quot;User doesn`t have sudo privilege&amp;quot;
+        when: sudo_response.rc == 1
+&lt;/pre&gt;
+&lt;p&gt;В примере выше запускаем команду на сервере &lt;em&gt;/usr/bin/sudo -v&lt;/em&gt; и сохранили ее вывод
+в переменную через &lt;em&gt;register&lt;/em&gt;. В переменной был захвачен вывод &lt;em&gt;stdout&lt;/em&gt; и &lt;em&gt;stderr&lt;/em&gt;
+(rc, return code). Во второй задаче проверяем &lt;em&gt;return code&lt;/em&gt; переменной и если ошибка возникла -
+должны завершить исполнение &lt;em&gt;playbook&lt;/em&gt; c выводом сообщения.&lt;/p&gt;
+&lt;p&gt;Для сравнения в условиях в &lt;strong&gt;Ansible&lt;/strong&gt; можно использовать &lt;strong&gt;==&lt;/strong&gt; (равно), &lt;strong&gt;!=&lt;/strong&gt; (не равно),
+&lt;strong&gt;&amp;gt;&lt;/strong&gt; (больше), &lt;strong&gt;&amp;lt;&lt;/strong&gt; (меньше), &lt;strong&gt;&amp;gt;=&lt;/strong&gt; (больше равно), &lt;strong&gt;&amp;lt;=&lt;/strong&gt; (меньше равно).&lt;/p&gt;
+&lt;p&gt;Если необходимо проверить, есть ли в переменной символ или строка, используйте операторы &lt;strong&gt;in&lt;/strong&gt; и &lt;strong&gt;not&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Querying rpm list for httpd package
+    shell: rpm -qa | grep httpd
+    register: httpd_rpm
+
+- name: Check if httpd rpm is installed on the remote host
+    debug: msg=&amp;quot;httpd is installed on the remote host&amp;quot;
+    when: &amp;quot;'httpd-2.2.27–1.2.x86_64' in httpd_rpm.stdout&amp;quot;
+
+– name: Check if httpd rpm is not installed on the remote host
+    debug: msg=&amp;quot;httpd is not installed on the remote host&amp;quot;
+    when: not 'httpd-2.2.27.1.2.x86_64' in httpd_rpm.stdout
+&lt;/pre&gt;
+&lt;p&gt;Можно задавать несколько условий, используя операторы &lt;strong&gt;and&lt;/strong&gt; (и) и &lt;strong&gt;or&lt;/strong&gt; (или).&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+– name: Check if httpd rpm is installed on the remote host
+    debug: msg=&amp;quot;httpd is installed on the remote host&amp;quot;
+    when: &amp;quot;'httpd-2.2.27–1.2.x86_64' in httpd_rpm.stdout and
+    'httpd-tools-2.2.27–1.2.x86–64' in httpd_rpm.stdout&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;Также можно проверить логическое значение переменной. Давайте сделаем &lt;em&gt;backup&lt;/em&gt;,
+если в переменной backup установлено &lt;em&gt;true&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+– name: Rsync
+    shell: /usr/bin/rsync -ra /home /backup/{{ inventory_hostname }}
+    sudo: yes
+    when: backup
+&lt;/pre&gt;
+&lt;p&gt;Ansible позволяет в условии использовать информацию о том, была ли уже определена
+переменная. Для этого используйте &lt;em&gt;when&lt;/em&gt;: &lt;em&gt;var is not define&lt;/em&gt; (где &lt;em&gt;var&lt;/em&gt; — имя переменной, &lt;em&gt;is not define&lt;/em&gt; – еще не была определена, &lt;em&gt;is defined&lt;/em&gt; – уже была определена).&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Иногда требуется выполнить задачу на определённом узле, но в контексте другого
 узла. Например, во время обновления узла может возникнуть необходимость отключить
 для него мониторинг, находящийся на отдельном сервере. Для этого используется
@@ -256,8 +384,8 @@ delegate_to: mon_host.example.com
 &lt;p&gt;Результатом выполнения этой задачи будет отключение сообщений для сервиса
 dnsserver в Nagios.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;&lt;strong&gt;Отладка&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;При запуске &lt;em&gt;playbook&lt;/em&gt; можно увидеть примерно следующий вывод в терминале:&lt;/p&gt;
 &lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible playbook" src="/images/ansible-playbook.jpg" style="width: 750.0px; height: 627.0px;" /&gt;
@@ -329,7 +457,7 @@ ansible-playbook playbooks/setup_nginx.yml --start-at-task=&amp;quot;Debug&amp;q
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="playbook"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id28"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Если задача или набор задач часто используется - есть смысл оформить ее в виде
 отдельного файла, который можно будет использовать в других &lt;em&gt;playbook&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Создадим директорию для повторно используемых задач:&lt;/p&gt;
@@ -386,8 +514,8 @@ mkdir ~/ansible/playbooks/tasks
         - include: tasks/pkg_nginx_install.yml
 &lt;/pre&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/selectel/blog/196620/"&gt;Система управления Ansible&lt;/a&gt;&lt;/li&gt;
