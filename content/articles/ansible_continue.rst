@@ -21,6 +21,8 @@
 В `предыдущей статье <{filename}ansible_introduction.rst>`_ рассмотрели основные
 задачи и принципы работы, как работает **Ansible** его установка и настройка, а
 также рассмотрели примеры простых задач, которые можно решать с помощью него.
+В этой части рассмотрим как управлять конфигурациями, как написать *playbook* и
+все что с ними связано (шаблоны, циклы, дебаг и т.д.)
 
 =============================
 **Управление конфигурациями**
@@ -227,7 +229,8 @@
         remote_user: root
         tasks:
         - name: give users access to multiple databases
-            mysql_user: name={{ item[0] }} priv={{ item[1]}}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+            mysql_user: name={{ item[0] }} priv={{ item[1] }}.*:ALL
+            append_privs=yes password=pass login_user=root login_password=root
         with_nested:
         - ['alexey', 'alexander']
         - ['clientdb', 'providerdb']
@@ -262,7 +265,8 @@
               - providerdb
       tasks:
         – name: give users access to multiple databases
-        mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+        mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL
+        append_privs=yes password=pass login_user=root login_password=root
         with_subelements:
         - users
         - database
@@ -395,7 +399,8 @@ Cоздали словари, которые состоят из имен пол
         when: backup
 
 Ansible позволяет в условии использовать информацию о том, была ли уже определена
-переменная. Для этого используйте *when*: *var is not define* (где *var* — имя переменной, *is not define* – еще не была определена, *is defined* – уже была определена).
+переменная. Для этого используйте *when*: *var is not define* (где
+*var* — имя переменной, *is not define* – еще не была определена, *is defined* – уже была определена).
 
 --------------------------------------
 **Делегирование задачи другому хосту**
@@ -607,3 +612,4 @@ dnsserver в Nagios.
 - `Администрирование Ansible <https://habrahabr.ru/post/195048/>`_
 - `Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 1: Введение <https://habrahabr.ru/company/infobox/blog/249143/>`_
 - `Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 2: вывод, отладка, и повторное использование playbook <https://habrahabr.ru/company/infobox/blog/250115/>`_
+- `Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли <https://habrahabr.ru/company/infobox/blog/252461/>`_

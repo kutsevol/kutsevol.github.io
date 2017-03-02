@@ -1,16 +1,26 @@
 :title: Ansible Introduction. Part 3
-:date: 2017-02-21
-:modified: 2017-02-21
+:date: 2017-03-02
+:modified: 2017-03-02
 :author: Artur K.
 :category: Administration
 :tags: ansible, python, linux
 :slug: ansible_end
-:status: draft
+
+.. figure:: /images/ansible-header-3.png
+    :height: 428px
+    :width: 690px
+    :scale: 90%
+    :align: center
+    :alt: Ansible
 
 .. contents:: **Содержание**
    :depth: 3
 
 ----
+
+В `предыдущей статье <{filename}ansible_continue.rst>`_ рассмотрели как управлять
+конфигурациями и как писать *playbook*. В этой (последней) части рассмотрим модули
+и как их применять, познакомимся с ролями.
 
 ==========
 **Модули**
@@ -188,13 +198,6 @@
 *accept_key=yes*, *key_file* - указывает на путь к ключу. Если ключ находится в
 *~/.ssh* - указывать *key_file* не нужно.
 
-=================================================
-**Запуск задачи локально с помощью local_action**
-=================================================
-
-
-
-
 ========
 **Роли**
 ========
@@ -208,55 +211,148 @@
 .. code::
 
     ---
-    - name: check and apply basic configuration to all hosts
-      hosts: all
-      roles:
-        - common
+    - hosts: webservers
+        roles:
+         - common
+         - web
+         – db
 
-    - name: check and apply configuration to group1
-      hosts: group1
-      roles:
-        - pgsql
-
-    - name: check and apply configuration to group2
-      hosts: group2
-      roles:
-        - fooapp
-
-=====================
-**Структура проекта**
-=====================
+Файловая структура ролей будет выглядеть, примерно вот так:
 
 .. code::
 
-    ├── production                # инвентарный файл для продакшн-серверов
-    ├── stage                     # инвентарный файл для stage-окружения
-    │
-    ├── group_vars/
-    │   ├── group1                # здесь назначаются переменные для
-    │   └── group2                # конкретных групп
-    ├── host_vars/
-    │   ├── hostname1             # специфические переменные для хостов в
-    │   └── hostname2             # случае необходимости прописываются здесь
-    │
-    ├── site.yml                  # основной сценарий
-    ├── webservers.yml            # сценарий для веб-сервера
-    ├── dbservers.yml             # сценарий для сервера базы данных
-    │
-    └── roles/
-    ├── common/               # здесь описываются роли
-    │   ├── tasks/            #
-    │   │   └── main.yml      # - файл задач роли, может включать файлы
-    │   │                     #   меньшего размера
-    │   ├── handlers/         #
-    │   │   └── main.yml      # - файл с обработчиками (handlers)
-    │   ├── templates/        # - директория для шаблонов, в данном
-    │   │   └── ntp.conf.j2   #   случае - для конфига ntp
-    │   ├── files/            #
-    │   │   ├── bar.txt       # - файл-ресурс для копирования на хост
-    │   │   └── foo.sh        # - скрипт для выполнения на удалённом хосте
-    │   └── vars/             #
-    │       └── main.yml      # - ассоциированные с ролью переменные
-    │
-    ├── pgsql/                # такая же структура, как выше, для роли pgsql
-    └── fooapp/               # такая же структура, как выше, для роли fooapp
+    site.yml
+    webservers.yml
+    roles/
+    common/
+     files/
+     templates/
+     tasks/
+     handlers/
+     vars/
+     defaults/
+     meta/
+    web/
+     files/
+     templates/
+     tasks/
+     handlers/
+     vars/
+     defaults/
+     meta/
+    db/
+     files/
+     templates/
+     tasks/
+     handlers/
+     vars/
+     defaults/
+     meta/
+
+
+Если какой-то директории в роли нет - она будет проигнорирована и *playbook* будет
+исполняться. Совсем не обязательно у вас должны быть все элементы и директории *playbook*.
+
+Правила, используемые для каждой роли:
+
+- Если **roles/x/tasks/main.yml** существует, задачи будут добавлены в процесс исполнения *playbook*.
+- Если **roles/x/handlers/main.yml** существует, обработчики событий будут добавлены в процесс исполнения *playbook*.
+- Если **roles/x/vars/main.yml** существует, переменные будут добавлены в процесс исполнения *playbook*.
+- Если **roles/x/meta/mail.yml** существует, любые роли-зависимости будут добавлены в список ролей. (В meta можно указывать список ролей, которые должны быть применены до конкретной роли, чтобы она применилась корректно).
+- Любая задача копирования может ссылаться на файл в **roles/x/files** без указания абсолютного или относительного пути.
+- Любая скриптовая задача может ссылаться на скрипты в **roles/x/files** без указания абсолютного или относительного пути.
+- Любая задача шаблонизации может ссылаться на **roles/x/templates** без указания абсолютного или относительного пути.
+- Любые импортируемые задачи могут ссылаться на файлы задач в директории **roles/x/tasks** без указания абсолютного или относительного пути.
+
+В конфигурационном файле **Аnsible** можно задать **roles_path** (директорию с ролями).
+Это может пригодиться, если у вас *playbook* лежат в одном репозитории, а сами роли в другом.
+Можно задавать сразу несколько путей к ролям через двоеточие:
+
+.. code::
+
+    roles_path = /opt/mysite/roles:/opt/othersite/roles
+
+В роли можно передавать переменные или использовать условия:
+
+.. code::
+
+    ---
+    - hosts: experiments
+        roles:
+            – common
+            – {role: web, dir: '/var/www', port: 80}
+            – {role: repository, when: "ansible_os_family =='RedHat'"}
+
+С помощью тегов можно запускать помеченные части *playbook*.
+Использование тэгов выглядит так:
+
+.. code::
+
+    tasks:
+        - apt: name={{ item }} state=installed
+          with_items:
+             - httpd
+             - htop
+          tags:
+             - packages
+
+        - template: src=templates/src.j2 dest=/var/www/.htaccess
+          tags:
+             - configuration
+
+Можно запустить часть *playbook* так:
+**ansible-playbook example.yml --tags «configuration,packages»** или пропустить исполнение части так:
+**ansible-playbook example.yml --skip-tags «notification»**.
+
+Тэги можно использовать и при указании ролей:
+
+.. code::
+
+    ---
+    - hosts: experiments
+        roles:
+        - { role: web, tags: ["apache", "simple"] }
+
+Можно указать, какие задачи должны выполниться до роли и после:
+
+.. code::
+
+    ---
+    - hosts: experiments
+        pre_tasks:
+            - shell: echo 'hello, habr'
+        roles:
+            - { role: web }
+        tasks:
+            - shell: echo 'still busy'
+        post_tasks:
+            - shell: echo 'goodbye, habr'
+
+---------------------
+**Зависимости ролей**
+---------------------
+
+Зависимости ролей позволяют автоматически исполнить зависимые роли при запуске
+конкретных ролей, у которых зависимости есть. Зависимости хранятся в *roles/x/meta/main.yml*.
+Вместе с зависимыми ролями могут быть переданы параметры. Путь к ролям может быть
+указан как в сокращенном виде, так и в полном. Также может быть использован
+репозиторий системы управления версиями.
+
+.. code::
+
+    ---
+    dependencies:
+        - { role: common, some_parameter: 3 }
+        - { role: '/path/to/common/roles/foo', x: 1 }
+        - { role: 'git+http://git.example.com/repos/role-foo,v1.1,foo' }
+
+Если в зависимостях указана одна и та же роль несколько раз - она запустится только
+однажды. Если нужно несколько раз, можно в файле зависимостей попросить об этом явно.
+
+=====================
+**Список источников**
+=====================
+
+- Официальная документация по `Ansible <http://docs.ansible.com/ansible/index.html>`_
+- `Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 4: работаем с модулями <https://habrahabr.ru/company/infobox/blog/252239/>`_
+- `Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли <https://habrahabr.ru/company/infobox/blog/252461/>`_

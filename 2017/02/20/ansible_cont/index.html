@@ -101,7 +101,9 @@
 <hr class="docutils" />
 <p>В <a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro">предыдущей статье</a> рассмотрели основные
 задачи и принципы работы, как работает <strong>Ansible</strong> его установка и настройка, а
-также рассмотрели примеры простых задач, которые можно решать с помощью него.</p>
+также рассмотрели примеры простых задач, которые можно решать с помощью него.
+В этой части рассмотрим как управлять конфигурациями, как написать <em>playbook</em> и
+все что с ними связано (шаблоны, циклы, дебаг и т.д.)</p>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id16"><strong>Управление конфигурациями</strong></a></h2>
 <div class="section" id="playbooks">
@@ -264,7 +266,8 @@ with_items:
     remote_user: root
     tasks:
     - name: give users access to multiple databases
-        mysql_user: name={{ item[0] }} priv={{ item[1]}}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+        mysql_user: name={{ item[0] }} priv={{ item[1] }}.*:ALL
+        append_privs=yes password=pass login_user=root login_password=root
     with_nested:
     - ['alexey', 'alexander']
     - ['clientdb', 'providerdb']
@@ -295,7 +298,8 @@ with_items:
           - providerdb
   tasks:
     – name: give users access to multiple databases
-    mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+    mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL
+    append_privs=yes password=pass login_user=root login_password=root
     with_subelements:
     - users
     - database
@@ -412,7 +416,8 @@ tasks:
     when: backup
 </pre>
 <p>Ansible позволяет в условии использовать информацию о том, была ли уже определена
-переменная. Для этого используйте <em>when</em>: <em>var is not define</em> (где <em>var</em> — имя переменной, <em>is not define</em> – еще не была определена, <em>is defined</em> – уже была определена).</p>
+переменная. Для этого используйте <em>when</em>: <em>var is not define</em> (где
+<em>var</em> — имя переменной, <em>is not define</em> – еще не была определена, <em>is defined</em> – уже была определена).</p>
 </div>
 <div class="section" id="id10">
 <h3><a class="toc-backref" href="#id26"><strong>Делегирование задачи другому хосту</strong></a></h3>
@@ -567,6 +572,7 @@ mkdir ~/ansible/playbooks/tasks
 <li><a class="reference external" href="https://habrahabr.ru/post/195048/">Администрирование Ansible</a></li>
 <li><a class="reference external" href="https://habrahabr.ru/company/infobox/blog/249143/">Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 1: Введение</a></li>
 <li><a class="reference external" href="https://habrahabr.ru/company/infobox/blog/250115/">Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 2: вывод, отладка, и повторное использование playbook</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252461/">Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли</a></li>
 </ul>
 </div>
 
@@ -575,6 +581,7 @@ mkdir ~/ansible/playbooks/tasks
             <nav>
             <ul class="articles-timeline">
                 <li class="previous-article">« <a href="https://kutsevol.github.io/2017/02/10/ansible_intro" title="Previous: Ansible Introduction. Part 1">Ansible Introduction. Part 1</a></li>
+                <li class="next-article"><a href="https://kutsevol.github.io/2017/03/02/ansible_end" title="Next: Ansible Introduction. Part 3">Ansible Introduction. Part 3</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -616,13 +623,13 @@ mkdir ~/ansible/playbooks/tasks
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="https://kutsevol.github.io/tags.html#ansible-ref">ansible
-                    <span>2</span>
+                    <span>3</span>
 </a></li>
                 <li><a href="https://kutsevol.github.io/tags.html#linux-ref">linux
-                    <span>3</span>
+                    <span>4</span>
 </a></li>
                 <li><a href="https://kutsevol.github.io/tags.html#python-ref">python
-                    <span>3</span>
+                    <span>4</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

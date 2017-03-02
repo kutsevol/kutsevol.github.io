@@ -1,5 +1,331 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-02-21T00:00:00+02:00</updated><entry><title>Ansible Introduction. Part 2</title><link href="https://kutsevol.github.io/2017/02/20/ansible_cont" rel="alternate"></link><published>2017-02-20T00:00:00+02:00</published><updated>2017-02-21T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-20:/2017/02/20/ansible_cont</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-03-02T00:00:00+02:00</updated><entry><title>Ansible Introduction. Part 3</title><link href="https://kutsevol.github.io/2017/03/02/ansible_end" rel="alternate"></link><published>2017-03-02T00:00:00+02:00</published><updated>2017-03-02T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-03-02:/2017/03/02/ansible_end</id><summary type="html">&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id9"&gt;&lt;strong&gt;Модули&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#command" id="id10"&gt;&lt;strong&gt;Командный модуль command&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#raw" id="id11"&gt;&lt;strong&gt;Командный модуль raw&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#script" id="id12"&gt;&lt;strong&gt;Командный модуль script&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#shell" id="id13"&gt;&lt;strong&gt;Командный модуль shell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#file" id="id14"&gt;&lt;strong&gt;Файловый модуль file&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#copy" id="id15"&gt;&lt;strong&gt;Файловый модуль copy&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#git" id="id16"&gt;&lt;strong&gt;Модуль системы управления версиями git&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id17"&gt;&lt;strong&gt;Роли&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id18"&gt;&lt;strong&gt;Зависимости ролей&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id19"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/20/ansible_cont"&gt;предыдущей статье&lt;/a&gt; рассмотрели как управлять
+конфигурациями и как писать &lt;em&gt;playbook&lt;/em&gt;. В этой (последней) части рассмотрим модули
+и как их …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id9"&gt;&lt;strong&gt;Модули&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#command" id="id10"&gt;&lt;strong&gt;Командный модуль command&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#raw" id="id11"&gt;&lt;strong&gt;Командный модуль raw&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#script" id="id12"&gt;&lt;strong&gt;Командный модуль script&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#shell" id="id13"&gt;&lt;strong&gt;Командный модуль shell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#file" id="id14"&gt;&lt;strong&gt;Файловый модуль file&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#copy" id="id15"&gt;&lt;strong&gt;Файловый модуль copy&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#git" id="id16"&gt;&lt;strong&gt;Модуль системы управления версиями git&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id17"&gt;&lt;strong&gt;Роли&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id18"&gt;&lt;strong&gt;Зависимости ролей&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id19"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/20/ansible_cont"&gt;предыдущей статье&lt;/a&gt; рассмотрели как управлять
+конфигурациями и как писать &lt;em&gt;playbook&lt;/em&gt;. В этой (последней) части рассмотрим модули
+и как их применять, познакомимся с ролями.&lt;/p&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;&lt;strong&gt;Модули&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Модуль можно написать на любом языке, он должен уметь принимать параметры на
+вход и выдавать json ответ. Модули находятся &lt;a class="reference external" href="http://docs.ansible.com/ansible/list_of_all_modules.html"&gt;здесь&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Как написать свой собственный модуль, можно прочитать в &lt;a class="reference external" href="http://docs.ansible.com/ansible/dev_guide/developing_modules.html"&gt;документации&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;В состав Ansible входит огромное количество модулей для развёртывания,
+контроля и управления различными компонентами, которые можно условно разделить
+на следующие группы (в скобках приведены названия некоторых продуктов и
+сервисов):&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;облачные ресурсы и виртуализация (Openstack, libvirt);&lt;/li&gt;
+&lt;li&gt;базы данных (MySQL, Postgresql, Redis, Riak);&lt;/li&gt;
+&lt;li&gt;файлы (шаблонизация, регулярные выражения, права доступа);&lt;/li&gt;
+&lt;li&gt;мониторинг (Nagios, monit);&lt;/li&gt;
+&lt;li&gt;оповещения о ходе выполнения сценария (Jabber, Irc, почта, MQTT, Hipchat);&lt;/li&gt;
+&lt;li&gt;сеть и сетевая инфраструктура (Openstack, Arista);&lt;/li&gt;
+&lt;li&gt;управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);&lt;/li&gt;
+&lt;li&gt;система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);&lt;/li&gt;
+&lt;li&gt;работа с различными утилитами (git, hg).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="command"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;&lt;strong&gt;Командный модуль command&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Модуль принимает имя команды и армументы. Переменные оболочки или операции (&amp;lt;,&amp;gt;,|,&amp;amp;)
+не будут работать с модулем command, т.к. обрабатываются оболочкой.
+Модуль command принимает следующие параметры:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;em&gt;chdir&lt;/em&gt;: Используется для изменения текущей директории, в которой исполняется команда&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;creates&lt;/em&gt;: Создает файл&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;removes&lt;/em&gt;: Удаляет файл&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Простейшая задача перезагрузки сервера:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Reboot machine
+    command: /sbin/shutdown -r now
+    sudo: yes
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="raw"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;&lt;strong&gt;Командный модуль raw&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Этот модуль следует использовать, когда другие командные модули использовать не удается.
+Это простой запуск удаленных команд серверу по &lt;em&gt;SSH&lt;/em&gt;. Данный модуль работает
+даже на серверах без установленного &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Пример установки пакета &lt;em&gt;vim&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Install vim
+    raw: yum -y install vim-common
+    sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;По окончанию выполнения операции, можно будет увидеть, что пакет установлен, но
+задача не будет помечена как &lt;em&gt;changed&lt;/em&gt;. Лучше не использовать &lt;em&gt;raw&lt;/em&gt; модуль когда возможно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="script"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;&lt;strong&gt;Командный модуль script&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Этот модуль используется для копирования скрипта на удаленную машину и исполнения его.
+Модуль поддерживает параметры &lt;em&gt;creates&lt;/em&gt; и &lt;em&gt;removes&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Для примера, напишем скрипт для просмотра количества директорий в &lt;em&gt;/etc&lt;/em&gt; и запустим
+его на удаленных серверах (~/ansible/playbooks/scripts/&lt;strong&gt;list_number_of_directories.sh&lt;/strong&gt;)&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+#/bin/bash
+ls -l /etc | egrep '^d' | wc -l
+&lt;/pre&gt;
+&lt;p&gt;Задача, использующая модуль script выглядит так:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: List directories in /etc
+    script: ~/ansible/playbooks/scripts/list_number_of_directories.sh /etc
+    sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;Путь к файлу скрипта задается относительно месторасположения файла, использующего
+модуль &lt;em&gt;script&lt;/em&gt;. Например, если данная задача описана в файле задачи,
+импортированном в &lt;em&gt;playbook&lt;/em&gt;, расположение скрипта задается относительно файла
+задачи, а не &lt;em&gt;playbook&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="shell"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;&lt;strong&gt;Командный модуль shell&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Ключевое отличие модуля &lt;em&gt;shell&lt;/em&gt; от модуля &lt;em&gt;command&lt;/em&gt; в том, что он использует
+&lt;strong&gt;/bin/sh&lt;/strong&gt; по умолчанию для запуска команд. Вы можете использовать переменные
+оболочки и другие функции оболочки.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="file"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;&lt;strong&gt;Файловый модуль file&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Модуль &lt;em&gt;file&lt;/em&gt; позволяет вам изменять атрибуты файла. Можно создать файл, создать
+или удалить директории рекурсивно, создать или удалить символическую ссылку.&lt;/p&gt;
+&lt;p&gt;Проверим, что httpd.conf имеет правильные права владельца:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Ensure httpd conf has right permissions and owner/group
+    file: path=/etc/httpd/conf/httpd.conf owner=root group=root mode=0644
+    sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;Так как скрипты &lt;strong&gt;Ansible&lt;/strong&gt; позволяют достичь нужного состояния и при перезапуске
+скриптов - повторный запуск позволит убедиться и поправить при необходимости права
+на доступ к файлам.&lt;/p&gt;
+&lt;p&gt;Как создаются &lt;em&gt;симлинки&lt;/em&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Create a symlink in /tmp for httpd.conf
+    file: src=/etc/httpd/conf/httpd.conf dest=/tmp/httpd.conf owner=root group=root state=link
+    sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;Создание директории рекурсивно:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Create recursive directories
+    file: path=/tmp/dir1/dir2/dir3 owner=root group=root mode=0777
+    sudo: yes
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="copy"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;&lt;strong&gt;Файловый модуль copy&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;С помощью модуля &lt;em&gt;copy&lt;/em&gt; можно копировать файлы на сервер.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Copy file remotely
+    copy: src=test2.conf dest=/etc/test2.conf owner=root group=root mode=0644
+    sudo: yes
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="git"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;&lt;strong&gt;Модуль системы управления версиями git&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;В &lt;strong&gt;Ansible&lt;/strong&gt; есть поддержка различных систем управления версиями (&lt;em&gt;svn&lt;/em&gt;, &lt;em&gt;bzr&lt;/em&gt;,
+&lt;em&gt;hg&lt;/em&gt; и другие), но рассмотрим &lt;em&gt;git&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;Установка &lt;em&gt;git&lt;/em&gt; на сервер:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- yum: name=git state=installed
+  sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;Получим репозиторий со скриптами из этих статей:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+- name: Checkout ansible–playground repository
+    git: repo=https://github.com/trukhinyuri/ansible-playground.git dest=~/checkout
+    sudo: yes
+&lt;/pre&gt;
+&lt;p&gt;До и после выполнения задачи считается &lt;em&gt;SHA&lt;/em&gt;, который позволяет понять, был ли
+репозиторий обновлен.&lt;/p&gt;
+&lt;p&gt;Если получаете файлы по &lt;em&gt;SSH&lt;/em&gt; - используйте параметры &lt;strong&gt;accept_key&lt;/strong&gt; и &lt;strong&gt;key_file&lt;/strong&gt;
+для установки ключа для доступа к репозиторию. Если нужно использовать ключ
+&lt;em&gt;accept_key=yes&lt;/em&gt;, &lt;em&gt;key_file&lt;/em&gt; - указывает на путь к ключу. Если ключ находится в
+&lt;em&gt;~/.ssh&lt;/em&gt; - указывать &lt;em&gt;key_file&lt;/em&gt; не нужно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;&lt;strong&gt;Роли&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ролью называется типовой набор переменных и задач, назначаемых для одного или
+нескольких серверов. Если вам нужно применить к серверу или группе серверов
+типовой набор операций, вам достаточно просто назначить ему роль. Предварительно
+в проекте каталоге проекта должна быть создана соответствующая структура. В
+сценариях роли назначаются следующим образом:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: webservers
+    roles:
+     - common
+     - web
+     – db
+&lt;/pre&gt;
+&lt;p&gt;Файловая структура ролей будет выглядеть, примерно вот так:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+site.yml
+webservers.yml
+roles/
+common/
+ files/
+ templates/
+ tasks/
+ handlers/
+ vars/
+ defaults/
+ meta/
+web/
+ files/
+ templates/
+ tasks/
+ handlers/
+ vars/
+ defaults/
+ meta/
+db/
+ files/
+ templates/
+ tasks/
+ handlers/
+ vars/
+ defaults/
+ meta/
+&lt;/pre&gt;
+&lt;p&gt;Если какой-то директории в роли нет - она будет проигнорирована и &lt;em&gt;playbook&lt;/em&gt; будет
+исполняться. Совсем не обязательно у вас должны быть все элементы и директории &lt;em&gt;playbook&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Правила, используемые для каждой роли:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Если &lt;strong&gt;roles/x/tasks/main.yml&lt;/strong&gt; существует, задачи будут добавлены в процесс исполнения &lt;em&gt;playbook&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Если &lt;strong&gt;roles/x/handlers/main.yml&lt;/strong&gt; существует, обработчики событий будут добавлены в процесс исполнения &lt;em&gt;playbook&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Если &lt;strong&gt;roles/x/vars/main.yml&lt;/strong&gt; существует, переменные будут добавлены в процесс исполнения &lt;em&gt;playbook&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Если &lt;strong&gt;roles/x/meta/mail.yml&lt;/strong&gt; существует, любые роли-зависимости будут добавлены в список ролей. (В meta можно указывать список ролей, которые должны быть применены до конкретной роли, чтобы она применилась корректно).&lt;/li&gt;
+&lt;li&gt;Любая задача копирования может ссылаться на файл в &lt;strong&gt;roles/x/files&lt;/strong&gt; без указания абсолютного или относительного пути.&lt;/li&gt;
+&lt;li&gt;Любая скриптовая задача может ссылаться на скрипты в &lt;strong&gt;roles/x/files&lt;/strong&gt; без указания абсолютного или относительного пути.&lt;/li&gt;
+&lt;li&gt;Любая задача шаблонизации может ссылаться на &lt;strong&gt;roles/x/templates&lt;/strong&gt; без указания абсолютного или относительного пути.&lt;/li&gt;
+&lt;li&gt;Любые импортируемые задачи могут ссылаться на файлы задач в директории &lt;strong&gt;roles/x/tasks&lt;/strong&gt; без указания абсолютного или относительного пути.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В конфигурационном файле &lt;strong&gt;Аnsible&lt;/strong&gt; можно задать &lt;strong&gt;roles_path&lt;/strong&gt; (директорию с ролями).
+Это может пригодиться, если у вас &lt;em&gt;playbook&lt;/em&gt; лежат в одном репозитории, а сами роли в другом.
+Можно задавать сразу несколько путей к ролям через двоеточие:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+roles_path = /opt/mysite/roles:/opt/othersite/roles
+&lt;/pre&gt;
+&lt;p&gt;В роли можно передавать переменные или использовать условия:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: experiments
+    roles:
+        – common
+        – {role: web, dir: '/var/www', port: 80}
+        – {role: repository, when: &amp;quot;ansible_os_family =='RedHat'&amp;quot;}
+&lt;/pre&gt;
+&lt;p&gt;С помощью тегов можно запускать помеченные части &lt;em&gt;playbook&lt;/em&gt;.
+Использование тэгов выглядит так:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+tasks:
+    - apt: name={{ item }} state=installed
+      with_items:
+         - httpd
+         - htop
+      tags:
+         - packages
+
+    - template: src=templates/src.j2 dest=/var/www/.htaccess
+      tags:
+         - configuration
+&lt;/pre&gt;
+&lt;p&gt;Можно запустить часть &lt;em&gt;playbook&lt;/em&gt; так:
+&lt;strong&gt;ansible-playbook example.yml --tags «configuration,packages»&lt;/strong&gt; или пропустить исполнение части так:
+&lt;strong&gt;ansible-playbook example.yml --skip-tags «notification»&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Тэги можно использовать и при указании ролей:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: experiments
+    roles:
+    - { role: web, tags: [&amp;quot;apache&amp;quot;, &amp;quot;simple&amp;quot;] }
+&lt;/pre&gt;
+&lt;p&gt;Можно указать, какие задачи должны выполниться до роли и после:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+- hosts: experiments
+    pre_tasks:
+        - shell: echo 'hello, habr'
+    roles:
+        - { role: web }
+    tasks:
+        - shell: echo 'still busy'
+    post_tasks:
+        - shell: echo 'goodbye, habr'
+&lt;/pre&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;Зависимости ролей&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Зависимости ролей позволяют автоматически исполнить зависимые роли при запуске
+конкретных ролей, у которых зависимости есть. Зависимости хранятся в &lt;em&gt;roles/x/meta/main.yml&lt;/em&gt;.
+Вместе с зависимыми ролями могут быть переданы параметры. Путь к ролям может быть
+указан как в сокращенном виде, так и в полном. Также может быть использован
+репозиторий системы управления версиями.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+---
+dependencies:
+    - { role: common, some_parameter: 3 }
+    - { role: '/path/to/common/roles/foo', x: 1 }
+    - { role: 'git+http://git.example.com/repos/role-foo,v1.1,foo' }
+&lt;/pre&gt;
+&lt;p&gt;Если в зависимостях указана одна и та же роль несколько раз - она запустится только
+однажды. Если нужно несколько раз, можно в файле зависимостей попросить об этом явно.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Официальная документация по &lt;a class="reference external" href="http://docs.ansible.com/ansible/index.html"&gt;Ansible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252239/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 4: работаем с модулями&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252461/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 2</title><link href="https://kutsevol.github.io/2017/02/20/ansible_cont" rel="alternate"></link><published>2017-02-20T00:00:00+02:00</published><updated>2017-02-21T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-20:/2017/02/20/ansible_cont</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-2.jpg" style="width: 600.0px; height: 281.25px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -57,7 +383,9 @@
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
 задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
-также рассмотрели примеры простых задач, которые можно решать с помощью него.&lt;/p&gt;
+также рассмотрели примеры простых задач, которые можно решать с помощью него.
+В этой части рассмотрим как управлять конфигурациями, как написать &lt;em&gt;playbook&lt;/em&gt; и
+все что с ними связано (шаблоны, циклы, дебаг и т.д.)&lt;/p&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;&lt;strong&gt;Управление конфигурациями&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="playbooks"&gt;
@@ -220,7 +548,8 @@ with_items:
     remote_user: root
     tasks:
     - name: give users access to multiple databases
-        mysql_user: name={{ item[0] }} priv={{ item[1]}}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+        mysql_user: name={{ item[0] }} priv={{ item[1] }}.*:ALL
+        append_privs=yes password=pass login_user=root login_password=root
     with_nested:
     - ['alexey', 'alexander']
     - ['clientdb', 'providerdb']
@@ -251,7 +580,8 @@ with_items:
           - providerdb
   tasks:
     – name: give users access to multiple databases
-    mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL append_privs=yes password=pass login_user=root login_password=root
+    mysql_user: name={{ item.0.name }} priv={{ item.1 }}.*:ALL
+    append_privs=yes password=pass login_user=root login_password=root
     with_subelements:
     - users
     - database
@@ -368,7 +698,8 @@ tasks:
     when: backup
 &lt;/pre&gt;
 &lt;p&gt;Ansible позволяет в условии использовать информацию о том, была ли уже определена
-переменная. Для этого используйте &lt;em&gt;when&lt;/em&gt;: &lt;em&gt;var is not define&lt;/em&gt; (где &lt;em&gt;var&lt;/em&gt; — имя переменной, &lt;em&gt;is not define&lt;/em&gt; – еще не была определена, &lt;em&gt;is defined&lt;/em&gt; – уже была определена).&lt;/p&gt;
+переменная. Для этого используйте &lt;em&gt;when&lt;/em&gt;: &lt;em&gt;var is not define&lt;/em&gt; (где
+&lt;em&gt;var&lt;/em&gt; — имя переменной, &lt;em&gt;is not define&lt;/em&gt; – еще не была определена, &lt;em&gt;is defined&lt;/em&gt; – уже была определена).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;&lt;strong&gt;Делегирование задачи другому хосту&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
@@ -523,6 +854,7 @@ mkdir ~/ansible/playbooks/tasks
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/195048/"&gt;Администрирование Ansible&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/249143/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 1: Введение&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/250115/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 2: вывод, отладка, и повторное использование playbook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252461/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 1</title><link href="https://kutsevol.github.io/2017/02/10/ansible_intro" rel="alternate"></link><published>2017-02-10T00:00:00+02:00</published><updated>2017-02-20T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-10:/2017/02/10/ansible_intro</id><summary type="html">&lt;div class="figure align-center"&gt;

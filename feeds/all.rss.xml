@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>IT Blog</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Tue, 21 Feb 2017 00:00:00 +0200</lastBuildDate><item><title>Ansible Introduction. Part 2</title><link>https://kutsevol.github.io/2017/02/20/ansible_cont</link><description>&lt;div class="figure align-center"&gt;
+<rss version="2.0"><channel><title>IT Blog</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Thu, 02 Mar 2017 00:00:00 +0200</lastBuildDate><item><title>Ansible Introduction. Part 3</title><link>https://kutsevol.github.io/2017/03/02/ansible_end</link><description>&lt;div class="figure align-center"&gt;
+&lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id9"&gt;&lt;strong&gt;Модули&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#command" id="id10"&gt;&lt;strong&gt;Командный модуль command&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#raw" id="id11"&gt;&lt;strong&gt;Командный модуль raw&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#script" id="id12"&gt;&lt;strong&gt;Командный модуль script&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#shell" id="id13"&gt;&lt;strong&gt;Командный модуль shell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#file" id="id14"&gt;&lt;strong&gt;Файловый модуль file&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#copy" id="id15"&gt;&lt;strong&gt;Файловый модуль copy&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#git" id="id16"&gt;&lt;strong&gt;Модуль системы управления версиями git&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id17"&gt;&lt;strong&gt;Роли&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id18"&gt;&lt;strong&gt;Зависимости ролей&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id19"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/20/ansible_cont"&gt;предыдущей статье&lt;/a&gt; рассмотрели как управлять
+конфигурациями и как писать &lt;em&gt;playbook&lt;/em&gt;. В этой (последней) части рассмотрим модули
+и как их …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Thu, 02 Mar 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-03-02:/2017/03/02/ansible_end</guid><category>ansible</category><category>python</category><category>linux</category></item><item><title>Ansible Introduction. Part 2</title><link>https://kutsevol.github.io/2017/02/20/ansible_cont</link><description>&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-2.jpg" style="width: 600.0px; height: 281.25px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
