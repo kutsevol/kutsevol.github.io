@@ -858,7 +858,7 @@ mkdir ~/ansible/playbooks/tasks
 &lt;/ul&gt;
 &lt;/div&gt;
 </content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 1</title><link href="https://kutsevol.github.io/2017/02/10/ansible_intro" rel="alternate"></link><published>2017-02-10T00:00:00+02:00</published><updated>2017-02-20T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-10:/2017/02/10/ansible_intro</id><summary type="html">&lt;div class="figure align-center"&gt;
-&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
+&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.2px; height: 242.45px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
@@ -890,7 +890,7 @@ mkdir ~/ansible/playbooks/tasks
 &lt;div class="section" id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Ansible&lt;/strong&gt; - система управления конфигурациями, написанная на Python, с …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
-&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
+&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.2px; height: 242.45px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;

@@ -55,7 +55,7 @@
 &lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
 задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
 также рассмотрели примеры …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 20 Feb 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-02-20:/2017/02/20/ansible_cont</guid><category>ansible</category><category>python</category><category>linux</category></item><item><title>Ansible Introduction. Part 1</title><link>https://kutsevol.github.io/2017/02/10/ansible_intro</link><description>&lt;div class="figure align-center"&gt;
-&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.20000000000005px; height: 242.45000000000002px;" /&gt;
+&lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.2px; height: 242.45px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
