@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>IT Blog - Artur K.</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Thu, 02 Mar 2017 00:00:00 +0200</lastBuildDate><item><title>Ansible Introduction. Part 3</title><link>https://kutsevol.github.io/2017/03/02/ansible_end</link><description>&lt;div class="figure align-center"&gt;
+<rss version="2.0"><channel><title>IT Blog - Artur K.</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Sat, 08 Apr 2017 00:00:00 +0300</lastBuildDate><item><title>Pyenv. Python manager version</title><link>https://kutsevol.github.io/2017/04/07/pyenv</link><description>&lt;div class="figure align-left"&gt;
+&lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; lets you easily switch between multiple versions of Python. It's simple,
+unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.&lt;/p&gt;
+&lt;p&gt;Сегодня речь пойдет о таком инструменте, как - &lt;a class="reference external" href="https://github.com/pyenv/pyenv"&gt;Pyenv&lt;/a&gt;.
+Данный скрипт удобный менеджер версий для языка &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; можно установить либо вручную, либо используя &lt;a class="reference external" href="https://github.com/pyenv/pyenv-installer"&gt;автоматический …&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Fri, 07 Apr 2017 00:00:00 +0300</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-04-07:/2017/04/07/pyenv</guid><category>virtualenv</category><category>python</category><category>pyenv</category></item><item><title>Ansible Introduction. Part 3</title><link>https://kutsevol.github.io/2017/03/02/ansible_end</link><description>&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;

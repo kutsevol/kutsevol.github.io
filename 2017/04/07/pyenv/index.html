@@ -10,19 +10,19 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="virtualenv, python, Development, " />
+<meta name="keywords" content="virtualenv, python, pyenv, Development, " />
 
-<meta property="og:title" content="Virtualenv in Python "/>
-<meta property="og:url" content="https://kutsevol.github.io/2017/01/23/virtualenv" />
-<meta property="og:description" content="Официальная документация по Virtualenv Virtualenv - инструмент для создания изолированного окружения Python. Это окружение можно использовать для проверки новых версий ваших программ, новых версий пакетов, которые используются или просто в качестве песочницы для новых пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в случаях, если нет возможности копировать файлы …" />
+<meta property="og:title" content="Pyenv. Python manager version "/>
+<meta property="og:url" content="https://kutsevol.github.io/2017/04/07/pyenv" />
+<meta property="og:description" content="Pyenv lets you easily switch between multiple versions of Python. It&#39;s simple, unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well. Сегодня речь пойдет о таком инструменте, как - Pyenv. Данный скрипт удобный менеджер версий для языка Python. Pyenv можно установить либо вручную, либо используя автоматический …" />
 <meta property="og:site_name" content="IT Blog" />
 <meta property="og:article:author" content="Artur K." />
-<meta property="og:article:published_time" content="2017-01-23T00:00:00+02:00" />
-<meta property="" content="2017-02-14T00:00:00+02:00" />
-<meta name="twitter:title" content="Virtualenv in Python ">
-<meta name="twitter:description" content="Официальная документация по Virtualenv Virtualenv - инструмент для создания изолированного окружения Python. Это окружение можно использовать для проверки новых версий ваших программ, новых версий пакетов, которые используются или просто в качестве песочницы для новых пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в случаях, если нет возможности копировать файлы …">
+<meta property="og:article:published_time" content="2017-04-07T00:00:00+03:00" />
+<meta property="" content="2017-04-08T00:00:00+03:00" />
+<meta name="twitter:title" content="Pyenv. Python manager version ">
+<meta name="twitter:description" content="Pyenv lets you easily switch between multiple versions of Python. It&#39;s simple, unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well. Сегодня речь пойдет о таком инструменте, как - Pyenv. Данный скрипт удобный менеджер версий для языка Python. Pyenv можно установить либо вручную, либо используя автоматический …">
 
-        <title>Virtualenv in Python  · IT Blog
+        <title>Pyenv. Python manager version  · IT Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -64,7 +64,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="https://kutsevol.github.io/2017/01/23/virtualenv"> Virtualenv in Python  </a></h1>
+    <h1><a href="https://kutsevol.github.io/2017/04/07/pyenv"> Pyenv. Python manager version  </a></h1>
     </header>
 </div>
 
@@ -73,97 +73,73 @@
 
             
             <div class="figure align-left">
-<img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" />
+<img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" />
 </div>
-<p>Официальная документация по <a class="reference external" href="https://virtualenv.pypa.io/en/stable/">Virtualenv</a></p>
-<p><strong>Virtualenv</strong> - инструмент для создания изолированного окружения Python. Это
-окружение можно использовать для проверки новых версий ваших программ, новых
-версий пакетов, которые используются или просто в качестве песочницы для новых
-пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
-случаях, если нет возможности копировать файлы в site-packages по какой-либо
-причине.</p>
-<p><strong>Virtualenv</strong> решает ряд проблем:</p>
-<ul class="simple">
-<li>Создание новой изолированной среды для проекта Python;</li>
-<li>Возможность загрузки пакетов без привилегий  admin/sudo;</li>
-<li>Простая и быстрая упаковка приложения;</li>
-<li>Создание списка зависимостей одного проекта (с помощью pip);</li>
-<li>Быстрое восстановление зависимостей с помощью файла требований (с помощью pip);</li>
-<li>Портативность между системами.</li>
-</ul>
-<div class="section" id="id1">
-<h2>Установка</h2>
-<p>Предварительно необходимо установить <em>pip</em> и <em>setuptools</em>.</p>
-<p>Для <strong>python 3</strong>:</p>
+<p><strong>Pyenv</strong> lets you easily switch between multiple versions of Python. It's simple,
+unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.</p>
+<p>Сегодня речь пойдет о таком инструменте, как - <a class="reference external" href="https://github.com/pyenv/pyenv">Pyenv</a>.
+Данный скрипт удобный менеджер версий для языка <strong>Python</strong>.</p>
+<p><strong>Pyenv</strong> можно установить либо вручную, либо используя <a class="reference external" href="https://github.com/pyenv/pyenv-installer">автоматический скрипт</a> от
+того же автора.</p>
+<p>Рассмотрим автоматическую установку.</p>
 <pre class="code literal-block">
-sudo aptitude install python3-pip python3-setuptools
+curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 </pre>
-<p>Для <strong>python 2</strong>:</p>
+<p>После этого появится сообщение о том, что необходимо добавить следующие строки
+кода в <em>.profile</em> / <em>.bash_profile</em> / <em>.bashrc</em> для того, чтобы автоматически обнаруживать <strong>Pyenv</strong>.</p>
 <pre class="code literal-block">
-sudo aptitude install python-pip python-setuptools
+export PATH=&quot;$HOME/.pyenv/bin:$PATH&quot;
+eval &quot;$(pyenv init -)&quot;
+eval &quot;$(pyenv virtualenv-init -)&quot;
 </pre>
-<p>Далее отличия будут только в pip. Для <strong>python 3</strong> - <em>pip3</em>, для <strong>python 2</strong> - <em>pip</em>.
-Далее рассмотрим на примере <em>pip3</em>.</p>
-<p>Установка <em>virtualenv</em>:</p>
-<pre class="code bash literal-block">
-sudo pip3 install virtualenv
-</pre>
-<p>Для большего комфорта работы с <em>virtualenv</em> создано расширение, которое делает все
-манипуляции с окруженем еще проще. Установка <em>virtualenvwrapper</em>:</p>
+<p>Перед тем как устанавливать определенную версию <strong>Python</strong>, необходимо
+предварительно установить все зависимости:</p>
 <pre class="code literal-block">
-sudo pip3 install virtualenvwrapper
+sudo apt-get install build-essential python-dev libreadline-dev
+libbz2-dev libssl-dev libsqlite3-dev libxslt1-dev libxml2-dev git
 </pre>
-<p>В <em>~/.bashrc</em> дописываем:</p>
+<p>Для того, чтобы установить определенную версию <strong>Python</strong> необходимо выполнить
+следующие команды:</p>
 <pre class="code literal-block">
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+pyenv install 2.7.11
 </pre>
-<p>Создаем новое окружение:</p>
+<p>Для просмотра всех установленных версий <strong>Python</strong> необходимо:</p>
 <pre class="code literal-block">
-mkvirtualenv env-name
+pyenv versions
 </pre>
-<p>Просмотреть список окружений:</p>
+<p>Чтобы переключиться на версию:</p>
 <pre class="code literal-block">
-workon
+pyenv local 2.7.11
 </pre>
-<p>Поменять окружение:</p>
+<p>Создаем отдельное виртуальное окружение <strong>Python</strong> 2.7.11 и переключаемся на него:</p>
 <pre class="code literal-block">
-workon env-name
+pyenv virtualenv 2.7.11 virtual_env_name
+
+Активировать виртуальное окружение (необходимо выполнять в директории проекта
+для которого создано виртуальное окружение):
+pyenv local virtual_env_name
 </pre>
-<p>Выход из окружения:</p>
+<p>После выполнения команды <em>python local</em> в директории, где была выполнена команда - создается файл
+<em>.python-version</em>. Используется для &quot;трекинга&quot; версий <strong>Python</strong>.</p>
+<p>Список команд <strong>pyenv</strong> можно увидеть следующим образом:</p>
 <pre class="code literal-block">
-deactivate
+pyenv commands
 </pre>
-<p>Удалить окружение:</p>
+<p>Мануал по каждой команде:</p>
 <pre class="code literal-block">
-rmvirtualenv env-name
-</pre>
-<p>Находясь в одном из окружений, можно ставить пакеты через pip, как обычно.
-Для примера выбран пакет - <em>flask</em>:</p>
-<pre class="code literal-block">
-pip3 install flask
-</pre>
-<p><em>Requirements.txt</em> - файл с описанием зависимостей, позволяет установить все
-необходимые зависимости за один раз вот таким образом:</p>
-<pre class="code literal-block">
-pip3 install -r requirements.txt
-</pre>
-<p>Создать такой файл можно следующим образом:</p>
-<pre class="code literal-block">
-pip3 freeze &gt; requirements.txt
+pyenv local --help
 </pre>
 <p>Список источников:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://eax.me/python-virtualenv/">Памятка по virtualenv и изолированным проектам на Python</a></li>
-<li><a class="reference external" href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/">Python и окружение virtualenv</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/post/203516/">Менеджер версий Python</a></li>
+<li><a class="reference external" href="https://khashtamov.com/2015/12/pyenv-python/">Pyenv: удобный менеджер версий Python</a></li>
 </ul>
-</div>
 
 
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="next-article"><a href="https://kutsevol.github.io/2017/02/09/alias" title="Next: Alias">Alias</a> »</li>
+                <li class="previous-article">« <a href="https://kutsevol.github.io/2017/03/02/ansible_end" title="Previous: Ansible Introduction. Part 3">Ansible Introduction. Part 3</a></li>
             </ul>
             </nav>
             </aside>
@@ -172,9 +148,9 @@ pip3 freeze &gt; requirements.txt
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                 var disqus_shortname = 'ericcarmichaelsnerdery';
-                var disqus_identifier = '2017/01/23/virtualenv';
-                var disqus_title = 'Virtualenv in Python';
-                var disqus_url = 'https://kutsevol.github.io/2017/01/23/virtualenv';
+                var disqus_identifier = '2017/04/07/pyenv';
+                var disqus_title = 'Pyenv. Python manager version';
+                var disqus_url = 'https://kutsevol.github.io/2017/04/07/pyenv';
 
                 (function() {
                     var dsq = document.createElement('script');
@@ -195,15 +171,18 @@ pip3 freeze &gt; requirements.txt
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2017-01-23T00:00:00+02:00">Jan 23, 2017</time>
+            <time pubdate="pubdate" datetime="2017-04-07T00:00:00+03:00">Apr 7, 2017</time>
 
 <h4>Last Updated</h4>
-<time datetime="2017-02-14T00:00:00+02:00">Feb 14, 2017</time>
+<time datetime="2017-04-08T00:00:00+03:00">Apr 8, 2017</time>
 
             <h4>Category</h4>
             <a class="category-link" href="https://kutsevol.github.io/categories.html#development-ref">Development</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
+                <li><a href="https://kutsevol.github.io/tags.html#pyenv-ref">pyenv
+                    <span>1</span>
+</a></li>
                 <li><a href="https://kutsevol.github.io/tags.html#python-ref">python
                     <span>5</span>
 </a></li>

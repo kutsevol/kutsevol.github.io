@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-03-02T00:00:00+02:00</updated><entry><title>Ansible Introduction. Part 3</title><link href="https://kutsevol.github.io/2017/03/02/ansible_end" rel="alternate"></link><published>2017-03-02T00:00:00+02:00</published><updated>2017-03-02T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-03-02:/2017/03/02/ansible_end</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-04-08T00:00:00+03:00</updated><entry><title>Pyenv. Python manager version</title><link href="https://kutsevol.github.io/2017/04/07/pyenv" rel="alternate"></link><published>2017-04-07T00:00:00+03:00</published><updated>2017-04-08T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-04-07:/2017/04/07/pyenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+&lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; lets you easily switch between multiple versions of Python. It's simple,
+unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.&lt;/p&gt;
+&lt;p&gt;Сегодня речь пойдет о таком инструменте, как - &lt;a class="reference external" href="https://github.com/pyenv/pyenv"&gt;Pyenv&lt;/a&gt;.
+Данный скрипт удобный менеджер версий для языка &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; можно установить либо вручную, либо используя &lt;a class="reference external" href="https://github.com/pyenv/pyenv-installer"&gt;автоматический …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
+&lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; lets you easily switch between multiple versions of Python. It's simple,
+unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.&lt;/p&gt;
+&lt;p&gt;Сегодня речь пойдет о таком инструменте, как - &lt;a class="reference external" href="https://github.com/pyenv/pyenv"&gt;Pyenv&lt;/a&gt;.
+Данный скрипт удобный менеджер версий для языка &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; можно установить либо вручную, либо используя &lt;a class="reference external" href="https://github.com/pyenv/pyenv-installer"&gt;автоматический скрипт&lt;/a&gt; от
+того же автора.&lt;/p&gt;
+&lt;p&gt;Рассмотрим автоматическую установку.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+&lt;/pre&gt;
+&lt;p&gt;После этого появится сообщение о том, что необходимо добавить следующие строки
+кода в &lt;em&gt;.profile&lt;/em&gt; / &lt;em&gt;.bash_profile&lt;/em&gt; / &lt;em&gt;.bashrc&lt;/em&gt; для того, чтобы автоматически обнаруживать &lt;strong&gt;Pyenv&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+export PATH=&amp;quot;$HOME/.pyenv/bin:$PATH&amp;quot;
+eval &amp;quot;$(pyenv init -)&amp;quot;
+eval &amp;quot;$(pyenv virtualenv-init -)&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;Перед тем как устанавливать определенную версию &lt;strong&gt;Python&lt;/strong&gt;, необходимо
+предварительно установить все зависимости:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+sudo apt-get install build-essential python-dev libreadline-dev
+libbz2-dev libssl-dev libsqlite3-dev libxslt1-dev libxml2-dev git
+&lt;/pre&gt;
+&lt;p&gt;Для того, чтобы установить определенную версию &lt;strong&gt;Python&lt;/strong&gt; необходимо выполнить
+следующие команды:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pyenv install 2.7.11
+&lt;/pre&gt;
+&lt;p&gt;Для просмотра всех установленных версий &lt;strong&gt;Python&lt;/strong&gt; необходимо:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pyenv versions
+&lt;/pre&gt;
+&lt;p&gt;Чтобы переключиться на версию:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pyenv local 2.7.11
+&lt;/pre&gt;
+&lt;p&gt;Создаем отдельное виртуальное окружение &lt;strong&gt;Python&lt;/strong&gt; 2.7.11 и переключаемся на него:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pyenv virtualenv 2.7.11 virtual_env_name
+
+Активировать виртуальное окружение (необходимо выполнять в директории проекта
+для которого создано виртуальное окружение):
+pyenv local virtual_env_name
+&lt;/pre&gt;
+&lt;p&gt;После выполнения команды &lt;em&gt;python local&lt;/em&gt; в директории, где была выполнена команда - создается файл
+&lt;em&gt;.python-version&lt;/em&gt;. Используется для &amp;quot;трекинга&amp;quot; версий &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Список команд &lt;strong&gt;pyenv&lt;/strong&gt; можно увидеть следующим образом:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pyenv commands
+&lt;/pre&gt;
+&lt;p&gt;Мануал по каждой команде:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pyenv local --help
+&lt;/pre&gt;
+&lt;p&gt;Список источников:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/203516/"&gt;Менеджер версий Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://khashtamov.com/2015/12/pyenv-python/"&gt;Pyenv: удобный менеджер версий Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content><category term="virtualenv"></category><category term="python"></category><category term="pyenv"></category></entry><entry><title>Ansible Introduction. Part 3</title><link href="https://kutsevol.github.io/2017/03/02/ansible_end" rel="alternate"></link><published>2017-03-02T00:00:00+02:00</published><updated>2017-03-02T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-03-02:/2017/03/02/ansible_end</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
