@@ -1,13 +1,24 @@
 :title: Jenkins
-:date: 2017-04-04
-:modified: 2017-04-04
+:date: 2017-04-08
+:modified: 2017-04-08
 :author: Artur K.
 :category: Development
 :tags: linux
 :slug: jenkins
 :status: draft
 
-Официальный сайт - https://jenkins.io/index.html
+.. figure:: /images/jenkins-logo.png
+    :height: 411px
+    :width: 676px
+    :scale: 65%
+    :align: center
+    :alt: Jenkins
+
+.. contents:: **Содержание**
+   :depth: 3
+
+Статья писалась для версии **Jenkins 2.53** для более ранних версий, некоторые
+шаги установки и настройки могут отличаться.
 
 ===================
 **Обзор платформы**
@@ -25,27 +36,107 @@
 =====================
 
 Прежде чем приступить к установке **Jenkins**, нужно добавить ключ и список
-исходных кодов. Итак, добавьте ключ:
+исходных кодов. Все команды выполняются под root-пользователем.
+
+.. code::
+
+    sudo su
+
+Итак, добавляем ключ:
 
 .. code::
 
     wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 
-А затем создайте список исходных кодов для Jenkins:
+А затем создайте список исходных кодов для **Jenkins**:
 
 .. code::
 
     echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
 
-Теперь нужно просто обновить кэш apt, а затем перейти к установке Jenkins.
+Теперь нужно просто обновить кэш *apt*, а затем перейти к установке **Jenkins**.
 
 .. code::
 
     apt-get update
 
-Обратите внимание: Jenkins имеет большой список зависимостей, установка которых
+Обратите внимание: **Jenkins** имеет большой список зависимостей, установка которых
 может занять некоторое время.
 
 .. code::
 
     apt-get install jenkins
+
+После установки система автоматически запустит сервис **Jenkins**. Проверить статус
+можно следующей командой:
+
+.. code::
+
+    service jenkins status
+
+.. figure:: /images/jenkins-status.png
+    :height: 81px
+    :width: 694px
+    :scale: 120%
+    :align: center
+    :alt: Jenkins
+
+Как видим, сервис запущен и находиться в активном статусе. Если сервис неактивен,
+то необходимо проверить, свободен ли порт 8080 и хватает оперативной памяти
+(**Jenkins** требует от 256MB до 1GB).
+
+=====================
+**Настройка Jenkins**
+=====================
+
+Управление **Jenkins** осуществляется через веб-интерфейс, по умолчанию
+доступный на порту 8080:
+
+Открываем в браузере страницу *http://[IP-адрес сервера]:8080*:
+
+.. figure:: /images/jenkins-started.png
+    :height: 393px
+    :width: 934px
+    :scale: 80%
+    :align: center
+    :alt: Getting started
+
+Если интерфейс не появился, то необходимо открыть порт 8080 и проверить статус
+работы сервиса **Jenkins**.
+
+Для продолжения настройки нам потребуется ввести пароль администратора, который
+хранится в файл */var/lib/jenkins/secrets/initialAdminPassword*.
+
+Открываем файл любым удобным способом и копируем пароль. Скопированный пароль
+вставляем в поле ввода и нажимаем "Продолжить".
+
+На следующем шаге нам необходимо выбрать режим установки плагинов, которые будут
+установленные вместе с **Jenkins**. Выбираем *Install suggested plugins*.
+
+.. figure:: /images/jenkins-plugins.png
+    :height: 377px
+    :width: 762px
+    :scale: 80%
+    :align: center
+    :alt: Customize Jenkins
+
+После установки всех плагинов создаем профиль администратора.
+
+.. figure:: /images/jenkins-create-admin-user.png
+    :height: 294px
+    :width: 568px
+    :scale: 80%
+    :align: center
+    :alt: Create First Admin User
+
+Имя пользователя и пароль запоминаем для дальнейшей работы.
+Нажимаем "Продолжить". На экране появится сообщение, свидетельствующее о готовности
+**Jenkins** к работе. На этом основная настройка закончена. Нажимаем на кнопку
+“Start using Jenkins” и переходим в рабочую панель **Jenkins**.
+
+=====================
+**Список источников**
+=====================
+
+- `Официальный сайт Jenkins <https://jenkins.io/index.html>`_!
+- `Как установить Jenkins и настроить автоматическую сборку maven-проекта на Ubuntu 16.04 <https://community.vscale.io/hc/ru/community/posts/208799669-%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-Jenkins-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D1%83-maven-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0-%D0%BD%D0%B0-Ubuntu-16-04>`_
