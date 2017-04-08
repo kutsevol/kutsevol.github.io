@@ -13,7 +13,7 @@
 <meta name="keywords" content="ansible, python, linux, Administration, " />
 
 <meta property="og:title" content="Ansible Introduction. Part 2 "/>
-<meta property="og:url" content="https://kutsevol.github.io/2017/02/20/ansible_cont" />
+<meta property="og:url" content="http://localhost:8000/2017/02/20/ansible_cont" />
 <meta property="og:description" content="Содержание Управление конфигурациями Playbooks YAML Написание playbooks Шаблонизация Стандартные циклы Вложенные циклы Циклы по подэлементам Обработчик событий (Handlers) Контроль выполнения Делегирование задачи другому хосту Отладка Повторное использование playbook Список источников В предыдущей статье рассмотрели основные задачи и принципы работы, как работает Ansible его установка и настройка, а также рассмотрели примеры …" />
 <meta property="og:site_name" content="IT Blog" />
 <meta property="og:article:author" content="Artur K." />
@@ -26,12 +26,12 @@
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/pygments.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/elegant.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/custom.css" media="screen">
-        <link href="https://kutsevol.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="IT Blog - Full Atom Feed" />
-        <link href="https://kutsevol.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="IT Blog - Full RSS Feed" />
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/css/custom.css" media="screen">
+        <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="IT Blog - Full Atom Feed" />
+        <link href="http://localhost:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="IT Blog - Full RSS Feed" />
     </head>
     <body>
         <div id="content-sans-footer">
@@ -43,15 +43,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="https://kutsevol.github.io/"><span class=site-name>IT Blog</span></a>
+                    <a class="brand" href="http://localhost:8000/"><span class=site-name>IT Blog</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
-                            <li ><a href="https://kutsevol.github.io">Home</a></li>
-                            <li ><a href="https://kutsevol.github.io/about/">About</a></li>
-                            <li ><a href="https://kutsevol.github.io/categories.html">Categories</a></li>
-                            <li ><a href="https://kutsevol.github.io/tags.html">Tags</a></li>
-                            <li ><a href="https://kutsevol.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="https://kutsevol.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            <li ><a href="http://localhost:8000">Home</a></li>
+                            <li ><a href="http://localhost:8000/about/">About</a></li>
+                            <li ><a href="http://localhost:8000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:8000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:8000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:8000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="https://kutsevol.github.io/2017/02/20/ansible_cont"> Ansible Introduction. Part 2  </a></h1>
+    <h1><a href="http://localhost:8000/2017/02/20/ansible_cont"> Ansible Introduction. Part 2  </a></h1>
     </header>
 </div>
 
@@ -99,7 +99,7 @@
 </ul>
 </div>
 <hr class="docutils" />
-<p>В <a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro">предыдущей статье</a> рассмотрели основные
+<p>В <a class="reference external" href="http://localhost:8000/2017/02/10/ansible_intro">предыдущей статье</a> рассмотрели основные
 задачи и принципы работы, как работает <strong>Ansible</strong> его установка и настройка, а
 также рассмотрели примеры простых задач, которые можно решать с помощью него.
 В этой части рассмотрим как управлять конфигурациями, как написать <em>playbook</em> и
@@ -580,8 +580,8 @@ mkdir ~/ansible/playbooks/tasks
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://kutsevol.github.io/2017/02/10/ansible_intro" title="Previous: Ansible Introduction. Part 1">Ansible Introduction. Part 1</a></li>
-                <li class="next-article"><a href="https://kutsevol.github.io/2017/03/02/ansible_end" title="Next: Ansible Introduction. Part 3">Ansible Introduction. Part 3</a> »</li>
+                <li class="previous-article">« <a href="http://localhost:8000/2017/02/10/ansible_intro" title="Previous: Ansible Introduction. Part 1">Ansible Introduction. Part 1</a></li>
+                <li class="next-article"><a href="http://localhost:8000/2017/03/02/ansible_end" title="Next: Ansible Introduction. Part 3">Ansible Introduction. Part 3</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -592,7 +592,7 @@ mkdir ~/ansible/playbooks/tasks
                 var disqus_shortname = 'ericcarmichaelsnerdery';
                 var disqus_identifier = '2017/02/20/ansible_cont';
                 var disqus_title = 'Ansible Introduction. Part 2';
-                var disqus_url = 'https://kutsevol.github.io/2017/02/20/ansible_cont';
+                var disqus_url = 'http://localhost:8000/2017/02/20/ansible_cont';
 
                 (function() {
                     var dsq = document.createElement('script');
@@ -619,16 +619,16 @@ mkdir ~/ansible/playbooks/tasks
 <time datetime="2017-02-21T00:00:00+02:00">Feb 21, 2017</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="https://kutsevol.github.io/categories.html#administration-ref">Administration</a>
+            <a class="category-link" href="http://localhost:8000/categories.html#administration-ref">Administration</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="https://kutsevol.github.io/tags.html#ansible-ref">ansible
+                <li><a href="http://localhost:8000/tags.html#ansible-ref">ansible
                     <span>3</span>
 </a></li>
-                <li><a href="https://kutsevol.github.io/tags.html#linux-ref">linux
+                <li><a href="http://localhost:8000/tags.html#linux-ref">linux
                     <span>4</span>
 </a></li>
-                <li><a href="https://kutsevol.github.io/tags.html#python-ref">python
+                <li><a href="http://localhost:8000/tags.html#python-ref">python
                     <span>5</span>
 </a></li>
             </ul>
