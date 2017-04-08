@@ -92,7 +92,9 @@ unobtrusive, and follows the UNIX tradition of single-purpose tools that do one 
 
     pyenv local --help
 
-Список источников:
+======================
+**Список источников:**
+======================
 
 - `Менеджер версий Python <https://habrahabr.ru/post/203516/>`_
 - `Pyenv: удобный менеджер версий Python <https://khashtamov.com/2015/12/pyenv-python/>`_
