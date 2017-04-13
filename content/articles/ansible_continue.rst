@@ -532,6 +532,8 @@ dnsserver в Nagios.
     :align: center
     :alt: Ansible run once task
 
+----
+
 ====================================
 **Повторное использование playbook**
 ====================================
@@ -601,6 +603,8 @@ dnsserver в Nagios.
 
             - include: tasks/os_update.yml
             - include: tasks/pkg_nginx_install.yml
+
+----
 
 =====================
 **Список источников**
