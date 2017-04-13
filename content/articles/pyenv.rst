@@ -13,8 +13,7 @@
     :align: left
     :alt: Pyenv
 
-.. contents:: **Содержание**
-   :depth: 3
+----
 
 **Pyenv** lets you easily switch between multiple versions of Python. It's simple,
 unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.
@@ -91,6 +90,8 @@ unobtrusive, and follows the UNIX tradition of single-purpose tools that do one 
 .. code::
 
     pyenv local --help
+
+----
 
 ======================
 **Список источников:**
