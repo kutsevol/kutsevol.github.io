@@ -1,26 +1,313 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/all.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-04-08T00:00:00+03:00</updated><entry><title>Pyenv. Python manager version</title><link href="http://localhost:8000/2017/04/07/pyenv" rel="alternate"></link><published>2017-04-07T00:00:00+03:00</published><updated>2017-04-08T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-04-07:/2017/04/07/pyenv</id><summary type="html">&lt;div class="figure align-left"&gt;
-&lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/all.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-04-12T00:00:00+03:00</updated><entry><title>Jenkins. Основы</title><link href="http://localhost:8000/2017/04/12/jenkins" rel="alternate"></link><published>2017-04-12T00:00:00+03:00</published><updated>2017-04-12T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-04-12:/2017/04/12/jenkins</id><summary type="html">&lt;div class="figure align-center"&gt;
+&lt;img alt="Jenkins" src="/images/jenkins-logo.png" style="width: 439.4px; height: 267.15px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id4"&gt;&lt;strong&gt;Список источников:&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id17"&gt;&lt;strong&gt;Обзор платформы&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#jenkins" id="id18"&gt;&lt;strong&gt;Установка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id19"&gt;&lt;strong&gt;Настройка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id20"&gt;&lt;strong&gt;Установка плагинов&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id21"&gt;&lt;strong&gt;Настройка аутентификации и прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id22"&gt;&lt;strong&gt;Аутентификация через встроенную базу данных Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#bitbucket" id="id23"&gt;&lt;strong&gt;Аутентификация через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id24"&gt;&lt;strong&gt;Настройка прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id25"&gt;&lt;strong&gt;Первый вход или создание пользователя&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id26"&gt;&lt;strong&gt;Вход со встроенной базой пользователей&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id10" id="id27"&gt;&lt;strong&gt;Вход через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#job" id="id28"&gt;&lt;strong&gt;Создание нового проекта (Job)&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id29"&gt;&lt;strong&gt;Запуск проекта по расписанию&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id30"&gt;&lt;strong&gt;Проблемы и их …&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
+&lt;img alt="Jenkins" src="/images/jenkins-logo.png" style="width: 439.4px; height: 267.15px;" /&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="id1"&gt;
+&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id17"&gt;&lt;strong&gt;Обзор платформы&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#jenkins" id="id18"&gt;&lt;strong&gt;Установка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id19"&gt;&lt;strong&gt;Настройка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id20"&gt;&lt;strong&gt;Установка плагинов&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id21"&gt;&lt;strong&gt;Настройка аутентификации и прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id22"&gt;&lt;strong&gt;Аутентификация через встроенную базу данных Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#bitbucket" id="id23"&gt;&lt;strong&gt;Аутентификация через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id24"&gt;&lt;strong&gt;Настройка прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id25"&gt;&lt;strong&gt;Первый вход или создание пользователя&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id26"&gt;&lt;strong&gt;Вход со встроенной базой пользователей&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id10" id="id27"&gt;&lt;strong&gt;Вход через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#job" id="id28"&gt;&lt;strong&gt;Создание нового проекта (Job)&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id29"&gt;&lt;strong&gt;Запуск проекта по расписанию&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id30"&gt;&lt;strong&gt;Проблемы и их решения&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id13" id="id31"&gt;&lt;strong&gt;Изменить порт подключения Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id14" id="id32"&gt;&lt;strong&gt;Возвращение доступа&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id15" id="id33"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;Статья писалась для версии &lt;strong&gt;Jenkins 2.53&lt;/strong&gt; для более ранних версий, некоторые
+шаги установки и настройки могут отличаться.&lt;/p&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;&lt;strong&gt;Обзор платформы&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Jenkins&lt;/strong&gt; – это инструмент непрерывной интеграции, который чаще всего используется
+для разработки программного обеспечения. Это среда автоматизации, которая
+выполняет повторяющиеся задания. &lt;strong&gt;Jenkins&lt;/strong&gt; может выполнять и контролировать
+выполнение команд на удаленных системах, а также всего того, что можно
+выполнить из командной строки. С помощью вспомогательных плагинов &lt;strong&gt;Jenkins&lt;/strong&gt;
+объединяет электронную почту, TestNG и другие инструменты.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="jenkins"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;&lt;strong&gt;Установка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Прежде чем приступить к установке &lt;strong&gt;Jenkins&lt;/strong&gt;, нужно добавить ключ и список
+исходных кодов. Все команды выполняются под root-пользователем.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+sudo su
+&lt;/pre&gt;
+&lt;p&gt;Итак, добавляем ключ:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+&lt;/pre&gt;
+&lt;p&gt;А затем создайте список исходных кодов для &lt;strong&gt;Jenkins&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+echo deb http://pkg.jenkins-ci.org/debian binary/ &amp;gt; /etc/apt/sources.list.d/jenkins.list
+&lt;/pre&gt;
+&lt;p&gt;Теперь нужно просто обновить кэш &lt;em&gt;apt&lt;/em&gt;, а затем перейти к установке &lt;strong&gt;Jenkins&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+apt-get update
+&lt;/pre&gt;
+&lt;p&gt;Обратите внимание: &lt;strong&gt;Jenkins&lt;/strong&gt; имеет большой список зависимостей, установка которых
+может занять некоторое время.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+apt-get install jenkins
+&lt;/pre&gt;
+&lt;p&gt;После установки система автоматически запустит сервис &lt;strong&gt;Jenkins&lt;/strong&gt;. Проверить статус
+можно следующей командой:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+service jenkins status
+&lt;/pre&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Jenkins" src="/images/jenkins-status.png" style="width: 832.8px; height: 97.2px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Как видим, сервис запущен и находиться в активном статусе. Если сервис неактивен,
+то необходимо проверить, свободен ли порт 8080 и хватает оперативной памяти
+(&lt;strong&gt;Jenkins&lt;/strong&gt; требует от 256MB до 1GB).&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Настройка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Управление &lt;strong&gt;Jenkins&lt;/strong&gt; осуществляется через веб-интерфейс, по умолчанию
+доступный на порту 8080:&lt;/p&gt;
+&lt;p&gt;Открываем в браузере страницу &lt;em&gt;http://[IP-адрес сервера]:8080&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Getting started" src="/images/jenkins-started.png" style="width: 747.2px; height: 314.4px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Если интерфейс не появился, то необходимо открыть порт 8080 и проверить статус
+работы сервиса &lt;strong&gt;Jenkins&lt;/strong&gt;.
+Для продолжения настройки нам потребуется ввести пароль администратора, который
+хранится в файл &lt;em&gt;/var/lib/jenkins/secrets/initialAdminPassword&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Открываем файл любым удобным способом и копируем пароль. Скопированный пароль
+вставляем в поле ввода и нажимаем &amp;quot;Продолжить&amp;quot;.&lt;/p&gt;
+&lt;p&gt;На следующем шаге нам необходимо выбрать режим установки плагинов, которые будут
+установленные вместе с &lt;strong&gt;Jenkins&lt;/strong&gt;. Выбираем &lt;em&gt;Install suggested plugins&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Customize Jenkins" src="/images/jenkins-plugins.png" style="width: 609.6px; height: 301.6px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;После установки всех плагинов создаем профиль администратора.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Create First Admin User" src="/images/jenkins-create-admin-user.png" style="width: 454.4px; height: 235.2px;" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Имя пользователя и пароль запоминаем для дальнейшей работы.
+Нажимаем &amp;quot;Продолжить&amp;quot;. На экране появится сообщение, свидетельствующее о готовности
+&lt;strong&gt;Jenkins&lt;/strong&gt; к работе. На этом основная настройка закончена. Нажимаем на кнопку
+“Start using Jenkins” и переходим в рабочую панель &lt;strong&gt;Jenkins&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;&lt;strong&gt;Установка плагинов&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Для установки плагина перейдите в &lt;em&gt;«Manage Jenkins»&lt;/em&gt; — &lt;em&gt;«Manage Plugins»&lt;/em&gt; — &lt;em&gt;«Available»&lt;/em&gt;
+и выберите нужный плагин. Рекомендую воспользоваться фильтром для быстрого поиска.&lt;/p&gt;
+&lt;p&gt;Нажимаем &lt;em&gt;«Download now and install after restart»&lt;/em&gt; для чистой установки плагина
+с перезапуском. В появившемся окне установки включаем галочку
+&lt;em&gt;«Restart Jenkins when installation is complete and no jobs are running»&lt;/em&gt; и ждём
+установки с перезагрузкой. Страница должна сама обновиться.
+После установки можно возвращаться на главную страницу и продолжать настройки.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;&lt;strong&gt;Настройка аутентификации и прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Для этого нам нужно снова перейти в &lt;em&gt;«Manage Jenkins»&lt;/em&gt;, а там нажать кнопку
+&lt;em&gt;«Setup Security»&lt;/em&gt; в правом верхнем углу. В появившемся окне настроек включаем
+настройки безопасности галочкой &lt;em&gt;«Enable security»&lt;/em&gt;. Далее нам нужно выбрать,
+каким способом будет происходить аутентификация пользователей. По умолчанию
+доступны несколько способов. Нас интересует &lt;em&gt;«Jenkins’ own user database»&lt;/em&gt;,
+если мы хотим входить с данными, которые хранятся в самом &lt;strong&gt;Jenkins&lt;/strong&gt; или
+&lt;em&gt;«Bitbucket OAuth Plugin»&lt;/em&gt;, если мы хотим входить через &lt;em&gt;Bitbucket&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;&lt;strong&gt;Аутентификация через встроенную базу данных Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Здесь особо ничего настраивать не нужно. Разве что, возможно, стоит запретить
+регистрацию пользователей сняв галку &lt;em&gt;«Allow users to sign up»&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="bitbucket"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;&lt;strong&gt;Аутентификация через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Для этого же способа нам потребуется сходить в настройки своего аккаунта &lt;em&gt;Bitbucket&lt;/em&gt;
+и зарегистрировать приложение. Для этого заходим на страницу своего аккаунта,
+нажимаем &lt;em&gt;Manage account&lt;/em&gt; и переходим в раздел &lt;em&gt;OAuth&lt;/em&gt;. Здесь добавляем приложение
+кнопкой &lt;em&gt;Add consumer&lt;/em&gt;. После чего получаем &lt;em&gt;Key&lt;/em&gt;, который прописываем в
+&lt;em&gt;Client ID&lt;/em&gt; и &lt;em&gt;Secret&lt;/em&gt;, который копируем в &lt;em&gt;Client Secret&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;&lt;strong&gt;Настройка прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;После того как мы настроили вход, нужно закрыть доступ посторонним людям.
+Для этого можно использовать несколько способов, самым простым из которых будет
+&lt;em&gt;Matrix-based security&lt;/em&gt;.
+Здесь главное сделать две вещи:
+Выставить пользователю &lt;em&gt;Anonymous&lt;/em&gt; доступ к действию &lt;em&gt;Read&lt;/em&gt; в категории &lt;em&gt;View&lt;/em&gt;,
+иначе &lt;strong&gt;Jenkins&lt;/strong&gt; может работать некорректно.
+Вместе с этим сразу же, не сохраняя перед этим настройки, создать пользователя,
+под которым в дальнейшем будет происходить управление системой, иначе после
+применения этих настроек, вы не сможете зайти в интерфейс &lt;strong&gt;Jenkins&lt;/strong&gt;.
+Если вы аутентифицируетесь через внешний сервис — укажите имя пользователя на
+этом сервисе.&lt;/p&gt;
+&lt;p&gt;Перепроверьте настройки и нажимайте кнопку «Save».&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;&lt;strong&gt;Первый вход или создание пользователя&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;После сохранения настроек вы попадёте либо в форму входа, либо будете
+перенаправлены на внешний сервис аутентификации.&lt;/p&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id26"&gt;&lt;strong&gt;Вход со встроенной базой пользователей&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Jenkins&lt;/strong&gt; направит вас на форму входа. У вас же ещё нет пользователя, поэтому
+удалите лишнее из адреса и перейдите в корень веб-интерфейса — вам будет показана
+форма создания пользователя.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id27"&gt;&lt;strong&gt;Вход через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;В случае с &lt;em&gt;Bitbucket&lt;/em&gt; или другим внешним сервисом нет необходимости регистрации,
+поэтому вам нужно будет лишь подтвердить на этом сервисе, что вы доверяете приложению.
+После этого вы вернётесь в систему уже полноправным администратором (если, конечно,
+выставили такие права своей учётной записи).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="job"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id28"&gt;&lt;strong&gt;Создание нового проекта (Job)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Теперь, когда все установлено и запущено, можно приступить к созданию нового проекта (или &lt;em&gt;job&lt;/em&gt;).
+Для того чтобы создать новый &lt;em&gt;job&lt;/em&gt; необходимо в левом верхнем меню выбрать пункт &lt;em&gt;New Item&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;В новом меню выбираем &lt;em&gt;Freestyle project&lt;/em&gt;, так же необходимо дать имя проекту, для примера выбирем - &lt;em&gt;test project&lt;/em&gt;.
+После нажатия кнопки &lt;em&gt;Ok&lt;/em&gt; попадаем в меню настройки нашего проекта.&lt;/p&gt;
+&lt;p&gt;Поле в меню обозначают следующее:
+&lt;em&gt;Project name&lt;/em&gt; - имя проекта, которое будет отображаться на главное странице &lt;strong&gt;Jenkins&lt;/strong&gt;.
+&lt;em&gt;Description&lt;/em&gt; - описание проекта.
+&lt;em&gt;Source Code Management&lt;/em&gt; - ссылка на репозиторий, откуда &lt;strong&gt;Jenkins&lt;/strong&gt; будет получать последние исходники.
+&lt;em&gt;Build Triggers&lt;/em&gt; - триггеры при которых &lt;em&gt;Job&lt;/em&gt; будет запускаться.
+&lt;em&gt;Build Environment&lt;/em&gt; - настройки среды выполнения &lt;em&gt;Job&lt;/em&gt;.
+&lt;em&gt;Build&lt;/em&gt; - действия, которые необходимо выполнить во время запуска &lt;em&gt;Job&lt;/em&gt;.
+&lt;em&gt;Post-build actions&lt;/em&gt; - действия, которые будут выполнены после того, как пройдет &lt;em&gt;Job&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Рассмотрим &lt;em&gt;Build&lt;/em&gt; подробней из выпадающего списка нам интересен пункт &lt;em&gt;Execute shell&lt;/em&gt;,
+в после &lt;em&gt;Command&lt;/em&gt; вводим необходимые для проекта комманды.
+Для примера введем:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+uptime
+&lt;/pre&gt;
+&lt;p&gt;После сохранения и выхода в меню проекта &lt;em&gt;test project&lt;/em&gt;, запускаем проект - нажав
+на кнопку &lt;em&gt;Build now&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Вскоре после этого слева в меню &lt;em&gt;Build history&lt;/em&gt; появится первая сборка с #1.
+Для того чтобы подробней посмотреть отчет сборки, нажмите на синюю сферу.
+Появится отчет по выполненому проекту, котрый будет находится под &lt;em&gt;Console Output&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;&lt;strong&gt;Запуск проекта по расписанию&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Jenkins&lt;/strong&gt; позволяет запускать проекты по требованию или в определенное время.
+Теперь пора настроить расписание сборки. Сначала нажмите на ссылку &lt;em&gt;back to project&lt;/em&gt;,
+чтобы снова просмотреть проект.&lt;/p&gt;
+&lt;p&gt;Вернувшись к просмотру проекта, кликните кнопку &lt;em&gt;Configure&lt;/em&gt;.
+Она откроет страницу настройки. Теперь найдите раздел &lt;em&gt;Build Triggers&lt;/em&gt; и выберите
+&lt;em&gt;Build periodically&lt;/em&gt;.
+Теперь это поле ввода принимает синтаксис &lt;em&gt;crontab&lt;/em&gt;; следовательно, настройка&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+&amp;#64;hourly
+&lt;/pre&gt;
+&lt;p&gt;будет запускать его каждый час, а&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+* * * * *
+&lt;/pre&gt;
+&lt;p&gt;будет запускать его каждую минуту.
+В данном руководстве будет использоваться настройка&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+0 */6 * * *
+&lt;/pre&gt;
+&lt;p&gt;, которая запускает проект каждые 6 часов. Когда проект будет сохранен, планировщик начнет работу в назначенное время.&lt;/p&gt;
+&lt;p&gt;С планировщиком &lt;strong&gt;Jenkins&lt;/strong&gt; поставляются несколько дополнений. Чтобы получить о
+них больше информации, нажмите синюю кнопку с вопросительным знаком справа от поля ввода.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id30"&gt;&lt;strong&gt;Проблемы и их решения&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id13"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;&lt;strong&gt;Изменить порт подключения Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;В ряде случаев порт 8080 занят или его необходимо освободить под другие сервисы.&lt;/p&gt;
+&lt;p&gt;Чтобы Jenkins подключался к другому порту, в файле &lt;em&gt;etc/default/jenkins&lt;/em&gt; нужно
+изменить значение переменной &lt;em&gt;HTTP_PORT&lt;/em&gt; на желаемый порт и перезапустить сервис &lt;strong&gt;Jenkins&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id14"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;&lt;strong&gt;Возвращение доступа&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Если вы ошиблись при настройке прав доступа и &lt;strong&gt;Jenkins&lt;/strong&gt; не пустил вас в систему,
+не пугайтесь. Можно выключить защиту в конфиге:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+nano /var/lib/jenkins/config.xml
+&lt;/pre&gt;
+&lt;p&gt;В открывшемся файле замените строку&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+&amp;lt;useSecurity&amp;gt;true&amp;lt;/useSecurity&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;на&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+&amp;lt;useSecurity&amp;gt;false&amp;lt;/useSecurity&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;и перезапустите Jenkins:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+service jenkins restart
+&lt;/pre&gt;
+&lt;p&gt;Теперь ваш &lt;strong&gt;Jenkins&lt;/strong&gt; снова открыт всему миру. Возвращайтесь к настройке параметров входа и прав доступа.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id15"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id33"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://jenkins.io/index.html"&gt;Официальный сайт Jenkins&lt;/a&gt;!&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://community.vscale.io/hc/ru/community/posts/208799669-%D0%9A%D0%B0%D0%BA-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-Jenkins-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D1%83-maven-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0-%D0%BD%D0%B0-Ubuntu-16-04"&gt;Как установить Jenkins и настроить автоматическую сборку maven-проекта на Ubuntu 16.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.8host.com/blog/ustanovka-i-ispolzovanie-jenkins-na-ubuntu-12-04/"&gt;Установка и использование Jenkins на Ubuntu 12.04&lt;/a&gt;!&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://skobk.in/2014/09/jenkins-linux-installation/"&gt;Установка Jenkins в Linux&lt;/a&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="linux"></category></entry><entry><title>Pyenv. Python manager version</title><link href="http://localhost:8000/2017/04/07/pyenv" rel="alternate"></link><published>2017-04-07T00:00:00+03:00</published><updated>2017-04-08T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-04-07:/2017/04/07/pyenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+&lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; lets you easily switch between multiple versions of Python. It's simple,
 unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.&lt;/p&gt;
 &lt;p&gt;Сегодня речь пойдет о таком инструменте, как - &lt;a class="reference external" href="https://github.com/pyenv/pyenv"&gt;Pyenv&lt;/a&gt;.
 Данный скрипт удобный менеджер версий для языка &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; можно установить либо вручную …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; можно установить либо вручную, либо используя &lt;a class="reference external" href="https://github.com/pyenv/pyenv-installer"&gt;автоматический …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
 &lt;/div&gt;
-&lt;div class="contents topic" id="id1"&gt;
-&lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id4"&gt;&lt;strong&gt;Список источников:&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; lets you easily switch between multiple versions of Python. It's simple,
 unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.&lt;/p&gt;
 &lt;p&gt;Сегодня речь пойдет о таком инструменте, как - &lt;a class="reference external" href="https://github.com/pyenv/pyenv"&gt;Pyenv&lt;/a&gt;.
@@ -75,8 +362,9 @@ pyenv commands
 &lt;pre class="code literal-block"&gt;
 pyenv local --help
 &lt;/pre&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;&lt;strong&gt;Список источников:&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;strong&gt;Список источников:&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/post/203516/"&gt;Менеджер версий Python&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://khashtamov.com/2015/12/pyenv-python/"&gt;Pyenv: удобный менеджер версий Python&lt;/a&gt;&lt;/li&gt;
@@ -271,6 +559,7 @@ ls -l /etc | egrep '^d' | wc -l
 &lt;em&gt;~/.ssh&lt;/em&gt; - указывать &lt;em&gt;key_file&lt;/em&gt; не нужно.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;&lt;strong&gt;Роли&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ролью называется типовой набор переменных и задач, назначаемых для одного или
@@ -400,6 +689,7 @@ dependencies:
 однажды. Если нужно несколько раз, можно в файле зависимостей попросить об этом явно.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id8"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
@@ -870,6 +1160,7 @@ ansible-playbook playbooks/setup_nginx.yml --start-at-task=&amp;quot;Debug&amp;q
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="playbook"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id28"&gt;&lt;strong&gt;Повторное использование playbook&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Если задача или набор задач часто используется - есть смысл оформить ее в виде
@@ -928,6 +1219,7 @@ mkdir ~/ansible/playbooks/tasks
         - include: tasks/pkg_nginx_install.yml
 &lt;/pre&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id12"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;&lt;strong&gt;Список источников&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
@@ -1370,6 +1662,7 @@ drwxr-xr-x 91 brun staff 3.1K Apr  1 11:37 ..
 сложные команды. Кроме того, вы можете задать опции по умолчанию, которые
 используются каждый раз при запуске команды alias.&lt;/p&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="alias"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;&lt;strong&gt;Как создать alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Каждый день, как правило, используются одни и те же команды такие как &lt;em&gt;sudo aptitude update&lt;/em&gt;,
@@ -1388,6 +1681,7 @@ alias install=&amp;quot;sudo aptitude install&amp;quot;
 можно будет сразу, но! &amp;quot;время жизни&amp;quot; &lt;strong&gt;alias&lt;/strong&gt; ограничивается временем жизни
 сессии в которой был выполнен этот &lt;strong&gt;alias&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;&lt;strong&gt;Постоянные alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Для того чтобы создаваемые &lt;strong&gt;alias&lt;/strong&gt; были доступны всегда необходимо их
@@ -1446,6 +1740,7 @@ fi
 . ~/.bashrc
 &lt;/pre&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;&lt;strong&gt;Просмотр списка alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Чтобы посмотреть список всех доступных &lt;strong&gt;alias&lt;/strong&gt;, просто выполните команду
@@ -1457,6 +1752,7 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 &lt;/pre&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;&lt;strong&gt;Удаление alias&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Если &lt;strong&gt;alias&lt;/strong&gt; больше не нужен, можно удалить его из системы, используя команды
@@ -1475,6 +1771,7 @@ $
 </content><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="http://localhost:8000/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-14T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
 окружение можно использовать для проверки новых версий ваших программ, новых
@@ -1483,6 +1780,7 @@ $
 случаях, если нет возможности копировать файлы …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
 окружение можно использовать для проверки новых версий ваших программ, новых
@@ -1500,7 +1798,7 @@ $
 &lt;li&gt;Портативность между системами.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id1"&gt;
-&lt;h2&gt;Установка&lt;/h2&gt;
+&lt;h2&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Предварительно необходимо установить &lt;em&gt;pip&lt;/em&gt; и &lt;em&gt;setuptools&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Для &lt;strong&gt;python 3&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
@@ -1560,7 +1858,10 @@ pip3 install -r requirements.txt
 &lt;pre class="code literal-block"&gt;
 pip3 freeze &amp;gt; requirements.txt
 &lt;/pre&gt;
-&lt;p&gt;Список источников:&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;strong&gt;Список источников:&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://eax.me/python-virtualenv/"&gt;Памятка по virtualenv и изолированным проектам на Python&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/"&gt;Python и окружение virtualenv&lt;/a&gt;&lt;/li&gt;

@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>IT Blog - Artur K.</title><link>http://localhost:8000/</link><description></description><lastBuildDate>Sat, 08 Apr 2017 00:00:00 +0300</lastBuildDate><item><title>Pyenv. Python manager version</title><link>http://localhost:8000/2017/04/07/pyenv</link><description>&lt;div class="figure align-left"&gt;
-&lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
+<rss version="2.0"><channel><title>IT Blog - Artur K.</title><link>http://localhost:8000/</link><description></description><lastBuildDate>Wed, 12 Apr 2017 00:00:00 +0300</lastBuildDate><item><title>Jenkins. Основы</title><link>http://localhost:8000/2017/04/12/jenkins</link><description>&lt;div class="figure align-center"&gt;
+&lt;img alt="Jenkins" src="/images/jenkins-logo.png" style="width: 439.4px; height: 267.15px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id4"&gt;&lt;strong&gt;Список источников:&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id17"&gt;&lt;strong&gt;Обзор платформы&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#jenkins" id="id18"&gt;&lt;strong&gt;Установка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id19"&gt;&lt;strong&gt;Настройка Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id20"&gt;&lt;strong&gt;Установка плагинов&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id21"&gt;&lt;strong&gt;Настройка аутентификации и прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id22"&gt;&lt;strong&gt;Аутентификация через встроенную базу данных Jenkins&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#bitbucket" id="id23"&gt;&lt;strong&gt;Аутентификация через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id24"&gt;&lt;strong&gt;Настройка прав доступа&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id25"&gt;&lt;strong&gt;Первый вход или создание пользователя&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id26"&gt;&lt;strong&gt;Вход со встроенной базой пользователей&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id10" id="id27"&gt;&lt;strong&gt;Вход через Bitbucket&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#job" id="id28"&gt;&lt;strong&gt;Создание нового проекта (Job)&lt;/strong&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id29"&gt;&lt;strong&gt;Запуск проекта по расписанию&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id30"&gt;&lt;strong&gt;Проблемы и их …&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Wed, 12 Apr 2017 00:00:00 +0300</pubDate><guid isPermaLink="false">tag:localhost,2017-04-12:/2017/04/12/jenkins</guid><category>linux</category></item><item><title>Pyenv. Python manager version</title><link>http://localhost:8000/2017/04/07/pyenv</link><description>&lt;div class="figure align-left"&gt;
+&lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; lets you easily switch between multiple versions of Python. It's simple,
 unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.&lt;/p&gt;
 &lt;p&gt;Сегодня речь пойдет о таком инструменте, как - &lt;a class="reference external" href="https://github.com/pyenv/pyenv"&gt;Pyenv&lt;/a&gt;.
 Данный скрипт удобный менеджер версий для языка &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; можно установить либо вручную …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Fri, 07 Apr 2017 00:00:00 +0300</pubDate><guid isPermaLink="false">tag:localhost,2017-04-07:/2017/04/07/pyenv</guid><category>virtualenv</category><category>python</category><category>pyenv</category></item><item><title>Ansible Introduction. Part 3</title><link>http://localhost:8000/2017/03/02/ansible_end</link><description>&lt;div class="figure align-center"&gt;
+&lt;p&gt;&lt;strong&gt;Pyenv&lt;/strong&gt; можно установить либо вручную, либо используя &lt;a class="reference external" href="https://github.com/pyenv/pyenv-installer"&gt;автоматический …&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Fri, 07 Apr 2017 00:00:00 +0300</pubDate><guid isPermaLink="false">tag:localhost,2017-04-07:/2017/04/07/pyenv</guid><category>virtualenv</category><category>python</category><category>pyenv</category></item><item><title>Ansible Introduction. Part 3</title><link>http://localhost:8000/2017/03/02/ansible_end</link><description>&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -117,6 +137,7 @@ unobtrusive, and follows the UNIX tradition of single-purpose tools that do one 
 исправлять опечатки. &lt;strong&gt;alias&lt;/strong&gt; - это встроенная команда оболочки, поэтому инсталлировать ее не требуется …&lt;/p&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Thu, 09 Feb 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:localhost,2017-02-09:/2017/02/09/alias</guid><category>linux</category></item><item><title>Virtualenv in Python</title><link>http://localhost:8000/2017/01/23/virtualenv</link><description>&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
 окружение можно использовать для проверки новых версий ваших программ, новых
