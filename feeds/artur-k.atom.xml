@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog - Artur K.</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/artur-k.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-04-12T00:00:00+03:00</updated><entry><title>Jenkins. Основы</title><link href="http://localhost:8000/2017/04/12/jenkins" rel="alternate"></link><published>2017-04-12T00:00:00+03:00</published><updated>2017-04-12T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-04-12:/2017/04/12/jenkins</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-04-12T00:00:00+03:00</updated><entry><title>Jenkins. Основы</title><link href="https://kutsevol.github.io/2017/04/12/jenkins" rel="alternate"></link><published>2017-04-12T00:00:00+03:00</published><updated>2017-04-12T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-04-12:/2017/04/12/jenkins</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Jenkins" src="/images/jenkins-logo.png" style="width: 439.4px; height: 267.15px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -296,7 +296,7 @@ service jenkins restart
 &lt;li&gt;&lt;a class="reference external" href="https://skobk.in/2014/09/jenkins-linux-installation/"&gt;Установка Jenkins в Linux&lt;/a&gt;!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="linux"></category></entry><entry><title>Pyenv. Python manager version</title><link href="http://localhost:8000/2017/04/07/pyenv" rel="alternate"></link><published>2017-04-07T00:00:00+03:00</published><updated>2017-04-08T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-04-07:/2017/04/07/pyenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+</content><category term="linux"></category></entry><entry><title>Pyenv. Python manager version</title><link href="https://kutsevol.github.io/2017/04/07/pyenv" rel="alternate"></link><published>2017-04-07T00:00:00+03:00</published><updated>2017-04-08T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-04-07:/2017/04/07/pyenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Pyenv" src="/images/python-pyenv.jpg" style="width: 180.0px; height: 180.0px;" /&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
@@ -370,7 +370,7 @@ pyenv local --help
 &lt;li&gt;&lt;a class="reference external" href="https://khashtamov.com/2015/12/pyenv-python/"&gt;Pyenv: удобный менеджер версий Python&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="virtualenv"></category><category term="python"></category><category term="pyenv"></category></entry><entry><title>Ansible Introduction. Part 3</title><link href="http://localhost:8000/2017/03/02/ansible_end" rel="alternate"></link><published>2017-03-02T00:00:00+02:00</published><updated>2017-03-02T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-03-02:/2017/03/02/ansible_end</id><summary type="html">&lt;div class="figure align-center"&gt;
+</content><category term="virtualenv"></category><category term="python"></category><category term="pyenv"></category></entry><entry><title>Ansible Introduction. Part 3</title><link href="https://kutsevol.github.io/2017/03/02/ansible_end" rel="alternate"></link><published>2017-03-02T00:00:00+02:00</published><updated>2017-03-02T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-03-02:/2017/03/02/ansible_end</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -394,7 +394,7 @@ pyenv local --help
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;p&gt;В &lt;a class="reference external" href="http://localhost:8000/2017/02/20/ansible_cont"&gt;предыдущей статье&lt;/a&gt; рассмотрели как управлять
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/20/ansible_cont"&gt;предыдущей статье&lt;/a&gt; рассмотрели как управлять
 конфигурациями и как писать &lt;em&gt;playbook&lt;/em&gt;. В этой (последней) части рассмотрим модули
 и как их …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" /&gt;
@@ -420,7 +420,7 @@ pyenv local --help
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;p&gt;В &lt;a class="reference external" href="http://localhost:8000/2017/02/20/ansible_cont"&gt;предыдущей статье&lt;/a&gt; рассмотрели как управлять
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/20/ansible_cont"&gt;предыдущей статье&lt;/a&gt; рассмотрели как управлять
 конфигурациями и как писать &lt;em&gt;playbook&lt;/em&gt;. В этой (последней) части рассмотрим модули
 и как их применять, познакомимся с ролями.&lt;/p&gt;
 &lt;div class="section" id="id3"&gt;
@@ -698,7 +698,7 @@ dependencies:
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252461/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 2</title><link href="http://localhost:8000/2017/02/20/ansible_cont" rel="alternate"></link><published>2017-02-20T00:00:00+02:00</published><updated>2017-02-21T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-02-20:/2017/02/20/ansible_cont</id><summary type="html">&lt;div class="figure align-center"&gt;
+</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 2</title><link href="https://kutsevol.github.io/2017/02/20/ansible_cont" rel="alternate"></link><published>2017-02-20T00:00:00+02:00</published><updated>2017-02-21T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-20:/2017/02/20/ansible_cont</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-2.jpg" style="width: 600.0px; height: 281.25px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -725,7 +725,7 @@ dependencies:
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;p&gt;В &lt;a class="reference external" href="http://localhost:8000/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
 задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
 также рассмотрели примеры …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header-2.jpg" style="width: 600.0px; height: 281.25px;" /&gt;
@@ -754,7 +754,7 @@ dependencies:
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
-&lt;p&gt;В &lt;a class="reference external" href="http://localhost:8000/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
+&lt;p&gt;В &lt;a class="reference external" href="https://kutsevol.github.io/2017/02/10/ansible_intro"&gt;предыдущей статье&lt;/a&gt; рассмотрели основные
 задачи и принципы работы, как работает &lt;strong&gt;Ansible&lt;/strong&gt; его установка и настройка, а
 также рассмотрели примеры простых задач, которые можно решать с помощью него.
 В этой части рассмотрим как управлять конфигурациями, как написать &lt;em&gt;playbook&lt;/em&gt; и
@@ -1232,7 +1232,7 @@ mkdir ~/ansible/playbooks/tasks
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252461/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 1</title><link href="http://localhost:8000/2017/02/10/ansible_intro" rel="alternate"></link><published>2017-02-10T00:00:00+02:00</published><updated>2017-02-20T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-02-10:/2017/02/10/ansible_intro</id><summary type="html">&lt;div class="figure align-center"&gt;
+</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Ansible Introduction. Part 1</title><link href="https://kutsevol.github.io/2017/02/10/ansible_intro" rel="alternate"></link><published>2017-02-10T00:00:00+02:00</published><updated>2017-02-20T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-10:/2017/02/10/ansible_intro</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Ansible" src="/images/ansible-header.jpg" style="width: 499.2px; height: 242.45px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -1626,7 +1626,7 @@ drwxr-xr-x 91 brun staff 3.1K Apr  1 11:37 ..
 &lt;li&gt;&lt;a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252001/"&gt;Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 3: Переменные и файл inventory&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Alias</title><link href="http://localhost:8000/2017/02/09/alias" rel="alternate"></link><published>2017-02-09T00:00:00+02:00</published><updated>2017-02-09T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-02-09:/2017/02/09/alias</id><summary type="html">&lt;div class="contents topic" id="id1"&gt;
+</content><category term="ansible"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Alias</title><link href="https://kutsevol.github.io/2017/02/09/alias" rel="alternate"></link><published>2017-02-09T00:00:00+02:00</published><updated>2017-02-09T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-02-09:/2017/02/09/alias</id><summary type="html">&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id6"&gt;&lt;strong&gt;Введение&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -1768,7 +1768,7 @@ $
 определение &lt;strong&gt;alias&lt;/strong&gt;, иначе он снова будет определен после старта сеанса
 командной оболочки или перезагрузки компьютера.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="http://localhost:8000/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-14T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:localhost,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
+</content><category term="linux"></category></entry><entry><title>Virtualenv in Python</title><link href="https://kutsevol.github.io/2017/01/23/virtualenv" rel="alternate"></link><published>2017-01-23T00:00:00+02:00</published><updated>2017-02-14T00:00:00+02:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</id><summary type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
