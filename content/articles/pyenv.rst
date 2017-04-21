@@ -79,6 +79,12 @@ unobtrusive, and follows the UNIX tradition of single-purpose tools that do one 
 После выполнения команды *python local* в директории, где была выполнена команда - создается файл
 *.python-version*. Используется для "трекинга" версий **Python**.
 
+Удаление виртуального окружения осуществляется следующей командой:
+
+.. code::
+
+    pyenv uninstall virtual_env_name
+
 Список команд **pyenv** можно увидеть следующим образом:
 
 .. code::
