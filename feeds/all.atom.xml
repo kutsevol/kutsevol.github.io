@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-04-12T00:00:00+03:00</updated><entry><title>Jenkins. Основы</title><link href="https://kutsevol.github.io/2017/04/12/jenkins" rel="alternate"></link><published>2017-04-12T00:00:00+03:00</published><updated>2017-04-12T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-04-12:/2017/04/12/jenkins</id><summary type="html">&lt;div class="figure align-center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/all.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-04-12T00:00:00+03:00</updated><entry><title>Jenkins Fundamentals</title><link href="https://kutsevol.github.io/2017/04/12/jenkins" rel="alternate"></link><published>2017-04-12T00:00:00+03:00</published><updated>2017-04-12T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-04-12:/2017/04/12/jenkins</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Jenkins" src="/images/jenkins-logo.png" style="width: 439.4px; height: 267.15px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
@@ -211,7 +211,7 @@ service jenkins status
 &lt;p&gt;В новом меню выбираем &lt;em&gt;Freestyle project&lt;/em&gt;, так же необходимо дать имя проекту, для примера выбирем - &lt;em&gt;test project&lt;/em&gt;.
 После нажатия кнопки &lt;em&gt;Ok&lt;/em&gt; попадаем в меню настройки нашего проекта.&lt;/p&gt;
 &lt;p&gt;Поле в меню обозначают следующее:
-&lt;em&gt;Project name&lt;/em&gt; - имя проекта, которое будет отображаться на главное странице &lt;strong&gt;Jenkins&lt;/strong&gt;.
+&lt;em&gt;Project name&lt;/em&gt; - имя проекта, которое будет отображаться на главной странице &lt;strong&gt;Jenkins&lt;/strong&gt;.
 &lt;em&gt;Description&lt;/em&gt; - описание проекта.
 &lt;em&gt;Source Code Management&lt;/em&gt; - ссылка на репозиторий, откуда &lt;strong&gt;Jenkins&lt;/strong&gt; будет получать последние исходники.
 &lt;em&gt;Build Triggers&lt;/em&gt; - триггеры при которых &lt;em&gt;Job&lt;/em&gt; будет запускаться.
@@ -354,6 +354,10 @@ pyenv local virtual_env_name
 &lt;/pre&gt;
 &lt;p&gt;После выполнения команды &lt;em&gt;python local&lt;/em&gt; в директории, где была выполнена команда - создается файл
 &lt;em&gt;.python-version&lt;/em&gt;. Используется для &amp;quot;трекинга&amp;quot; версий &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Удаление виртуального окружения осуществляется следующей командой:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+pyenv uninstall virtual_env_name
+&lt;/pre&gt;
 &lt;p&gt;Список команд &lt;strong&gt;pyenv&lt;/strong&gt; можно увидеть следующим образом:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 pyenv commands
