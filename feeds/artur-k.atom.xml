@@ -1777,44 +1777,45 @@ $
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
-окружение можно использовать для проверки новых версий ваших программ, новых
+&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения &lt;em&gt;Python&lt;/em&gt;.
+Это окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
-пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
+пакетов. Кроме того, &lt;strong&gt;virtualenv&lt;/strong&gt; можно использовать в качестве рабочего места в
 случаях, если нет возможности копировать файлы …&lt;/p&gt;</summary><content type="html">&lt;div class="figure align-left"&gt;
 &lt;img alt="Python Virtualenv" src="/images/python-virtualenv.jpg" style="width: 262.5px; height: 140.0px;" /&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
-окружение можно использовать для проверки новых версий ваших программ, новых
+&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения &lt;em&gt;Python&lt;/em&gt;.
+Это окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
-пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
+пакетов. Кроме того, &lt;strong&gt;virtualenv&lt;/strong&gt; можно использовать в качестве рабочего места в
 случаях, если нет возможности копировать файлы в site-packages по какой-либо
 причине.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; решает ряд проблем:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Создание новой изолированной среды для проекта Python;&lt;/li&gt;
-&lt;li&gt;Возможность загрузки пакетов без привилегий  admin/sudo;&lt;/li&gt;
+&lt;li&gt;Создание новой изолированной среды для проекта &lt;em&gt;Python&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Возможность загрузки пакетов без привилегий  &lt;em&gt;admin/sudo&lt;/em&gt;;&lt;/li&gt;
 &lt;li&gt;Простая и быстрая упаковка приложения;&lt;/li&gt;
-&lt;li&gt;Создание списка зависимостей одного проекта (с помощью pip);&lt;/li&gt;
-&lt;li&gt;Быстрое восстановление зависимостей с помощью файла требований (с помощью pip);&lt;/li&gt;
+&lt;li&gt;Создание списка зависимостей одного проекта (с помощью &lt;em&gt;pip&lt;/em&gt;);&lt;/li&gt;
+&lt;li&gt;Быстрое восстановление зависимостей с помощью файла требований (с помощью &lt;em&gt;pip&lt;/em&gt;);&lt;/li&gt;
 &lt;li&gt;Портативность между системами.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;&lt;strong&gt;Установка&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Предварительно необходимо установить &lt;em&gt;pip&lt;/em&gt; и &lt;em&gt;setuptools&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Для &lt;strong&gt;python 3&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Для &lt;strong&gt;Python 3&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 sudo aptitude install python3-pip python3-setuptools
 &lt;/pre&gt;
-&lt;p&gt;Для &lt;strong&gt;python 2&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Для &lt;strong&gt;Python 2&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 sudo aptitude install python-pip python-setuptools
 &lt;/pre&gt;
-&lt;p&gt;Далее отличия будут только в pip. Для &lt;strong&gt;python 3&lt;/strong&gt; - &lt;em&gt;pip3&lt;/em&gt;, для &lt;strong&gt;python 2&lt;/strong&gt; - &lt;em&gt;pip&lt;/em&gt;.
+&lt;p&gt;Далее отличия будут только в &lt;em&gt;pip&lt;/em&gt;. Для &lt;strong&gt;Python 3&lt;/strong&gt; - &lt;em&gt;pip3&lt;/em&gt;, для
+&lt;strong&gt;Python 2&lt;/strong&gt; - &lt;em&gt;pip&lt;/em&gt;.
 Далее рассмотрим на примере &lt;em&gt;pip3&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Установка &lt;em&gt;virtualenv&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;Установка &lt;strong&gt;virtualenv&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre class="code bash literal-block"&gt;
 sudo pip3 install virtualenv
 &lt;/pre&gt;
@@ -1848,7 +1849,7 @@ deactivate
 &lt;pre class="code literal-block"&gt;
 rmvirtualenv env-name
 &lt;/pre&gt;
-&lt;p&gt;Находясь в одном из окружений, можно ставить пакеты через pip, как обычно.
+&lt;p&gt;Находясь в одном из окружений, можно ставить пакеты через &lt;em&gt;pip&lt;/em&gt;, как обычно.
 Для примера выбран пакет - &lt;em&gt;flask&lt;/em&gt;:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 pip3 install flask
@@ -1862,12 +1863,17 @@ pip3 install -r requirements.txt
 &lt;pre class="code literal-block"&gt;
 pip3 freeze &amp;gt; requirements.txt
 &lt;/pre&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;P.S.
+Иногда возникают ситуации, что необходимо использовать &lt;strong&gt;virtualenv/virtualenvwrapper&lt;/strong&gt;
+для разных веток (2.x и 3.x) &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Одно из простых решений - использовать &lt;a class="reference external" href="https://kutsevol.github.io/2017/04/07/pyenv"&gt;pyenv&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h2&gt;&lt;strong&gt;Список источников:&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://eax.me/python-virtualenv/"&gt;Памятка по virtualenv и изолированным проектам на Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://eax.me/python-virtualenv/"&gt;Памятка по virtualenv и изолированным проектам на *Python*&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/"&gt;Python и окружение virtualenv&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;

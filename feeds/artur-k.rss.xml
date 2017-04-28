@@ -139,8 +139,8 @@ unobtrusive, and follows the UNIX tradition of single-purpose tools that do one 
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;Официальная документация по &lt;a class="reference external" href="https://virtualenv.pypa.io/en/stable/"&gt;Virtualenv&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения Python. Это
-окружение можно использовать для проверки новых версий ваших программ, новых
+&lt;p&gt;&lt;strong&gt;Virtualenv&lt;/strong&gt; - инструмент для создания изолированного окружения &lt;em&gt;Python&lt;/em&gt;.
+Это окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
-пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
+пакетов. Кроме того, &lt;strong&gt;virtualenv&lt;/strong&gt; можно использовать в качестве рабочего места в
 случаях, если нет возможности копировать файлы …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Mon, 23 Jan 2017 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-01-23:/2017/01/23/virtualenv</guid><category>virtualenv</category><category>python</category></item></channel></rss>

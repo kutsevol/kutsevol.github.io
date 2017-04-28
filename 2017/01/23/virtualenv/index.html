@@ -77,35 +77,36 @@
 </div>
 <hr class="docutils" />
 <p>Официальная документация по <a class="reference external" href="https://virtualenv.pypa.io/en/stable/">Virtualenv</a></p>
-<p><strong>Virtualenv</strong> - инструмент для создания изолированного окружения Python. Это
-окружение можно использовать для проверки новых версий ваших программ, новых
+<p><strong>Virtualenv</strong> - инструмент для создания изолированного окружения <em>Python</em>.
+Это окружение можно использовать для проверки новых версий ваших программ, новых
 версий пакетов, которые используются или просто в качестве песочницы для новых
-пакетов. Кроме того, virtualenv можно использовать в качестве рабочего места в
+пакетов. Кроме того, <strong>virtualenv</strong> можно использовать в качестве рабочего места в
 случаях, если нет возможности копировать файлы в site-packages по какой-либо
 причине.</p>
 <p><strong>Virtualenv</strong> решает ряд проблем:</p>
 <ul class="simple">
-<li>Создание новой изолированной среды для проекта Python;</li>
-<li>Возможность загрузки пакетов без привилегий  admin/sudo;</li>
+<li>Создание новой изолированной среды для проекта <em>Python</em>;</li>
+<li>Возможность загрузки пакетов без привилегий  <em>admin/sudo</em>;</li>
 <li>Простая и быстрая упаковка приложения;</li>
-<li>Создание списка зависимостей одного проекта (с помощью pip);</li>
-<li>Быстрое восстановление зависимостей с помощью файла требований (с помощью pip);</li>
+<li>Создание списка зависимостей одного проекта (с помощью <em>pip</em>);</li>
+<li>Быстрое восстановление зависимостей с помощью файла требований (с помощью <em>pip</em>);</li>
 <li>Портативность между системами.</li>
 </ul>
 <div class="section" id="id1">
 <h2><strong>Установка</strong></h2>
 <p>Предварительно необходимо установить <em>pip</em> и <em>setuptools</em>.</p>
-<p>Для <strong>python 3</strong>:</p>
+<p>Для <strong>Python 3</strong>:</p>
 <pre class="code literal-block">
 sudo aptitude install python3-pip python3-setuptools
 </pre>
-<p>Для <strong>python 2</strong>:</p>
+<p>Для <strong>Python 2</strong>:</p>
 <pre class="code literal-block">
 sudo aptitude install python-pip python-setuptools
 </pre>
-<p>Далее отличия будут только в pip. Для <strong>python 3</strong> - <em>pip3</em>, для <strong>python 2</strong> - <em>pip</em>.
+<p>Далее отличия будут только в <em>pip</em>. Для <strong>Python 3</strong> - <em>pip3</em>, для
+<strong>Python 2</strong> - <em>pip</em>.
 Далее рассмотрим на примере <em>pip3</em>.</p>
-<p>Установка <em>virtualenv</em>:</p>
+<p>Установка <strong>virtualenv</strong>:</p>
 <pre class="code bash literal-block">
 sudo pip3 install virtualenv
 </pre>
@@ -139,7 +140,7 @@ deactivate
 <pre class="code literal-block">
 rmvirtualenv env-name
 </pre>
-<p>Находясь в одном из окружений, можно ставить пакеты через pip, как обычно.
+<p>Находясь в одном из окружений, можно ставить пакеты через <em>pip</em>, как обычно.
 Для примера выбран пакет - <em>flask</em>:</p>
 <pre class="code literal-block">
 pip3 install flask
@@ -153,12 +154,17 @@ pip3 install -r requirements.txt
 <pre class="code literal-block">
 pip3 freeze &gt; requirements.txt
 </pre>
+<hr class="docutils" />
+<p>P.S.
+Иногда возникают ситуации, что необходимо использовать <strong>virtualenv/virtualenvwrapper</strong>
+для разных веток (2.x и 3.x) <em>Python</em>.</p>
+<p>Одно из простых решений - использовать <a class="reference external" href="https://kutsevol.github.io/2017/04/07/pyenv">pyenv</a>.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="id2">
 <h2><strong>Список источников:</strong></h2>
 <ul class="simple">
-<li><a class="reference external" href="http://eax.me/python-virtualenv/">Памятка по virtualenv и изолированным проектам на Python</a></li>
+<li><a class="reference external" href="http://eax.me/python-virtualenv/">Памятка по virtualenv и изолированным проектам на *Python*</a></li>
 <li><a class="reference external" href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/">Python и окружение virtualenv</a></li>
 </ul>
 </div>
