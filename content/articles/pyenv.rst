@@ -1,6 +1,6 @@
 :title: Pyenv. Python manager version
 :date: 2017-04-07
-:modified: 2017-04-08
+:modified: 2017-04-21
 :author: Artur K.
 :category: Development
 :tags: virtualenv, python, pyenv

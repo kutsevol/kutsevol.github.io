@@ -1,6 +1,6 @@
 :title: Virtualenv in Python
 :date: 2017-01-23
-:modified: 2017-02-14
+:modified: 2017-04-27
 :author: Artur K.
 :category: Development
 :tags: virtualenv, python

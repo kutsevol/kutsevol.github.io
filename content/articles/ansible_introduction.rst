@@ -1,6 +1,6 @@
 :title: Ansible Introduction. Part 1
 :date: 2017-02-10
-:modified: 2017-02-20
+:modified: 2017-02-21
 :author: Artur K.
 :category: Administration
 :tags: ansible, python, linux

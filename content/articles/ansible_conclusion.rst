@@ -1,5 +1,5 @@
 :title: Ansible Introduction. Part 3
-:date: 2017-03-02
+:date: 2017-02-21
 :modified: 2017-03-02
 :author: Artur K.
 :category: Administration
