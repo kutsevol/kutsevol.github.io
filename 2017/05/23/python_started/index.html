@@ -116,7 +116,7 @@
 <p>Все распространенные операционные системы (<em>Windows</em>, <em>Linux</em>, <em>OS X</em>)
 поддерживают <strong>Python</strong> (по умолчанию или необходимо скачать установочный файл
 с <a class="reference external" href="https://www.python.org/downloads/">официального сайта</a>). В этой и
-последующих статьях будут за основу взято <em>Linux-системы</em>.</p>
+последующих статьях будут за основу взяты <em>Linux-системы</em>.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="id5">
@@ -131,7 +131,7 @@ python
 python3
 </pre>
 <p>Отличия между <em>python2</em> и <em>python3</em> можно почитать <a class="reference external" href="https://pythonworld.ru/osnovy/python2-vs-python3-razlichiya-sintaksisa.html">тут</a>.</p>
-<p><em>В этом цикле статей будет за основу взята 3 версия **Python*</em>.*</p>
+<p><em>В этом цикле статей будет рассматриваться 3 версия **Python*</em>.*</p>
 <p>Если в консоли было выведено примерно вот такое сообщение:</p>
 <pre class="code literal-block">
 No&nbsp;command&nbsp;'python3'&nbsp;found,&nbsp;did&nbsp;you&nbsp;mean:
@@ -149,12 +149,12 @@ python3 -V
 </pre>
 <p>В <em>Linux</em> по умолчанию нет предустановленного <em>IDLE</em> для <strong>Python</strong>. Но его
 устанавливать не обязательно. Программы можно писать в любом текстовом редакторе
-(<em>Sublime Text</em>, <em>Atom</em>, <em>Gedit</em>, <em>Vim</em>).</p>
+(<em>sublime text</em>, <em>atom</em>, <em>gedit</em>, <em>vim</em>, <em>nano</em>, etc).</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="id7">
 <h2><a class="toc-backref" href="#id12"><strong>Первая программа</strong></a></h2>
-<p>Попробуем написать первую программу на <strong>Python</strong> - <em>hello_world</em>.</p>
+<p>Попробуем написать первую программу на <strong>Python</strong> - <em>Hello, world!</em>.</p>
 <p><em>Что нам для этого необходимо?</em></p>
 <p>Открыть консоль интерпретатора (для первого раза рассмотрим именно такой способ):</p>
 <pre class="code literal-block">
@@ -171,7 +171,7 @@ Hello, world!
 <p>Поздравляю! Вы написали свою первую программу на <strong>Python</strong>.</p>
 <p>Разберем подробнее что же произошло.</p>
 <p><strong>print</strong> - это зарезервированое имя в <strong>python</strong>, которое из себя представляет
-функция, которая принимает выражения для последующего вывода на экран.</p>
+функцию, которая принимает выражения для последующего вывода на экран.</p>
 <p><strong>Немного теории:</strong></p>
 <pre class="code literal-block">
 Функция - это блок организованного, многократно используемоего кода, который
@@ -188,12 +188,13 @@ Hello, world!
 print() - функция
 &quot;Hello, world!&quot; - выражение, которое необходимо вывести на экран
 </pre>
-<p>Но, так как интерактивный режим, не будет являться основным. В основном Вы будете
-сохранять программный код в файле и запускать уже файл.</p>
+<p>Но, так как интерактивный режим, не будет являться основным, в основном, Вы будете
+сохранять программный код в файле и запускать уже файл. Далее рассмотрим как создать
+<em>python-скрипт</em>.</p>
 <hr class="docutils" />
 <div class="section" id="id8">
 <h3><a class="toc-backref" href="#id13"><strong>Запуск скрипта</strong></a></h3>
-<p>Есть несколько способов создать <strong>Python</strong> файл.</p>
+<p>Есть несколько способов создать <strong>Python</strong> файл (скрипт).</p>
 <ol class="arabic simple">
 <li>Зайти в любой текстовый редактор и выбрать создать новый файл и потом сохранить его с любым именем и расширением <strong>.py</strong>!</li>
 <li>Создать через консоль командой <strong>touch</strong> файл с любым именем и расширением <strong>.py</strong> и потом открыть уже созданный файл в любом текстовом редакторе.</li>

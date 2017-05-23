@@ -63,7 +63,7 @@
 &lt;p&gt;Все распространенные операционные системы (&lt;em&gt;Windows&lt;/em&gt;, &lt;em&gt;Linux&lt;/em&gt;, &lt;em&gt;OS X&lt;/em&gt;)
 поддерживают &lt;strong&gt;Python&lt;/strong&gt; (по умолчанию или необходимо скачать установочный файл
 с &lt;a class="reference external" href="https://www.python.org/downloads/"&gt;официального сайта&lt;/a&gt;). В этой и
-последующих статьях будут за основу взято &lt;em&gt;Linux-системы&lt;/em&gt;.&lt;/p&gt;
+последующих статьях будут за основу взяты &lt;em&gt;Linux-системы&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id5"&gt;
@@ -78,7 +78,7 @@ python
 python3
 &lt;/pre&gt;
 &lt;p&gt;Отличия между &lt;em&gt;python2&lt;/em&gt; и &lt;em&gt;python3&lt;/em&gt; можно почитать &lt;a class="reference external" href="https://pythonworld.ru/osnovy/python2-vs-python3-razlichiya-sintaksisa.html"&gt;тут&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;В этом цикле статей будет за основу взята 3 версия **Python*&lt;/em&gt;.*&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;В этом цикле статей будет рассматриваться 3 версия **Python*&lt;/em&gt;.*&lt;/p&gt;
 &lt;p&gt;Если в консоли было выведено примерно вот такое сообщение:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 No&amp;nbsp;command&amp;nbsp;'python3'&amp;nbsp;found,&amp;nbsp;did&amp;nbsp;you&amp;nbsp;mean:
@@ -96,12 +96,12 @@ python3 -V
 &lt;/pre&gt;
 &lt;p&gt;В &lt;em&gt;Linux&lt;/em&gt; по умолчанию нет предустановленного &lt;em&gt;IDLE&lt;/em&gt; для &lt;strong&gt;Python&lt;/strong&gt;. Но его
 устанавливать не обязательно. Программы можно писать в любом текстовом редакторе
-(&lt;em&gt;Sublime Text&lt;/em&gt;, &lt;em&gt;Atom&lt;/em&gt;, &lt;em&gt;Gedit&lt;/em&gt;, &lt;em&gt;Vim&lt;/em&gt;).&lt;/p&gt;
+(&lt;em&gt;sublime text&lt;/em&gt;, &lt;em&gt;atom&lt;/em&gt;, &lt;em&gt;gedit&lt;/em&gt;, &lt;em&gt;vim&lt;/em&gt;, &lt;em&gt;nano&lt;/em&gt;, etc).&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id7"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;&lt;strong&gt;Первая программа&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Попробуем написать первую программу на &lt;strong&gt;Python&lt;/strong&gt; - &lt;em&gt;hello_world&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Попробуем написать первую программу на &lt;strong&gt;Python&lt;/strong&gt; - &lt;em&gt;Hello, world!&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Что нам для этого необходимо?&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Открыть консоль интерпретатора (для первого раза рассмотрим именно такой способ):&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
@@ -118,7 +118,7 @@ Hello, world!
 &lt;p&gt;Поздравляю! Вы написали свою первую программу на &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Разберем подробнее что же произошло.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;print&lt;/strong&gt; - это зарезервированое имя в &lt;strong&gt;python&lt;/strong&gt;, которое из себя представляет
-функция, которая принимает выражения для последующего вывода на экран.&lt;/p&gt;
+функцию, которая принимает выражения для последующего вывода на экран.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Немного теории:&lt;/strong&gt;&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 Функция - это блок организованного, многократно используемоего кода, который
@@ -135,12 +135,13 @@ Hello, world!
 print() - функция
 &amp;quot;Hello, world!&amp;quot; - выражение, которое необходимо вывести на экран
 &lt;/pre&gt;
-&lt;p&gt;Но, так как интерактивный режим, не будет являться основным. В основном Вы будете
-сохранять программный код в файле и запускать уже файл.&lt;/p&gt;
+&lt;p&gt;Но, так как интерактивный режим, не будет являться основным, в основном, Вы будете
+сохранять программный код в файле и запускать уже файл. Далее рассмотрим как создать
+&lt;em&gt;python-скрипт&lt;/em&gt;.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="id8"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;&lt;strong&gt;Запуск скрипта&lt;/strong&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Есть несколько способов создать &lt;strong&gt;Python&lt;/strong&gt; файл.&lt;/p&gt;
+&lt;p&gt;Есть несколько способов создать &lt;strong&gt;Python&lt;/strong&gt; файл (скрипт).&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Зайти в любой текстовый редактор и выбрать создать новый файл и потом сохранить его с любым именем и расширением &lt;strong&gt;.py&lt;/strong&gt;!&lt;/li&gt;
 &lt;li&gt;Создать через консоль командой &lt;strong&gt;touch&lt;/strong&gt; файл с любым именем и расширением &lt;strong&gt;.py&lt;/strong&gt; и потом открыть уже созданный файл в любом текстовом редакторе.&lt;/li&gt;
