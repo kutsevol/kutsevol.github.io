@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Artur K." />
+        <meta name="copyright" content="Artur K." />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="ansible, python, linux, Administration, " />
+
+<meta property="og:title" content="Ansible Introduction. Part 3 "/>
+<meta property="og:url" content="https://kutsevol.github.io/2017/02/21/ansible_end" />
+<meta property="og:description" content="Содержание Модули Командный модуль command Командный модуль raw Командный модуль script Командный модуль shell Файловый модуль file Файловый модуль copy Модуль системы управления версиями git Роли Зависимости ролей Список источников В предыдущей статье рассмотрели как управлять конфигурациями и как писать playbook. В этой (последней) части рассмотрим модули и как их …" />
+<meta property="og:site_name" content="IT Blog" />
+<meta property="og:article:author" content="Artur K." />
+<meta property="og:article:published_time" content="2017-02-21T00:00:00+02:00" />
+<meta property="" content="2017-03-02T00:00:00+02:00" />
+<meta name="twitter:title" content="Ansible Introduction. Part 3 ">
+<meta name="twitter:description" content="Содержание Модули Командный модуль command Командный модуль raw Командный модуль script Командный модуль shell Файловый модуль file Файловый модуль copy Модуль системы управления версиями git Роли Зависимости ролей Список источников В предыдущей статье рассмотрели как управлять конфигурациями и как писать playbook. В этой (последней) части рассмотрим модули и как их …">
+
+        <title>Ansible Introduction. Part 3  · IT Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://kutsevol.github.io/theme/css/custom.css" media="screen">
+        <link href="https://kutsevol.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="IT Blog - Full Atom Feed" />
+        <link href="https://kutsevol.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="IT Blog - Full RSS Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="https://kutsevol.github.io/"><span class=site-name>IT Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="https://kutsevol.github.io">Home</a></li>
+                            <li ><a href="https://kutsevol.github.io/about/">About</a></li>
+                            <li ><a href="https://kutsevol.github.io/categories.html">Categories</a></li>
+                            <li ><a href="https://kutsevol.github.io/tags.html">Tags</a></li>
+                            <li ><a href="https://kutsevol.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="https://kutsevol.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="https://kutsevol.github.io/2017/02/21/ansible_end"> Ansible Introduction. Part 3  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <div class="figure align-center">
+<img alt="Ansible" src="/images/ansible-header-3.png" style="width: 621.0px; height: 385.2px;" />
+</div>
+<div class="contents topic" id="id1">
+<p class="topic-title first"><strong>Содержание</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#id3" id="id9"><strong>Модули</strong></a><ul>
+<li><a class="reference internal" href="#command" id="id10"><strong>Командный модуль command</strong></a></li>
+<li><a class="reference internal" href="#raw" id="id11"><strong>Командный модуль raw</strong></a></li>
+<li><a class="reference internal" href="#script" id="id12"><strong>Командный модуль script</strong></a></li>
+<li><a class="reference internal" href="#shell" id="id13"><strong>Командный модуль shell</strong></a></li>
+<li><a class="reference internal" href="#file" id="id14"><strong>Файловый модуль file</strong></a></li>
+<li><a class="reference internal" href="#copy" id="id15"><strong>Файловый модуль copy</strong></a></li>
+<li><a class="reference internal" href="#git" id="id16"><strong>Модуль системы управления версиями git</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6" id="id17"><strong>Роли</strong></a><ul>
+<li><a class="reference internal" href="#id7" id="id18"><strong>Зависимости ролей</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8" id="id19"><strong>Список источников</strong></a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<p>В <a class="reference external" href="https://kutsevol.github.io/2017/02/20/ansible_cont">предыдущей статье</a> рассмотрели как управлять
+конфигурациями и как писать <em>playbook</em>. В этой (последней) части рассмотрим модули
+и как их применять, познакомимся с ролями.</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9"><strong>Модули</strong></a></h2>
+<p>Модуль можно написать на любом языке, он должен уметь принимать параметры на
+вход и выдавать json ответ. Модули находятся <a class="reference external" href="http://docs.ansible.com/ansible/list_of_all_modules.html">здесь</a>.</p>
+<p>Как написать свой собственный модуль, можно прочитать в <a class="reference external" href="http://docs.ansible.com/ansible/dev_guide/developing_modules.html">документации</a>.</p>
+<p>В состав Ansible входит огромное количество модулей для развёртывания,
+контроля и управления различными компонентами, которые можно условно разделить
+на следующие группы (в скобках приведены названия некоторых продуктов и
+сервисов):</p>
+<ul class="simple">
+<li>облачные ресурсы и виртуализация (Openstack, libvirt);</li>
+<li>базы данных (MySQL, Postgresql, Redis, Riak);</li>
+<li>файлы (шаблонизация, регулярные выражения, права доступа);</li>
+<li>мониторинг (Nagios, monit);</li>
+<li>оповещения о ходе выполнения сценария (Jabber, Irc, почта, MQTT, Hipchat);</li>
+<li>сеть и сетевая инфраструктура (Openstack, Arista);</li>
+<li>управление пакетами (apt, yum, rhn-channel, npm, pacman, pip, gem);</li>
+<li>система (LVM, Selinux, ZFS, cron, файловые системы, сервисы, модули ядра);</li>
+<li>работа с различными утилитами (git, hg).</li>
+</ul>
+<div class="section" id="command">
+<h3><a class="toc-backref" href="#id10"><strong>Командный модуль command</strong></a></h3>
+<p>Модуль принимает имя команды и армументы. Переменные оболочки или операции (&lt;,&gt;,|,&amp;)
+не будут работать с модулем command, т.к. обрабатываются оболочкой.
+Модуль command принимает следующие параметры:</p>
+<ul class="simple">
+<li><em>chdir</em>: Используется для изменения текущей директории, в которой исполняется команда</li>
+<li><em>creates</em>: Создает файл</li>
+<li><em>removes</em>: Удаляет файл</li>
+</ul>
+<p>Простейшая задача перезагрузки сервера:</p>
+<pre class="code literal-block">
+- name: Reboot machine
+    command: /sbin/shutdown -r now
+    sudo: yes
+</pre>
+</div>
+<div class="section" id="raw">
+<h3><a class="toc-backref" href="#id11"><strong>Командный модуль raw</strong></a></h3>
+<p>Этот модуль следует использовать, когда другие командные модули использовать не удается.
+Это простой запуск удаленных команд серверу по <em>SSH</em>. Данный модуль работает
+даже на серверах без установленного <em>Python</em>.</p>
+<p>Пример установки пакета <em>vim</em>:</p>
+<pre class="code literal-block">
+- name: Install vim
+    raw: yum -y install vim-common
+    sudo: yes
+</pre>
+<p>По окончанию выполнения операции, можно будет увидеть, что пакет установлен, но
+задача не будет помечена как <em>changed</em>. Лучше не использовать <em>raw</em> модуль когда возможно.</p>
+</div>
+<div class="section" id="script">
+<h3><a class="toc-backref" href="#id12"><strong>Командный модуль script</strong></a></h3>
+<p>Этот модуль используется для копирования скрипта на удаленную машину и исполнения его.
+Модуль поддерживает параметры <em>creates</em> и <em>removes</em>.</p>
+<p>Для примера, напишем скрипт для просмотра количества директорий в <em>/etc</em> и запустим
+его на удаленных серверах (~/ansible/playbooks/scripts/<strong>list_number_of_directories.sh</strong>)</p>
+<pre class="code literal-block">
+#/bin/bash
+ls -l /etc | egrep '^d' | wc -l
+</pre>
+<p>Задача, использующая модуль script выглядит так:</p>
+<pre class="code literal-block">
+- name: List directories in /etc
+    script: ~/ansible/playbooks/scripts/list_number_of_directories.sh /etc
+    sudo: yes
+</pre>
+<p>Путь к файлу скрипта задается относительно месторасположения файла, использующего
+модуль <em>script</em>. Например, если данная задача описана в файле задачи,
+импортированном в <em>playbook</em>, расположение скрипта задается относительно файла
+задачи, а не <em>playbook</em>.</p>
+</div>
+<div class="section" id="shell">
+<h3><a class="toc-backref" href="#id13"><strong>Командный модуль shell</strong></a></h3>
+<p>Ключевое отличие модуля <em>shell</em> от модуля <em>command</em> в том, что он использует
+<strong>/bin/sh</strong> по умолчанию для запуска команд. Вы можете использовать переменные
+оболочки и другие функции оболочки.</p>
+</div>
+<div class="section" id="file">
+<h3><a class="toc-backref" href="#id14"><strong>Файловый модуль file</strong></a></h3>
+<p>Модуль <em>file</em> позволяет вам изменять атрибуты файла. Можно создать файл, создать
+или удалить директории рекурсивно, создать или удалить символическую ссылку.</p>
+<p>Проверим, что httpd.conf имеет правильные права владельца:</p>
+<pre class="code literal-block">
+- name: Ensure httpd conf has right permissions and owner/group
+    file: path=/etc/httpd/conf/httpd.conf owner=root group=root mode=0644
+    sudo: yes
+</pre>
+<p>Так как скрипты <strong>Ansible</strong> позволяют достичь нужного состояния и при перезапуске
+скриптов - повторный запуск позволит убедиться и поправить при необходимости права
+на доступ к файлам.</p>
+<p>Как создаются <em>симлинки</em>:</p>
+<pre class="code literal-block">
+- name: Create a symlink in /tmp for httpd.conf
+    file: src=/etc/httpd/conf/httpd.conf dest=/tmp/httpd.conf owner=root group=root state=link
+    sudo: yes
+</pre>
+<p>Создание директории рекурсивно:</p>
+<pre class="code literal-block">
+- name: Create recursive directories
+    file: path=/tmp/dir1/dir2/dir3 owner=root group=root mode=0777
+    sudo: yes
+</pre>
+</div>
+<div class="section" id="copy">
+<h3><a class="toc-backref" href="#id15"><strong>Файловый модуль copy</strong></a></h3>
+<p>С помощью модуля <em>copy</em> можно копировать файлы на сервер.</p>
+<pre class="code literal-block">
+- name: Copy file remotely
+    copy: src=test2.conf dest=/etc/test2.conf owner=root group=root mode=0644
+    sudo: yes
+</pre>
+</div>
+<div class="section" id="git">
+<h3><a class="toc-backref" href="#id16"><strong>Модуль системы управления версиями git</strong></a></h3>
+<p>В <strong>Ansible</strong> есть поддержка различных систем управления версиями (<em>svn</em>, <em>bzr</em>,
+<em>hg</em> и другие), но рассмотрим <em>git</em>:</p>
+<p>Установка <em>git</em> на сервер:</p>
+<pre class="code literal-block">
+- yum: name=git state=installed
+  sudo: yes
+</pre>
+<p>Получим репозиторий со скриптами из этих статей:</p>
+<pre class="code literal-block">
+- name: Checkout ansible–playground repository
+    git: repo=https://github.com/trukhinyuri/ansible-playground.git dest=~/checkout
+    sudo: yes
+</pre>
+<p>До и после выполнения задачи считается <em>SHA</em>, который позволяет понять, был ли
+репозиторий обновлен.</p>
+<p>Если получаете файлы по <em>SSH</em> - используйте параметры <strong>accept_key</strong> и <strong>key_file</strong>
+для установки ключа для доступа к репозиторию. Если нужно использовать ключ
+<em>accept_key=yes</em>, <em>key_file</em> - указывает на путь к ключу. Если ключ находится в
+<em>~/.ssh</em> - указывать <em>key_file</em> не нужно.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id17"><strong>Роли</strong></a></h2>
+<p>Ролью называется типовой набор переменных и задач, назначаемых для одного или
+нескольких серверов. Если вам нужно применить к серверу или группе серверов
+типовой набор операций, вам достаточно просто назначить ему роль. Предварительно
+в проекте каталоге проекта должна быть создана соответствующая структура. В
+сценариях роли назначаются следующим образом:</p>
+<pre class="code literal-block">
+---
+- hosts: webservers
+    roles:
+     - common
+     - web
+     – db
+</pre>
+<p>Файловая структура ролей будет выглядеть, примерно вот так:</p>
+<pre class="code literal-block">
+site.yml
+webservers.yml
+roles/
+common/
+ files/
+ templates/
+ tasks/
+ handlers/
+ vars/
+ defaults/
+ meta/
+web/
+ files/
+ templates/
+ tasks/
+ handlers/
+ vars/
+ defaults/
+ meta/
+db/
+ files/
+ templates/
+ tasks/
+ handlers/
+ vars/
+ defaults/
+ meta/
+</pre>
+<p>Если какой-то директории в роли нет - она будет проигнорирована и <em>playbook</em> будет
+исполняться. Совсем не обязательно у вас должны быть все элементы и директории <em>playbook</em>.</p>
+<p>Правила, используемые для каждой роли:</p>
+<ul class="simple">
+<li>Если <strong>roles/x/tasks/main.yml</strong> существует, задачи будут добавлены в процесс исполнения <em>playbook</em>.</li>
+<li>Если <strong>roles/x/handlers/main.yml</strong> существует, обработчики событий будут добавлены в процесс исполнения <em>playbook</em>.</li>
+<li>Если <strong>roles/x/vars/main.yml</strong> существует, переменные будут добавлены в процесс исполнения <em>playbook</em>.</li>
+<li>Если <strong>roles/x/meta/mail.yml</strong> существует, любые роли-зависимости будут добавлены в список ролей. (В meta можно указывать список ролей, которые должны быть применены до конкретной роли, чтобы она применилась корректно).</li>
+<li>Любая задача копирования может ссылаться на файл в <strong>roles/x/files</strong> без указания абсолютного или относительного пути.</li>
+<li>Любая скриптовая задача может ссылаться на скрипты в <strong>roles/x/files</strong> без указания абсолютного или относительного пути.</li>
+<li>Любая задача шаблонизации может ссылаться на <strong>roles/x/templates</strong> без указания абсолютного или относительного пути.</li>
+<li>Любые импортируемые задачи могут ссылаться на файлы задач в директории <strong>roles/x/tasks</strong> без указания абсолютного или относительного пути.</li>
+</ul>
+<p>В конфигурационном файле <strong>Аnsible</strong> можно задать <strong>roles_path</strong> (директорию с ролями).
+Это может пригодиться, если у вас <em>playbook</em> лежат в одном репозитории, а сами роли в другом.
+Можно задавать сразу несколько путей к ролям через двоеточие:</p>
+<pre class="code literal-block">
+roles_path = /opt/mysite/roles:/opt/othersite/roles
+</pre>
+<p>В роли можно передавать переменные или использовать условия:</p>
+<pre class="code literal-block">
+---
+- hosts: experiments
+    roles:
+        – common
+        – {role: web, dir: '/var/www', port: 80}
+        – {role: repository, when: &quot;ansible_os_family =='RedHat'&quot;}
+</pre>
+<p>С помощью тегов можно запускать помеченные части <em>playbook</em>.
+Использование тэгов выглядит так:</p>
+<pre class="code literal-block">
+tasks:
+    - apt: name={{ item }} state=installed
+      with_items:
+         - httpd
+         - htop
+      tags:
+         - packages
+
+    - template: src=templates/src.j2 dest=/var/www/.htaccess
+      tags:
+         - configuration
+</pre>
+<p>Можно запустить часть <em>playbook</em> так:
+<strong>ansible-playbook example.yml --tags «configuration,packages»</strong> или пропустить исполнение части так:
+<strong>ansible-playbook example.yml --skip-tags «notification»</strong>.</p>
+<p>Тэги можно использовать и при указании ролей:</p>
+<pre class="code literal-block">
+---
+- hosts: experiments
+    roles:
+    - { role: web, tags: [&quot;apache&quot;, &quot;simple&quot;] }
+</pre>
+<p>Можно указать, какие задачи должны выполниться до роли и после:</p>
+<pre class="code literal-block">
+---
+- hosts: experiments
+    pre_tasks:
+        - shell: echo 'hello, habr'
+    roles:
+        - { role: web }
+    tasks:
+        - shell: echo 'still busy'
+    post_tasks:
+        - shell: echo 'goodbye, habr'
+</pre>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id18"><strong>Зависимости ролей</strong></a></h3>
+<p>Зависимости ролей позволяют автоматически исполнить зависимые роли при запуске
+конкретных ролей, у которых зависимости есть. Зависимости хранятся в <em>roles/x/meta/main.yml</em>.
+Вместе с зависимыми ролями могут быть переданы параметры. Путь к ролям может быть
+указан как в сокращенном виде, так и в полном. Также может быть использован
+репозиторий системы управления версиями.</p>
+<pre class="code literal-block">
+---
+dependencies:
+    - { role: common, some_parameter: 3 }
+    - { role: '/path/to/common/roles/foo', x: 1 }
+    - { role: 'git+http://git.example.com/repos/role-foo,v1.1,foo' }
+</pre>
+<p>Если в зависимостях указана одна и та же роль несколько раз - она запустится только
+однажды. Если нужно несколько раз, можно в файле зависимостей попросить об этом явно.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id19"><strong>Список источников</strong></a></h2>
+<ul class="simple">
+<li>Официальная документация по <a class="reference external" href="http://docs.ansible.com/ansible/index.html">Ansible</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252239/">Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 4: работаем с модулями</a></li>
+<li><a class="reference external" href="https://habrahabr.ru/company/infobox/blog/252461/">Автоматизируем и ускоряем процесс настройки облачных серверов с Ansible. Часть 5: local_action, условия, циклы и роли</a></li>
+</ul>
+</div>
+
+
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="https://kutsevol.github.io/2017/02/20/ansible_cont" title="Previous: Ansible Introduction. Part 2">Ansible Introduction. Part 2</a></li>
+                <li class="next-article"><a href="https://kutsevol.github.io/2017/04/07/pyenv" title="Next: Pyenv. Python manager version">Pyenv. Python manager version</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+            
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                var disqus_shortname = 'ericcarmichaelsnerdery';
+                var disqus_identifier = '2017/02/21/ansible_end';
+                var disqus_title = 'Ansible Introduction. Part 3';
+                var disqus_url = 'https://kutsevol.github.io/2017/02/21/ansible_end';
+
+                (function() {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+
+            
+            <hr/>
+
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2017-02-21T00:00:00+02:00">Feb 21, 2017</time>
+
+<h4>Last Updated</h4>
+<time datetime="2017-03-02T00:00:00+02:00">Mar 2, 2017</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="https://kutsevol.github.io/categories.html#administration-ref">Administration</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://kutsevol.github.io/tags.html#ansible-ref">ansible
+                    <span>3</span>
+</a></li>
+                <li><a href="https://kutsevol.github.io/tags.html#linux-ref">linux
+                    <span>6</span>
+</a></li>
+                <li><a href="https://kutsevol.github.io/tags.html#python-ref">python
+                    <span>6</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://github.com/kutsevol" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.linkedin.com/in/arthur-kutsevol-a20731a4" title="My Linkedin Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-linkedin sidebar-social-links"></i></a>
+    <a href="/feeds/all.rss.xml" title="Subscribe in a reader" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-rss sidebar-social-links"></i></a>
+<!-- Begin MailChimp Signup Form -->
+<div id="mc-embed-signup">
+    <form action="//github.us15.list-manage.com/subscribe/post?u=d09b0b1b59ce2533b417871ed&amp;id=2fe8ad9698" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+        <h4>Email Newsletter</h4>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email..." required>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'https-kutsevol-github-io';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+</html>
