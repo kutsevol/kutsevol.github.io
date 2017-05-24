@@ -1,6 +1,6 @@
 :title: Python Started
 :date: 2017-05-23
-:modified: 2017-05-23
+:modified: 2017-05-24
 :author: Artur K.
 :category: Programming
 :tags: linux, python
@@ -230,3 +230,64 @@
     ./test.py
 
 Вывод такой же, как и в первом случае - *Hello, world!*
+
+===============
+**Дзен Python**
+===============
+
+Разработчики языка Python придерживаются определённой философии программирования,
+называемой «The Zen of Python» («Дзен Питона», или «Дзен Пайтона»). Её текст
+выдаётся интерпретатором Python по команде import this (работает один раз за сессию).
+Автором этой философии считается Тим Петерс (Tim Peters).
+
+.. code::
+
+    import this
+
+Текст философии:
+
+.. code::
+
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    Flat is better than nested.
+    Sparse is better than dense.
+    Readability counts.
+    Special cases aren't special enough to break the rules.
+    Although practicality beats purity.
+    Errors should never pass silently.
+    Unless explicitly silenced.
+    In the face of ambiguity, refuse the temptation to guess.
+    There should be one — and preferably only one — obvious way to do it.
+    Although that way may not be obvious at first unless you're Dutch.
+    Now is better than never.
+    Although never is often better than «right» now.
+    If the implementation is hard to explain, it's a bad idea.
+    If the implementation is easy to explain, it may be a good idea.
+    Namespaces are one honking great idea — let's do more of those!
+
+Перевод:
+
+.. code::
+
+    Красивое лучше уродливого.
+    Явное лучше неявного.
+    Простое лучше сложного.
+    Сложное лучше усложнённого.
+    Плоское лучше вложенного.
+    Разрежённое лучше плотного.
+    Удобочитаемость важна.
+    Частные случаи не настолько существенны, чтобы нарушать правила.
+    Однако практичность важнее чистоты.
+    Ошибки никогда не должны замалчиваться.
+    За исключением замалчивания, которое задано явно.
+    Перед лицом двусмысленности, откажитесь от искушения угадать.
+    Должен существовать один — и, желательно, только один — очевидный способ сделать это.
+    Хотя он может быть с первого взгляда не очевиден, если ты не голландец.
+    Сейчас лучше, чем никогда.
+    Однако, никогда чаще лучше, чем прямо сейчас.
+    Если реализацию сложно объяснить — это плохая идея.
+    Если реализацию легко объяснить — это может быть хорошая идея.
+    Пространства имён — великолепная идея, их должно быть много!

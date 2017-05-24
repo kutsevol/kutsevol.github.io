@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-05-23T00:00:00+03:00</updated><entry><title>Python Started</title><link href="https://kutsevol.github.io/2017/05/23/python_started" rel="alternate"></link><published>2017-05-23T00:00:00+03:00</published><updated>2017-05-23T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-05-23:/2017/05/23/python_started</id><summary type="html">&lt;div class="contents topic" id="id1"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>IT Blog - Artur K.</title><link href="https://kutsevol.github.io/" rel="alternate"></link><link href="https://kutsevol.github.io/feeds/artur-k.atom.xml" rel="self"></link><id>https://kutsevol.github.io/</id><updated>2017-05-24T00:00:00+03:00</updated><entry><title>Python Started</title><link href="https://kutsevol.github.io/2017/05/23/python_started" rel="alternate"></link><published>2017-05-23T00:00:00+03:00</published><updated>2017-05-24T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-05-23:/2017/05/23/python_started</id><summary type="html">&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;&lt;strong&gt;Ввеведние&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -8,6 +8,7 @@
 &lt;li&gt;&lt;a class="reference internal" href="#id8" id="id13"&gt;&lt;strong&gt;Запуск скрипта&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python" id="id14"&gt;&lt;strong&gt;Дзен Python&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
@@ -19,7 +20,7 @@
 подробно можно прочитать &lt;a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_Python"&gt;здесь&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Преимущества:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Легкий и быстрый в изучении …&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="contents topic" id="id1"&gt;
+&lt;li&gt;Легкий и быстрый …&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;&lt;strong&gt;Ввеведние&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -28,6 +29,7 @@
 &lt;li&gt;&lt;a class="reference internal" href="#id8" id="id13"&gt;&lt;strong&gt;Запуск скрипта&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python" id="id14"&gt;&lt;strong&gt;Дзен Python&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
@@ -193,6 +195,60 @@ chmod +x /path/to/test.py
 &lt;/pre&gt;
 &lt;p&gt;Вывод такой же, как и в первом случае - &lt;em&gt;Hello, world!&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;&lt;strong&gt;Дзен Python&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Разработчики языка Python придерживаются определённой философии программирования,
+называемой «The Zen of Python» («Дзен Питона», или «Дзен Пайтона»). Её текст
+выдаётся интерпретатором Python по команде import this (работает один раз за сессию).
+Автором этой философии считается Тим Петерс (Tim Peters).&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+import this
+&lt;/pre&gt;
+&lt;p&gt;Текст философии:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one — and preferably only one — obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than «right» now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea — let's do more of those!
+&lt;/pre&gt;
+&lt;p&gt;Перевод:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Красивое лучше уродливого.
+Явное лучше неявного.
+Простое лучше сложного.
+Сложное лучше усложнённого.
+Плоское лучше вложенного.
+Разрежённое лучше плотного.
+Удобочитаемость важна.
+Частные случаи не настолько существенны, чтобы нарушать правила.
+Однако практичность важнее чистоты.
+Ошибки никогда не должны замалчиваться.
+За исключением замалчивания, которое задано явно.
+Перед лицом двусмысленности, откажитесь от искушения угадать.
+Должен существовать один — и, желательно, только один — очевидный способ сделать это.
+Хотя он может быть с первого взгляда не очевиден, если ты не голландец.
+Сейчас лучше, чем никогда.
+Однако, никогда чаще лучше, чем прямо сейчас.
+Если реализацию сложно объяснить — это плохая идея.
+Если реализацию легко объяснить — это может быть хорошая идея.
+Пространства имён — великолепная идея, их должно быть много!
+&lt;/pre&gt;
 &lt;/div&gt;
 </content><category term="linux"></category><category term="python"></category></entry><entry><title>Jenkins Fundamentals</title><link href="https://kutsevol.github.io/2017/04/12/jenkins" rel="alternate"></link><published>2017-04-12T00:00:00+03:00</published><updated>2017-04-12T00:00:00+03:00</updated><author><name>Artur K.</name></author><id>tag:kutsevol.github.io,2017-04-12:/2017/04/12/jenkins</id><summary type="html">&lt;div class="figure align-center"&gt;
 &lt;img alt="Jenkins" src="/images/jenkins-logo.png" style="width: 439.4px; height: 267.15px;" /&gt;

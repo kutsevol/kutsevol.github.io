@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>IT Blog</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Tue, 23 May 2017 00:00:00 +0300</lastBuildDate><item><title>Python Started</title><link>https://kutsevol.github.io/2017/05/23/python_started</link><description>&lt;div class="contents topic" id="id1"&gt;
+<rss version="2.0"><channel><title>IT Blog</title><link>https://kutsevol.github.io/</link><description></description><lastBuildDate>Wed, 24 May 2017 00:00:00 +0300</lastBuildDate><item><title>Python Started</title><link>https://kutsevol.github.io/2017/05/23/python_started</link><description>&lt;div class="contents topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;&lt;strong&gt;Содержание&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;&lt;strong&gt;Ввеведние&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -8,6 +8,7 @@
 &lt;li&gt;&lt;a class="reference internal" href="#id8" id="id13"&gt;&lt;strong&gt;Запуск скрипта&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python" id="id14"&gt;&lt;strong&gt;Дзен Python&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
@@ -19,7 +20,7 @@
 подробно можно прочитать &lt;a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_Python"&gt;здесь&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Преимущества:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Легкий и быстрый в изучении …&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Tue, 23 May 2017 00:00:00 +0300</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-05-23:/2017/05/23/python_started</guid><category>linux</category><category>python</category></item><item><title>Jenkins Fundamentals</title><link>https://kutsevol.github.io/2017/04/12/jenkins</link><description>&lt;div class="figure align-center"&gt;
+&lt;li&gt;Легкий и быстрый …&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Artur K.</dc:creator><pubDate>Tue, 23 May 2017 00:00:00 +0300</pubDate><guid isPermaLink="false">tag:kutsevol.github.io,2017-05-23:/2017/05/23/python_started</guid><category>linux</category><category>python</category></item><item><title>Jenkins Fundamentals</title><link>https://kutsevol.github.io/2017/04/12/jenkins</link><description>&lt;div class="figure align-center"&gt;
 &lt;img alt="Jenkins" src="/images/jenkins-logo.png" style="width: 439.4px; height: 267.15px;" /&gt;
 &lt;/div&gt;
 &lt;div class="contents topic" id="id1"&gt;
