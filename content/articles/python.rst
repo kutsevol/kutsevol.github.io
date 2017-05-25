@@ -1,6 +1,6 @@
 :title: Python Started
 :date: 2017-05-23
-:modified: 2017-05-24
+:modified: 2017-05-25
 :author: Artur K.
 :category: Programming
 :tags: linux, python
