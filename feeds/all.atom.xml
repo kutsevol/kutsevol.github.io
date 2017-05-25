@@ -54,11 +54,11 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Где применяется:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Разработка веб-приложений (Django, Flask);&lt;/li&gt;
-&lt;li&gt;Анализ данных и машинное обучение (пакеты scipy, scikit-learn, pandas, numpy признанные мировым ученым сообществом);&lt;/li&gt;
-&lt;li&gt;Введение в программирование (pygame, turtle хорошо помогают мотивировать детей начинать кодить);&lt;/li&gt;
-&lt;li&gt;Быстрое прототипирование идей в бизнесе за счёт обилия готовых библиотек, низкого порога вхождения в язык и высокой продуктивности программистов, пишущих на Python;&lt;/li&gt;
-&lt;li&gt;Написание скриптов (сценариев) для автоматизации задач. Python по-умолчанию поставляется со всеми дистрибутивами unix-like систем и является отличной заменой Bash во всех смыслах.&lt;/li&gt;
+&lt;li&gt;Разработка веб-приложений (&lt;em&gt;Django&lt;/em&gt;, &lt;em&gt;Flask&lt;/em&gt;);&lt;/li&gt;
+&lt;li&gt;Анализ данных и машинное обучение (пакеты &lt;em&gt;scipy&lt;/em&gt;, &lt;em&gt;scikit-learn&lt;/em&gt;, &lt;em&gt;pandas&lt;/em&gt;, &lt;em&gt;numpy&lt;/em&gt; признанные мировым ученым сообществом);&lt;/li&gt;
+&lt;li&gt;Введение в программирование (&lt;em&gt;pygame&lt;/em&gt;, &lt;em&gt;turtle&lt;/em&gt; хорошо помогают мотивировать детей начинать кодить);&lt;/li&gt;
+&lt;li&gt;Быстрое прототипирование идей в бизнесе за счёт обилия готовых библиотек, низкого порога вхождения в язык и высокой продуктивности программистов, пишущих на &lt;strong&gt;Python&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Написание скриптов (сценариев) для автоматизации задач. &lt;strong&gt;Python&lt;/strong&gt; по-умолчанию поставляется со всеми дистрибутивами &lt;em&gt;unix-like&lt;/em&gt; систем и является отличной заменой &lt;em&gt;Bash&lt;/em&gt; во всех смыслах.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;После прочтения преимуществ и недостатков &lt;strong&gt;Python&lt;/strong&gt; Вы можете точно для себя
 решить - подходит Вам этот ЯП или нет.&lt;/p&gt;
@@ -92,6 +92,14 @@ Command&amp;nbsp;'python2'&amp;nbsp;from&amp;nbsp;package&amp;nbsp;'python-minim
 &lt;pre class="code literal-block"&gt;
 sudo apt-get install python3
 &lt;/pre&gt;
+&lt;p&gt;В противном случае, запустится интерпретатор &lt;em&gt;Python*&lt;/em&gt;, будет выглядить примерно
+вот так:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Python 3.4.0 (default, Apr 11 2014, 13:05:11)
+[GCC 4.8.2] on linux
+Type &amp;quot;help&amp;quot;, &amp;quot;copyright&amp;quot;, &amp;quot;credits&amp;quot; or &amp;quot;license&amp;quot; for more information.
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/pre&gt;
 &lt;p&gt;Так же один из способов, чтобы узнать какая версия &lt;strong&gt;Python&lt;/strong&gt; установлена:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 python3 -V
@@ -119,7 +127,7 @@ Hello, world!
 &lt;/pre&gt;
 &lt;p&gt;Поздравляю! Вы написали свою первую программу на &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Разберем подробнее что же произошло.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;print&lt;/strong&gt; - это зарезервированое имя в &lt;strong&gt;python&lt;/strong&gt;, которое из себя представляет
+&lt;p&gt;&lt;strong&gt;print&lt;/strong&gt; - это зарезервированое имя в &lt;strong&gt;Python&lt;/strong&gt;, которое из себя представляет
 функцию, которая принимает выражения для последующего вывода на экран.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Немного теории:&lt;/strong&gt;&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
@@ -137,7 +145,7 @@ Hello, world!
 print() - функция
 &amp;quot;Hello, world!&amp;quot; - выражение, которое необходимо вывести на экран
 &lt;/pre&gt;
-&lt;p&gt;Но, так как интерактивный режим, не будет являться основным, в основном, Вы будете
+&lt;p&gt;Но, так как интерактивный режим, не будет являться основным, Вы, в основном, будете
 сохранять программный код в файле и запускать уже файл. Далее рассмотрим как создать
 &lt;em&gt;python-скрипт&lt;/em&gt;.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
@@ -156,7 +164,7 @@ touch test.py
 &lt;p&gt;После того как мы создали &lt;strong&gt;Python&lt;/strong&gt; файл можем его открыть и добавить в него
 код введенный ранее в интерактивном режиме.&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
-python(&amp;quot;Hello, world!&amp;quot;)
+print(&amp;quot;Hello, world!&amp;quot;)
 &lt;/pre&gt;
 &lt;p&gt;Рассмотрим способы запуска этого скрипта (для примера будем считать что был
 создан скрипт &lt;em&gt;test.py&lt;/em&gt;):&lt;/p&gt;
@@ -168,7 +176,7 @@ python3 test.py
 &lt;/pre&gt;
 &lt;p&gt;На экране будет выведено - &lt;em&gt;Hello, world!&lt;/em&gt;&lt;/p&gt;
 &lt;ol class="arabic simple" start="2"&gt;
-&lt;li&gt;Сначала в самое начало файла необходимо добавить следующую строку кода:&lt;/li&gt;
+&lt;li&gt;Первым дело, в самое начало файла необходимо добавить следующую строку кода:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class="code literal-block"&gt;
 #!/usr/bin/env python3
@@ -185,7 +193,7 @@ print(&amp;quot;Hello&amp;nbsp;world!&amp;quot;)
 chmod +x test.py
 &lt;/pre&gt;
 &lt;p&gt;При выполнение этой команды, вы должны находится в директории, где находится
-скрипт, иначе необходимо указывать полный путь к скрипту.&lt;/p&gt;
+скрипт, иначе необходимо указывать полный путь к скрипту:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 chmod +x /path/to/test.py
 &lt;/pre&gt;
@@ -198,10 +206,10 @@ chmod +x /path/to/test.py
 &lt;/div&gt;
 &lt;div class="section" id="python"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;&lt;strong&gt;Дзен Python&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Разработчики языка Python придерживаются определённой философии программирования,
-называемой «The Zen of Python» («Дзен Питона», или «Дзен Пайтона»). Её текст
-выдаётся интерпретатором Python по команде import this (работает один раз за сессию).
-Автором этой философии считается Тим Петерс (Tim Peters).&lt;/p&gt;
+&lt;p&gt;Разработчики языка &lt;strong&gt;Python&lt;/strong&gt; придерживаются определённой философии программирования,
+называемой &lt;em&gt;«The Zen of Python»&lt;/em&gt; («Дзен Питона», или «Дзен Пайтона»). Её текст
+выдаётся интерпретатором Python по команде &lt;strong&gt;import this&lt;/strong&gt; (работает один раз за сессию).
+Автором этой философии считается Тим Петерс (&lt;em&gt;Tim Peters&lt;/em&gt;).&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 import this
 &lt;/pre&gt;
