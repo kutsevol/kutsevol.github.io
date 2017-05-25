@@ -80,7 +80,7 @@ python
 python3
 &lt;/pre&gt;
 &lt;p&gt;Отличия между &lt;em&gt;python2&lt;/em&gt; и &lt;em&gt;python3&lt;/em&gt; можно почитать &lt;a class="reference external" href="https://pythonworld.ru/osnovy/python2-vs-python3-razlichiya-sintaksisa.html"&gt;тут&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;В этом цикле статей будет рассматриваться 3 версия **Python*&lt;/em&gt;.*&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;В этом цикле статей будет рассматриваться 3 версия Python.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Если в консоли было выведено примерно вот такое сообщение:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 No&amp;nbsp;command&amp;nbsp;'python3'&amp;nbsp;found,&amp;nbsp;did&amp;nbsp;you&amp;nbsp;mean:
