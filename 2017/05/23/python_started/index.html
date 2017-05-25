@@ -144,8 +144,8 @@ Command&nbsp;'python2'&nbsp;from&nbsp;package&nbsp;'python-minimal'&nbsp;(main)
 <pre class="code literal-block">
 sudo apt-get install python3
 </pre>
-<p>В противном случае, запустится интерпретатор <em>Python*</em>, будет выглядить примерно
-вот так:</p>
+<p>В противном случае, запустится интерпретатор <strong>Python</strong>, будет выглядить
+примерно вот так:</p>
 <pre class="code literal-block">
 Python 3.4.0 (default, Apr 11 2014, 13:05:11)
 [GCC 4.8.2] on linux
@@ -233,7 +233,16 @@ python3 test.py
 <pre class="code literal-block">
 #!/usr/bin/env python3
 </pre>
-<p>Это строка называется <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D0%B1%D0%B0%D0%BD%D0%B3_(Unix)">шебанг</a>!</p>
+<p>Это строка называется <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D0%B1%D0%B0%D0%BD%D0%B3_(Unix)">шебанг</a>!
+Она сообщает системе, что для запуска программы необходимо интерпретатор версии
+<em>python3</em>. Т.е. утилита <em>env</em> устанавливает необходимое окружение.</p>
+<p>Так же есть второй вариант шебанга:</p>
+<pre class="code literal-block">
+#!/usr/bin/python3
+</pre>
+<p>Недостатки такого способа в том, что не всегда интерпретатор находится по
+такому пути, а утилита <em>env</em> практически во всех системах имеет одинаковое
+месторасположение.</p>
 <p>Теперь полное тело скрипта выглядит вот так:</p>
 <pre class="code literal-block">
 #!/usr/bin/env&nbsp;python3
@@ -260,8 +269,8 @@ chmod +x /path/to/test.py
 <h2><a class="toc-backref" href="#id14"><strong>Дзен Python</strong></a></h2>
 <p>Разработчики языка <strong>Python</strong> придерживаются определённой философии программирования,
 называемой <em>«The Zen of Python»</em> («Дзен Питона», или «Дзен Пайтона»). Её текст
-выдаётся интерпретатором Python по команде <strong>import this</strong> (работает один раз за сессию).
-Автором этой философии считается Тим Петерс (<em>Tim Peters</em>).</p>
+выдаётся интерпретатором <strong>Python</strong> по команде <strong>import this</strong> (работает один
+раз за сессию). Автором этой философии считается Тим Петерс (<em>Tim Peters</em>).</p>
 <pre class="code literal-block">
 import this
 </pre>

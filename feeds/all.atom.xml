@@ -92,8 +92,8 @@ Command&amp;nbsp;'python2'&amp;nbsp;from&amp;nbsp;package&amp;nbsp;'python-minim
 &lt;pre class="code literal-block"&gt;
 sudo apt-get install python3
 &lt;/pre&gt;
-&lt;p&gt;В противном случае, запустится интерпретатор &lt;em&gt;Python*&lt;/em&gt;, будет выглядить примерно
-вот так:&lt;/p&gt;
+&lt;p&gt;В противном случае, запустится интерпретатор &lt;strong&gt;Python&lt;/strong&gt;, будет выглядить
+примерно вот так:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 Python 3.4.0 (default, Apr 11 2014, 13:05:11)
 [GCC 4.8.2] on linux
@@ -181,7 +181,16 @@ python3 test.py
 &lt;pre class="code literal-block"&gt;
 #!/usr/bin/env python3
 &lt;/pre&gt;
-&lt;p&gt;Это строка называется &lt;a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D0%B1%D0%B0%D0%BD%D0%B3_(Unix)"&gt;шебанг&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Это строка называется &lt;a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D0%B1%D0%B0%D0%BD%D0%B3_(Unix)"&gt;шебанг&lt;/a&gt;!
+Она сообщает системе, что для запуска программы необходимо интерпретатор версии
+&lt;em&gt;python3&lt;/em&gt;. Т.е. утилита &lt;em&gt;env&lt;/em&gt; устанавливает необходимое окружение.&lt;/p&gt;
+&lt;p&gt;Так же есть второй вариант шебанга:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+#!/usr/bin/python3
+&lt;/pre&gt;
+&lt;p&gt;Недостатки такого способа в том, что не всегда интерпретатор находится по
+такому пути, а утилита &lt;em&gt;env&lt;/em&gt; практически во всех системах имеет одинаковое
+месторасположение.&lt;/p&gt;
 &lt;p&gt;Теперь полное тело скрипта выглядит вот так:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 #!/usr/bin/env&amp;nbsp;python3
@@ -208,8 +217,8 @@ chmod +x /path/to/test.py
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;&lt;strong&gt;Дзен Python&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Разработчики языка &lt;strong&gt;Python&lt;/strong&gt; придерживаются определённой философии программирования,
 называемой &lt;em&gt;«The Zen of Python»&lt;/em&gt; («Дзен Питона», или «Дзен Пайтона»). Её текст
-выдаётся интерпретатором Python по команде &lt;strong&gt;import this&lt;/strong&gt; (работает один раз за сессию).
-Автором этой философии считается Тим Петерс (&lt;em&gt;Tim Peters&lt;/em&gt;).&lt;/p&gt;
+выдаётся интерпретатором &lt;strong&gt;Python&lt;/strong&gt; по команде &lt;strong&gt;import this&lt;/strong&gt; (работает один
+раз за сессию). Автором этой философии считается Тим Петерс (&lt;em&gt;Tim Peters&lt;/em&gt;).&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 import this
 &lt;/pre&gt;
